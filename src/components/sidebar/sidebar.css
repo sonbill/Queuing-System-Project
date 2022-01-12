@@ -1,0 +1,133 @@
+.sidebar {
+    width: 200px;
+    flex:1;
+    background-color: #fff;
+    height: 100vh;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebarLogo {
+    width: 80px;
+    height: 64px;
+}
+.sidebarLogo img {
+    width: 100%;
+    height: 100%;
+    margin-top:32px;
+}
+.sidebarWrapper {
+    margin-top:100px;
+    width: 200px;
+} 
+.sidebarList {
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content:center;
+   align-items: center;
+
+}
+.sidebarListItem {
+    display:flex;
+    line-height:24px;
+    font-size:16px;
+    width: 100%;
+    padding: 15px 25px;
+    background-color: #fff;
+    color: #7E7D88;
+    margin-bottom:10px;
+}
+.active {
+    background-color:#FF7506;
+    color:#fff;
+}
+.sidebarListItem:hover {
+    background-color:#FFF2E7;
+    color:#FF7506;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.15s;
+}
+.sidebarTextItem{
+    margin-left: 10px;
+}
+/* GROUP LIST */
+.dropdown {
+    width: 200px;
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    left:200px;
+    top:0;
+    background-color: #f1f1f1;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+  
+.dropdown-content .item {
+    color: #7E7D88;
+    padding: 15px 25px;
+    text-decoration: none;
+    display: block;
+}
+  
+.dropdown-content .item:hover {
+    background-color:#FFF2E7;
+    color:#FF7506;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.15s;
+}
+  
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropbtn {
+    display:flex;
+    line-height:24px;
+    font-size:16px;
+    width: 100%;
+    padding: 15px 25px;
+    background-color: #fff;
+    color: #7E7D88;
+}
+.dropdown:hover .dropbtn {
+    background-color:#FFF2E7;
+    color:#FF7506;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.15s;
+}
+
+.logout {
+    position: absolute;
+    bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    cursor: pointer;
+    border:none;
+    border-radius:8px;
+    outline:none;
+    width: 176px;
+    height: 48px;
+    background-color:#FFF2E7;
+    color:#FF7506;
+}
+.logoutText {
+    margin-left:10px;
+    font-size:16px;
+}
+.logout:active {
+    background-color: #FF7506;
+    color:#fff;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.15s;
+}

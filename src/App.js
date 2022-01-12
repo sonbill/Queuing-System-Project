@@ -1,14 +1,19 @@
 import React from 'react';
-// import { Routes, Route, Switch } from 'react-router-dom';
-// import Dashboard from './pages/Dashboard';
-// import Customers from './pages/Customers';
-import Sidebar from './components/layout/sidebar/Sidebar';
+import Sidebar from './components/sidebar/Sidebar'
+import Home from './pages/home/Home'
+import Topbar from './components/topbar/Topbar'
+
+import './App.css'
 
 function App() {
 
   return (
     <div className="App">
-      <Sidebar />
+      <Topbar />
+      <div className="container">
+        <Sidebar />
+        <Home />
+      </div>
     </div >
   );
 }
