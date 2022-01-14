@@ -50,7 +50,7 @@ function Sidebar() {
                         <div className="dropbtn">
                             <GridViewIcon />
                             <p className="sidebarTextItem">Cài đặt</p>
-                            <MoreVertIcon style={{ marginLeft: 40 }} />
+                            <MoreVertIcon style={{ display: 'flex', flex: 'auto' }} />
                         </div>
                         <ul className="dropdown-content">
                             <li className="item">Quản lý vai trò</li>
@@ -65,7 +65,6 @@ function Sidebar() {
                 <LoginIcon />
                 <p className="logoutText">Đăng nhập</p>
             </button>
-
         </div >
     )
 }

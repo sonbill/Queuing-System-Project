@@ -18,7 +18,7 @@ function FeaturedInfo() {
                     </div>
                     <div className="featuredOrderedContainer">
                         <span className="featuredOrdered">4.221</span>
-                        <span className="featuredOrderedRate" style={{ color: '#FFAC6A' }}>
+                        <span className="featuredOrderedRate" style={{ color: '#FFAC6A', }}>
                             <ArrowUpwardIcon style={{ fontSize: 16 }} />
                             32,41%
                         </span>
@@ -29,15 +29,14 @@ function FeaturedInfo() {
             <div className="featuredItem">
                 <div className="featuredItemGroup">
                     <div className="featuredItemTop">
-                        <div className="boxedIcon" style={{ color: '#35C75A' }}>
+                        <div className="boxedIcon" style={{ color: '#35C75A', }}>
                             <CalendarTodayIcon />
                         </div>
                         <span className="featuredTitle">Số thứ tự đã sử dụng</span>
                     </div>
                     <div className="featuredOrderedContainer">
                         <span className="featuredOrdered">3.721</span>
-                        <span className="featuredOrderedRate" style={{ color: 'red' }}>
-                            <ArrowDownwardIcon style={{ fontSize: 16 }} />
+                        <span className="featuredOrderedRate" style={{ color: 'red' }}>,                            <ArrowDownwardIcon style={{ fontSize: 16 }} />
                             32,41%
                         </span>
                     </div>
@@ -47,14 +46,14 @@ function FeaturedInfo() {
             <div className="featuredItem">
                 <div className="featuredItemGroup">
                     <div className="featuredItemTop">
-                        <div className="boxedIcon" style={{ color: '#FFAC6A' }}>
+                        <div className="boxedIcon" style={{ color: '#FFAC6A', fontSize: 20 }}>
                             <CalendarTodayIcon />
                         </div>
                         <span className="featuredTitle">Số thứ tự đang chờ</span>
                     </div>
                     <div className="featuredOrderedContainer">
                         <span className="featuredOrdered">468</span>
-                        <span className="featuredOrderedRate" style={{ color: '#FFAC6A' }}>
+                        <span className="featuredOrderedRate" style={{ color: '#FFAC6A', }}>
                             <ArrowUpwardIcon style={{ fontSize: 16 }} />
                             56,41%
                         </span>

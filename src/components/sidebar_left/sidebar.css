@@ -1,6 +1,5 @@
 .sidebar {
-    width: 200px;
-    flex:1;
+    width: 100%;
     background-color: #fff;
     height: 100vh;
     display:flex;
@@ -19,7 +18,7 @@
 }
 .sidebarWrapper {
     margin-top:100px;
-    width: 200px;
+    width: 100%;
 } 
 .sidebarList {
    width: 100%;
@@ -55,14 +54,14 @@
 }
 /* GROUP LIST */
 .dropdown {
-    width: 200px;
+    width: 100%;
     position: relative;
     display: inline-block;
 }
 .dropdown-content {
     display: none;
     position: absolute;
-    left:200px;
+    left:240px;
     top:0;
     background-color: #f1f1f1;
     min-width: 200px;
@@ -115,13 +114,13 @@
     border:none;
     border-radius:8px;
     outline:none;
-    width: 176px;
+    width: 200px;
     height: 48px;
     background-color:#FFF2E7;
     color:#FF7506;
 }
 .logoutText {
-    margin-left:10px;
+    margin-left:15px;
     font-size:16px;
 }
 .logout:active {

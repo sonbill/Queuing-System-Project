@@ -1,0 +1,7 @@
+.topnav {
+  margin: 30px 30px 50px;
+  background-color:rgb(106, 106, 106);
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+}

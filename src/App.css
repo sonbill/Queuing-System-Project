@@ -1,4 +1,15 @@
 .container {
   display:flex;
 }
-
+.sidebarLeft {
+  flex:2;
+}
+.HomePage {
+  display:flex;
+  flex:10;
+  flex-direction:column;
+  background-color: #F7F7F7;
+}
+.sidebarRight {
+  flex:4;
+}

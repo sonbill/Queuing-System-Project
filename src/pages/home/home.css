@@ -1,4 +1,6 @@
 .home {
-    flex:10;
-    background-color: #B1B1B1;
+    margin: 0 30px;
+}
+.title {
+    color:#FF7506;
 }
