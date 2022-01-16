@@ -1,6 +1,7 @@
-.dropdown {
+.notiDropdown {
   display:flex;
   flex-direction: column;
+  width: 60px;
 }
 .dropdown__icon {
   display:flex;
@@ -29,15 +30,16 @@
   color:#fff;
 }
 .dropdown__group {
+  z-index:10px;
   position:absolute;
-  top:35px;
-  left: -100px;
+  top:80px;
+  right:100px;
   background-color:#fff;
   width:370px;
   display:flex;
   flex-direction: column;
   border-radius:10px;
-  z-index:50px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 .dropdown__title {
   font-size:16px;

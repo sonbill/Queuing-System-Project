@@ -18,7 +18,7 @@ function FeaturedInfo() {
                     </div>
                     <div className="featuredOrderedContainer">
                         <span className="featuredOrdered">4.221</span>
-                        <span className="featuredOrderedRate" style={{ color: '#FFAC6A', }}>
+                        <span className="featuredOrderedRate" style={{ color: '#FFAC6A', backgroundColor: '#FCEED9' }}>
                             <ArrowUpwardIcon style={{ fontSize: 16 }} />
                             32,41%
                         </span>
@@ -36,7 +36,8 @@ function FeaturedInfo() {
                     </div>
                     <div className="featuredOrderedContainer">
                         <span className="featuredOrdered">3.721</span>
-                        <span className="featuredOrderedRate" style={{ color: 'red' }}>,                            <ArrowDownwardIcon style={{ fontSize: 16 }} />
+                        <span className="featuredOrderedRate" style={{ color: 'red', backgroundColor: '#FAE1E1' }}>
+                            <ArrowDownwardIcon style={{ fontSize: 16 }} />
                             32,41%
                         </span>
                     </div>
@@ -53,7 +54,7 @@ function FeaturedInfo() {
                     </div>
                     <div className="featuredOrderedContainer">
                         <span className="featuredOrdered">468</span>
-                        <span className="featuredOrderedRate" style={{ color: '#FFAC6A', }}>
+                        <span className="featuredOrderedRate" style={{ color: '#FFAC6A', backgroundColor: '#FCEED9' }}>
                             <ArrowUpwardIcon style={{ fontSize: 16 }} />
                             56,41%
                         </span>
@@ -71,7 +72,7 @@ function FeaturedInfo() {
                     </div>
                     <div className="featuredOrderedContainer">
                         <span className="featuredOrdered">32</span>
-                        <span className="featuredOrderedRate" style={{ color: 'red' }}>
+                        <span className="featuredOrderedRate" style={{ color: 'red', backgroundColor: '#FAE1E1' }}>
                             <ArrowDownwardIcon style={{ fontSize: 16 }} />
                             22,41%
                         </span>

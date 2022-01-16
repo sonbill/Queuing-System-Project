@@ -6,10 +6,7 @@
 }
 .HomePage {
   display:flex;
-  flex:10;
+  flex:15;
   flex-direction:column;
   background-color: #F7F7F7;
-}
-.sidebarRight {
-  flex:4;
 }

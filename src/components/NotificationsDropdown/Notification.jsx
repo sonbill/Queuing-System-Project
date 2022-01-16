@@ -4,16 +4,16 @@ import './notification.css'
 
 
 function Notification() {
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
   const clicked = () => {
     setShow(!show)
   }
-  const [toggled, setToggled] = useState(false)
-  const NotiToggled = () => {
-    toggled ? setToggled(false) : setToggled(true);
-  }
+  // const [toggled, setToggled] = useState(false)
+  // const NotiToggled = () => {
+  //   toggled ? setToggled(false) : setToggled(true);
+  // }
   return (
-    <div className="dropdown">
+    <div className="notiDropdown">
       <div className="dropdown__icon" onClick={clicked}>
         <NotificationsIcon />
       </div>

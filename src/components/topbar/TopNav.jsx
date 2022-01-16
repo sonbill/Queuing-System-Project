@@ -1,6 +1,7 @@
 import React from 'react'
 import './topnav.css'
 import Notification from '../NotificationsDropdown/Notification'
+import userAvatar from '../../assets/userAvatar.svg'
 
 function TopNav() {
     return (
@@ -11,6 +12,15 @@ function TopNav() {
             <div className="topNavRight">
                 <div className="topNavRight-Item">
                     <Notification />
+                    <div className="userAvatar">
+                        <div>
+                            <img src={userAvatar} alt="" />
+                        </div>
+                        <div className="userName">
+                            <p className="greeting">Xin chào</p>
+                            <h3 className="name">Lê Quỳnh Ái Vân</h3>
+                        </div>
+                    </div>
                 </div>
 
             </div>

@@ -46,7 +46,7 @@ function Sidebar() {
                         <SummarizeIcon />
                         <p className="sidebarTextItem">Báo cáo</p>
                     </div>
-                    <div className="dropdown">
+                    <div className="dropdownSidebar">
                         <div className="dropbtn">
                             <GridViewIcon />
                             <p className="sidebarTextItem">Cài đặt</p>

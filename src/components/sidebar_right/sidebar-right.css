@@ -1,0 +1,60 @@
+.sidebar-right {
+  background-color: #fff;
+  padding:30px;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.featuredTotalList{
+  margin-bottom:20px;
+}
+.featuredTotalItem {
+  display: flex;
+  align-items:center;
+  justify-content: space-around;
+  padding:20px;
+  width: 100%;
+  margin-bottom: 20px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border-radius:12px
+}
+.totalNumberDetails {
+  display: flex;
+  flex-direction: column;
+}
+.activeDetails{
+  display: flex;
+}
+.notActiveDetails {
+  display: flex;
+}
+.totalNumber {
+  font-size:30px;
+  font-weight:bold;
+  color:#535261;
+}
+.activeStatus {
+  color: #7E7D88;
+}
+.notActiveStatus {
+  color: #7E7D88;
+}
+.totalStatus {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+}
+.activeDetails {
+  width: 180px;
+  display: flex;
+  justify-content:space-between;
+}
+.notActiveDetails {
+  width: 180px;
+  display: flex;
+  justify-content:space-between;
+}
+.totalNumberIcon {
+  display: flex;
+}

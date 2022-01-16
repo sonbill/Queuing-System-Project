@@ -1,7 +1,28 @@
 .topnav {
   margin: 30px 30px 50px;
-  background-color:rgb(106, 106, 106);
   display:flex;
   align-items: center;
   justify-content: space-between;
+}
+.topNavTitle {
+  color: #FF9138;
+}
+.topNavRight-Item {
+  display: flex;
+  align-items: center;
+  width: 300px;
+}
+.userAvatar {
+  display: flex;
+}
+.greeting {
+  color: #7E7D88;
+  font-size:12px;
+}
+.name {
+  font-size:16px;
+  color: #535261;
+}
+.userName {
+  margin-left: 10px;
 }
