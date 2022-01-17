@@ -1,0 +1,32 @@
+.dropdown__viewchart {
+  width: 120px;
+  position: relative;
+  user-select: none;
+  border:1px solid #D4D4D7;
+  border-radius: 12px;
+  z-index: 100px;
+
+}
+.btn__viewchart {
+  padding: 10px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  color: #7E7D88;
+}
+.content__viewchart {
+  z-index: 100px;
+  position:absolute;
+  width: 100%;
+  border:1px solid #D4D4D7;
+  border-radius: 8px;
+}
+.item__viewchart {
+  padding: 10px;
+  transition: all 0.2s;
+  color: #7E7D88;
+}
+.item__viewchart:hover {
+  background-color:#FFF2E7;
+  border-radius: 8px;
+}

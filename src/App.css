@@ -1,12 +1,10 @@
 .container {
   display:flex;
-}
-.sidebarLeft {
-  flex:2;
+  width: 100%;
 }
 .HomePage {
   display:flex;
-  flex:15;
   flex-direction:column;
   background-color: #F7F7F7;
+  flex-grow: 1;
 }

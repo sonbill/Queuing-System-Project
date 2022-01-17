@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './chart.css'
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-
+import DropdownViewChart from './dropdown_viewchart'
 
 function Chart() {
   const data = [
@@ -35,15 +35,19 @@ function Chart() {
       orderedNumber: 3490,
     },
   ];
+
+  const [selected, setSelected] = useState("ngày")
+
   return (
     <div className="chart">
       <div className="chartDetails">
         <div className="chartInfor">
-          <h3 className="chartTitle">Bảng thống kê theo ngày</h3>
+          <h3 className="chartTitle">Bảng thống kê theo {selected}</h3>
           <p className="chartDate">Tháng 11/2021</p>
         </div>
         <div className="chartSortDate">
-
+          <p className="sortdate__name">Xem theo</p>
+          <DropdownViewChart selected={selected} setSelected={setSelected} />
         </div>
       </div>
       <ResponsiveContainer with='100%' aspect={3 / 1} >

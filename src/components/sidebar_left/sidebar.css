@@ -1,5 +1,5 @@
 .sidebar {
-    width: 100%;
+    width: 220px;
     background-color: #fff;
     display:flex;
     flex-direction: column;
@@ -61,7 +61,7 @@
 .dropdown-content {
     display: none;
     position: absolute;
-    left:225px;
+    left:220px;
     top:0;
     background-color: #f1f1f1;
     min-width: 200px;
