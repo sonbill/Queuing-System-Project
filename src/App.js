@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Sidebar from './components/sidebar_left/Sidebar'
 import Home from './pages/home/Home'
 import LoginForm from './components/LoginForm/LoginForm'
+import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 
 import './App.css'
 
@@ -25,7 +26,7 @@ function App() {
       })
     } else {
       console.log("Details do not match");
-      setError("Details do not match")
+      setError("Sai mật khẩu hoặc tên đăng nhập");
     }
   }
   const Logout = () => {
@@ -42,10 +43,6 @@ function App() {
             <Home />
           </div>
         </div>
-        // <div className="welcome">
-        //   <h2> Welcome, <span>{user.name}</span></h2>
-        //   <button onClick={Logout}>Logout</button>
-        // </div>
       ) : (
         <LoginForm Login={Login} error={error} />
       )}
