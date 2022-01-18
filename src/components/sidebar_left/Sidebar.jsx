@@ -8,12 +8,11 @@ import ForumIcon from '@mui/icons-material/Forum';
 import DesktopMacIcon from '@mui/icons-material/DesktopMac';
 import LoginIcon from '@mui/icons-material/Login';
 
-
 import Logo from '../../assets/LogoAlta.svg'
 
 
 
-function Sidebar() {
+function Sidebar({ Logout }) {
     // const [toggled, setToggled] = useState(false);
 
     // const handleToggled = (event, active) => {
@@ -61,9 +60,9 @@ function Sidebar() {
                 </div>
 
             </div>
-            <button className="logout">
+            <button className="logout" onClick={Logout}>
                 <LoginIcon />
-                <p className="logoutText">Đăng nhập</p>
+                <p className="logoutText">Đăng xuất</p>
             </button>
         </div >
     )
