@@ -1,0 +1,29 @@
+.equipment__dropdown {
+  width: 250px;
+  position: relative;
+  user-select: none;
+  border:1px solid #D4D4D7;
+  border-radius: 8px;
+}
+.equipment__btn {
+  padding: 10px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  color: #7E7D88;
+}
+.equipment__content {
+  position:absolute;
+  width: 100%;
+  border:1px solid #D4D4D7;
+  border-radius: 8px;
+}
+.equipment__item {
+  padding: 10px;
+  transition: all 0.2s;
+  color: #7E7D88;
+}
+.equipment__item:hover {
+  background-color:#FFF2E7;
+  border-radius: 8px;
+}
