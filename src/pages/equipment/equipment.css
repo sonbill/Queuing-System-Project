@@ -70,3 +70,11 @@
   color: #FF7506;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
+.MuiDataGrid-columnHeaders {
+  background-color: #FF7506;
+  color:#fff;
+  border-radius: 8px;
+}
+.MuiDataGrid-root {
+  border-radius: 8px !important;
+}
