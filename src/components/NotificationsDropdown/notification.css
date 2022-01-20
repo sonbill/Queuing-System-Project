@@ -30,7 +30,7 @@
   color:#fff;
 }
 .dropdown__group {
-  z-index:10px;
+  z-index:999;
   position:absolute;
   top:80px;
   right:100px;
