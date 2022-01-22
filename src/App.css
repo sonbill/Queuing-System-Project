@@ -8,3 +8,9 @@
   background-color: #F7F7F7;
   flex-grow: 1;
 }
+.middle__content {
+  display: flex;
+  justify-content:space-between;
+  width: 100%;
+  flex-grow: 1;
+}

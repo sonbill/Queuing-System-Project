@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  background-color: #F5F5F5;
 }
 .equipment__title {
   margin-bottom:30px;
@@ -20,6 +21,9 @@
   width: 600px;
   justify-content:space-between;
   align-items:center;
+}
+.equipment__dropdown__wrapper .equipment__dropdown__title {
+  margin-bottom:10px;
 }
 .equipment__list {
   display: flex;
@@ -77,4 +81,16 @@
 }
 .MuiDataGrid-root {
   border-radius: 8px !important;
+}
+.MuiDataGrid-cell {
+  justify-content:center !important;
+}
+.MuiDataGrid-columnHeaderTitleContainer {
+  justify-content:center !important;
+}
+.MuiDataGrid-row {
+  background-color:#FFF2E7;
+}
+.MuiDataGrid-footerContainer {
+  background-color: #fff;
 }

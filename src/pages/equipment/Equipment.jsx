@@ -5,6 +5,11 @@ import DropdownEquipment from './dropdown_equipment';
 import DropdownEquipmentTwo from './dropdown_equipment2'
 import SearchIcon from '@mui/icons-material/Search';
 import AddBoxIcon from '@mui/icons-material/AddBox';
+import ServicesList from './ServicesList'
+import { equipmentRows } from '../../dummyData'
+import { Link } from 'react-router-dom'
+
+
 
 import './equipment.css';
 
@@ -14,20 +19,19 @@ function Equipment() {
 
 
   const columns = [
-    { field: 'id', headerName: 'Mã thiết bị', width: 200 },
-    { field: 'equipment', headerName: 'Tên thiết bị', width: 230 },
+    { field: 'id', headerName: 'Mã thiết bị', width: 130 },
+    { field: 'equipment', headerName: 'Tên thiết bị', width: 200 },
     { field: 'ipAddress', headerName: 'Địa chỉ IP', width: 130 },
     {
       field: 'activityStatus',
       headerName: 'Trạng thái hoạt động',
-      type: 'number',
       width: 200,
     },
     {
       field: 'connectionStatus',
       headerName: 'Trạng thái kết nối',
       description: 'This column has a value getter and is not sortable.',
-      sortable: false,
+      sortable: true,
       width: 200,
     },
     {
@@ -36,6 +40,13 @@ function Equipment() {
       description: 'This column has a value getter and is not sortable.',
       sortable: false,
       width: 320,
+      renderCell: (params) => {
+        return (
+          <div>
+            {params.row.services}
+          </div >
+        );
+      }
     },
     {
       field: 'details',
@@ -43,6 +54,15 @@ function Equipment() {
       description: 'This column has a value getter and is not sortable.',
       sortable: false,
       width: 160,
+      renderCell: (params) => {
+        return (
+          <>
+            <Link to={"/equipments/detail/" + params.row.id}>
+              <a href="/equipments/detail">Chi tiết</a>
+            </Link>
+          </>
+        );
+      }
     },
     {
       field: 'update',
@@ -50,19 +70,18 @@ function Equipment() {
       description: 'This column has a value getter and is not sortable.',
       sortable: false,
       width: 160,
+      renderCell: (params) => {
+        return (
+          <div>
+            <Link to={"/equipments/update/" + params.row.id}>
+              <a href="/equipments/update">Cập nhập</a>
+            </Link>
+          </div >
+        );
+      }
     },
   ];
 
-  const rows = [
-    { id: 1, equipment: 'Kiosk', ipAddress: '192.168.1.10', activityStatus: 'Ngưng hoạt động', connectionStatus: 'Mất kết nối', services: '', details: '', update: '' },
-    { id: 2, equipment: 'Kiosk', ipAddress: '192.168.1.10', activityStatus: 'Ngưng hoạt động', connectionStatus: 'Mất kết nối', services: '', details: '', update: '' },
-    { id: 3, equipment: 'Kiosk', ipAddress: '192.168.1.10', activityStatus: 'Ngưng hoạt động', connectionStatus: 'Mất kết nối', services: '', details: '', update: '' },
-    { id: 4, equipment: 'Kiosk', ipAddress: '192.168.1.10', activityStatus: 'Ngưng hoạt động', connectionStatus: 'Mất kết nối', services: '', details: '', update: '' },
-    { id: 5, equipment: 'Kiosk', ipAddress: '192.168.1.10', activityStatus: 'Ngưng hoạt động', connectionStatus: 'Mất kết nối', services: '', details: '', update: '' },
-    { id: 6, equipment: 'Kiosk', ipAddress: '192.168.1.10', activityStatus: 'Ngưng hoạt động', connectionStatus: 'Mất kết nối', services: '', details: '', update: '' },
-    { id: 7, equipment: 'Kiosk', ipAddress: '192.168.1.10', activityStatus: 'Ngưng hoạt động', connectionStatus: 'Mất kết nối', services: '', details: '', update: '' },
-
-  ];
   return (
     <div className="equipment">
       <TopNav />
@@ -71,11 +90,11 @@ function Equipment() {
         <div className="equipment__list">
           <div className="equipment__dropdown__wrapper">
             <div className="equipment__dropdown__item">
-              <p>Trạng thái hoạt động</p>
+              <p className="equipment__dropdown__title">Trạng thái hoạt động</p>
               <DropdownEquipment selected={selected} setSelected={setSelected} optionsOne={['Tất cả', 'Hoạt động', 'Ngưng hoạt động']} />
             </div>
             <div className="equipment__dropdown__item">
-              <p>Trạng thái kết nối</p>
+              <p className="equipment__dropdown__title">Trạng thái kết nối</p>
               <DropdownEquipmentTwo selected={selected2} setSelected={setSelected2} optionsTwo={['Tất cả', 'Kết nối', 'Mất kết nối']} />
             </div>
           </div>
@@ -91,7 +110,7 @@ function Equipment() {
       <div className="equipment__content_wrapper">
         <div className="equipment__table">
           <DataGrid
-            rows={rows}
+            rows={equipmentRows}
             columns={columns}
             pageSize={12}
             rowsPerPageOptions={[5]}
@@ -99,7 +118,9 @@ function Equipment() {
         </div>
         <div className="equipment__add_devices">
           <AddBoxIcon style={{ fontSize: 30 }} />
-          <p>Thêm thiết bị</p>
+          <Link to={"/equipments/add-equipment/"}>
+            <a href="/equipments/add-equipment/">Thêm thiết bị</a>
+          </Link>
         </div>
       </div>
     </div>
