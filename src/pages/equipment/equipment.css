@@ -94,3 +94,7 @@
 .MuiDataGrid-footerContainer {
   background-color: #fff;
 }
+.equipment__add_devices a {
+  text-decoration: none;
+  color:#FF7506;
+}
