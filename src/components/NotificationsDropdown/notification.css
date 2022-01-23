@@ -25,6 +25,17 @@
   background-color:currentColor;
   opacity: 0.1;
 }
+.dropdown__icon:hover {
+  background-color:#FF7506;
+  color: #FFF2E7;
+  transition: all 0.2s;
+}
+.dropdown__icon:active {
+  background-color:#FF7506;
+  color: #FFF2E7;
+  transition: all 0.2s;
+}
+
 .active {
   background-color:#FFAC6A;
   color:#fff;
