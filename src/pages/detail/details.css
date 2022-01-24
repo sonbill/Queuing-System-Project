@@ -2,3 +2,75 @@
   flex-grow: 1;
   background-color:#F5F5F5 ;
 }
+.equipment__infor {
+  padding:30px;
+}
+.equipment__infor__title {
+  color:#FF7506;
+  margin-bottom: 16px;
+}
+.equipment__infor__detail {
+  background-color: #fff;
+  box-shadow: 2px 2px 8px rgba(232, 239, 244, 0.8);
+  border-radius: 16px;
+  padding:16px 24px;
+}
+.equipment__infor__detail h2 {
+  color:#FF7506;
+  margin-bottom:20px;
+}
+.equipment__infor__wrapper {
+  display:flex;
+  width: 1000px;
+  align-items: center;
+  justify-content:space-between;
+}
+.equipment__info__leftItem {
+  display: flex;
+  width: 250px;
+  justify-content:space-between;
+  margin-bottom:16px
+}
+.equipment__info__leftItem h5 {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #282739;
+}
+.equipment__info__leftItem p {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: #535261;
+}
+.equipment__info__rightItem {
+  display: flex;
+  width: 250px;
+  justify-content:space-between;
+  margin-bottom:16px
+}
+.equipment__info__rightItem h5 {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color:#282739;
+}
+.equipment__info__rightItem p {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: #535261;
+}
+.equipment__info_services h5 {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color:#282739;
+  margin-bottom:8px
+}
+.equipment__info_services p {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: #535261;
+}
