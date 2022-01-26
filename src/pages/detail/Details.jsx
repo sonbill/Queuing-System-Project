@@ -6,7 +6,7 @@ import './details.css'
 function Details() {
   return (
     <div className="details">
-      <TopNav />
+      <TopNav name={'Chi tiết thiết bị'} />
       <div className="equipment__infor">
         <h1 className="equipment__infor__title">Quản lý thiết bị</h1>
         <div className="equipment__infor__detail">

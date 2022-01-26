@@ -84,7 +84,7 @@ function Equipment() {
 
   return (
     <div className="equipment">
-      <TopNav />
+      <TopNav name={'Danh sách thiết bị'} />
       <div className="equipment__wrapper">
         <h1 className="equipment__title">Danh sách các thiết bị</h1>
         <div className="equipment__list">

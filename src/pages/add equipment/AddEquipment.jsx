@@ -8,7 +8,7 @@ function AddEquipment() {
   const [selected, setSelected] = useState("Chọn loại thiết bị");
   return (
     <div className="addEquipment">
-      <TopNav />
+      <TopNav name={'Thêm thiết bị'} />
       <h1 className="addEquipment__title">Quản lý thiết bị</h1>
       <div className="addEquipment__infor">
         <h2 className="addEquipment__infor__title">Thông tin thiết bị</h2>

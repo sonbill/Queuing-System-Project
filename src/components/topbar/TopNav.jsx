@@ -3,11 +3,11 @@ import './topnav.css'
 import Notification from '../NotificationsDropdown/Notification'
 import userAvatar from '../../assets/userAvatar.svg'
 
-function TopNav() {
+function TopNav({ name }) {
     return (
         <div className="topnav">
             <div className="topNavTitle">
-                <h2>Dashboard</h2>
+                <h2>{name}</h2>
             </div>
             <div className="topNavRight">
                 <div className="topNavRight-Item">

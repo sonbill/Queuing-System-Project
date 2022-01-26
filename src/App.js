@@ -7,7 +7,7 @@ import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import Equipment from './pages/equipment/Equipment'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Details from './pages/detail/Details'
-import Update from './pages/update/Update'
+import UpdateEquipment from './pages/update/UpdateEquipment'
 import AddEquipment from './pages/add equipment/AddEquipment';
 
 import './App.css'
@@ -52,7 +52,7 @@ function App() {
             <Route exact path="/" element={<Home />} />
             <Route path="/equipments" element={<Equipment />} />
             <Route path="/equipments/detail/:detailID" element={<Details />} />
-            <Route path="/equipments/update/:updateID" element={<Update />} />
+            <Route path="/equipments/update/:updateID" element={<UpdateEquipment />} />
             <Route path="/equipments/add-equipment/" element={<AddEquipment />} />
 
           </Routes>
