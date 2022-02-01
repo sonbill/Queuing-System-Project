@@ -9,6 +9,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Details from './pages/detail/Details'
 import UpdateEquipment from './pages/update/UpdateEquipment'
 import AddEquipment from './pages/add equipment/AddEquipment';
+import Profile from './pages/profile/Profile'
+import NotFound from './pages/notFound';
 
 import './App.css'
 
@@ -42,22 +44,25 @@ function App() {
     <div className="App">
       <Router>
         {/* {(user.password !== "") ? ( */}
-        <div className="container">
-          <div className="sidebarLeft">
-            <Sidebar />
-            {/* <Sidebar Logout={Logout} /> */}
-          </div>
-          {/* <div className="HomePage"> */}
-          <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route path="/equipments" element={<Equipment />} />
-            <Route path="/equipments/detail/:detailID" element={<Details />} />
-            <Route path="/equipments/update/:updateID" element={<UpdateEquipment />} />
-            <Route path="/equipments/add-equipment/" element={<AddEquipment />} />
+        {/* <div className="container">
 
-          </Routes>
-          {/* </div> */}
-        </div>
+          <div className="sidebarLeft">
+            <Sidebar /> */}
+        {/* <Sidebar Logout={Logout} /> */}
+        {/* </div> */}
+        {/* <div className="HomePage"> */}
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/equipments" element={<Equipment />} />
+          <Route path="/equipments/detail/:detailID" element={<Details />} />
+          <Route path="/equipments/update/:updateID" element={<UpdateEquipment />} />
+          <Route path="/equipments/add-equipment/" element={<AddEquipment />} />
+          <Route path="/profile/" element={<Profile />} />
+          <Route path="*" element={<NotFound />} />
+
+        </Routes>
+        {/* </div> */}
+        {/* </div> */}
         {/* ) : (
           <LoginForm Login={Login} error={error} />
         )} */}

@@ -1,6 +1,9 @@
 .details {
-  flex-grow: 1;
   background-color:#F5F5F5 ;
+  display:flex;
+}
+.details__layout {
+  flex-grow: 1;
 }
 .equipment__infor {
   padding:30px;

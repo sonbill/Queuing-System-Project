@@ -1,7 +1,10 @@
 .home {
     display:flex;
-    flex-direction: column;
-    height: 100vh;
+    background-color:#F5F5F5 ;
+    width:100%;
+}
+.home-layout {
+    flex-grow: 1;
 }
 .dashboardContent{
     display:flex;
@@ -10,10 +13,14 @@
     color:#FF7506;
 }
 .middle-content {
-    margin: 0 30px;
+    padding: 0 30px;
+    width: 100%;
 }
 .right-content {
-    width: 100%;
+    width: 50%;
     height: 100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
 }
 

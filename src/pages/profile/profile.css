@@ -1,0 +1,10 @@
+.profile {
+  background-color:#F5F5F5 ;
+  display: flex;
+}
+.profile-layout {
+  flex-grow: 1;
+}
+.profile-wrapper {
+  padding: 30px;
+}

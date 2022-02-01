@@ -1,8 +1,11 @@
 .equipment {
   display: flex;
-  flex-direction: column;
   flex-grow: 1;
   background-color: #F5F5F5;
+}
+.equipment-layout {
+  flex-grow: 1;
+  height: 100vh;
 }
 .equipment__title {
   margin-bottom:30px;
@@ -61,7 +64,7 @@
   display: flex;
   align-items: start;
   justify-content:space-between;
-  height: 100%;
+  height: 630px;
 }
 .equipment__add_devices {
   width: 90px;

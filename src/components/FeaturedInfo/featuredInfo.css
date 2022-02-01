@@ -2,12 +2,11 @@
     display:flex;
     margin: 20px 0px 20px;
     width: 100%;
-    justify-content:space-around;
+    justify-content:space-between;
 }
 .featuredItem {
-    width: 230px;
+    width: 240px;
     height: 130px;
-    margin:0 10px;
     background-color:#fff;
     border-radius:10px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
