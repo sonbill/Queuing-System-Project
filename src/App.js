@@ -59,7 +59,6 @@ function App() {
           <Route path="/equipments/add-equipment/" element={<AddEquipment />} />
           <Route path="/profile/" element={<Profile />} />
           <Route path="*" element={<NotFound />} />
-
         </Routes>
         {/* </div> */}
         {/* </div> */}
@@ -72,15 +71,4 @@ function App() {
 }
 
 export default App;
-{/* <div className="App">
-      <Router>
-        <Topbar />
-        <div className="container">
-          <Sidebar />
-          <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route path="/equipment" element={<Equipment />} />
-          </Routes>
-        </div>
-      </Router >
-    </div > */}
+
