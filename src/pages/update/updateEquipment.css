@@ -1,6 +1,9 @@
 .updateEquipment {
-  flex-grow: 1;
   background-color:#F5F5F5 ;
+  display: flex;
+}
+.updateEquipment__layout {
+  flex-grow: 1;
 }
 .updateEquipment__title {
   padding:0 30px;

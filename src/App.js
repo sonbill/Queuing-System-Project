@@ -10,7 +10,7 @@ import Details from './pages/detail/Details'
 import UpdateEquipment from './pages/update/UpdateEquipment'
 import AddEquipment from './pages/add equipment/AddEquipment';
 import Profile from './pages/profile/Profile'
-import NotFound from './pages/notFound';
+import ErrorPage from './pages/ErrorPage';
 
 import './App.css'
 
@@ -58,7 +58,7 @@ function App() {
           <Route path="/equipments/update/:updateID" element={<UpdateEquipment />} />
           <Route path="/equipments/add-equipment/" element={<AddEquipment />} />
           <Route path="/profile/" element={<Profile />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
         {/* </div> */}
         {/* </div> */}

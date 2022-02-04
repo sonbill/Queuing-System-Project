@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import TopNav from '../../components/topbar/TopNav'
 import DropdownAddEquipment from './Dropdown__addEquipment';
-import Sidebar from '../../components/sidebar_left/Sidebar'
+import Sidebar from '../../components/sidebar_left/Sidebar';
+import { Link } from 'react-router-dom';
+
 
 import './addEquipment.css'
 
@@ -56,7 +58,9 @@ function AddEquipment() {
           </div>
         </div>
         <div className="addEquipment__buttons">
-          <button className="addEquipment__button addEquipment__button-cancel">Huỷ bỏ</button>
+          <Link to="/equipments">
+            <button className="addEquipment__button addEquipment__button-cancel">Huỷ bỏ</button>
+          </Link>
           <button className="addEquipment__button addEquipment__button-addDevice">Thêm thiết bị</button>
         </div>
       </div>

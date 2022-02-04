@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { NavLink } from 'react-router-dom'
 import './sidebar.css'
 import GridViewIcon from '@mui/icons-material/GridView';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
@@ -25,26 +26,36 @@ function Sidebar({ Logout }) {
             </div>
             <div className="sidebarWrapper">
                 <div className="sidebarList">
-                    <div className="sidebarListItem active">
-                        <GridViewIcon />
-                        <p className="sidebarTextItem">Dashboard</p>
-                    </div>
-                    <div className="sidebarListItem">
-                        <DesktopMacIcon />
-                        <p className="sidebarTextItem">Thiết bị</p>
-                    </div>
-                    <div className="sidebarListItem">
-                        <ForumIcon />
-                        <p className="sidebarTextItem">Dịch vụ</p>
-                    </div>
-                    <div className="sidebarListItem">
-                        <LayersIcon />
-                        <p className="sidebarTextItem">Cấp số</p>
-                    </div>
-                    <div className="sidebarListItem">
-                        <SummarizeIcon />
-                        <p className="sidebarTextItem">Báo cáo</p>
-                    </div>
+                    <NavLink to="/" activeClassName="is-active" className="sidebarListItem">
+                        <div>
+                            <GridViewIcon />
+                            <p className="sidebarTextItem">Dashboard</p>
+                        </div>
+                    </NavLink>
+                    <NavLink to="/equipments" activeClassName="is-active" className="sidebarListItem">
+                        <div>
+                            <DesktopMacIcon />
+                            <p className="sidebarTextItem">Thiết bị</p>
+                        </div>
+                    </NavLink>
+                    <NavLink to="/services" activeClassName="is-active" className="sidebarListItem">
+                        <div>
+                            <ForumIcon />
+                            <p className="sidebarTextItem">Dịch vụ</p>
+                        </div>
+                    </NavLink>
+                    <NavLink to="/take-a-number" activeClassName="is-active" className="sidebarListItem">
+                        <div >
+                            <LayersIcon />
+                            <p className="sidebarTextItem">Cấp số</p>
+                        </div>
+                    </NavLink>
+                    <NavLink to="/reports" activeClassName="is-active" className="sidebarListItem">
+                        <div>
+                            <SummarizeIcon />
+                            <p className="sidebarTextItem">Báo cáo</p>
+                        </div>
+                    </NavLink>
                     <div className="dropdownSidebar">
                         <div className="dropbtn">
                             <GridViewIcon />
@@ -52,9 +63,15 @@ function Sidebar({ Logout }) {
                             <MoreVertIcon style={{ display: 'flex', flex: 'auto' }} />
                         </div>
                         <ul className="dropdown-content">
-                            <li className="item">Quản lý vai trò</li>
-                            <li className="item">Quản lý tài khoản</li>
-                            <li className="item">Nhật ký người dùng</li>
+                            <NavLink to="/roles" activeClassName="is-active" className="item">
+                                <li >Quản lý vai trò</li>
+                            </NavLink>
+                            <NavLink to="/accountManager" activeClassName="is-active" className="item">
+                                <li >Quản lý tài khoản</li>
+                            </NavLink>
+                            <NavLink to="/diaryActivities" activeClassName="is-active" className="item">
+                                <li>Nhật ký người dùng</li>
+                            </NavLink>
                         </ul>
                     </div>
                 </div>

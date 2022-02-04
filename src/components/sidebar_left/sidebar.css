@@ -29,7 +29,6 @@
 
 }
 .sidebarListItem {
-    display:flex;
     line-height:24px;
     font-size:16px;
     width: 100%;
@@ -37,8 +36,13 @@
     background-color: #fff;
     color: #7E7D88;
     margin-bottom:10px;
+    text-decoration: none;
 }
-.active {
+.sidebarListItem div {
+    display:flex;
+}
+
+.is-active {
     background-color:#FF7506;
     color:#fff;
 }
@@ -74,6 +78,7 @@
     padding: 15px 25px;
     text-decoration: none;
     display: block;
+    list-style:none;
 }
   
 .dropdown-content .item:hover {
