@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import TopNav from '../../components/topbar/TopNav'
-import DropdownUpdate from './Dropdown__Update'
+import DropdownUpdate from './dropdown/Dropdown__Update'
 import Sidebar from '../../components/sidebar_left/Sidebar'
 import { Link } from 'react-router-dom'
+import MultipleSelectedDropdown from './multipleSelectDropdown/MultipleSelectedDropdown'
 
 
 import './updateEquipment.css'
@@ -52,7 +53,8 @@ function UpdateEquipment() {
               <div className="updateEquipment__items">
                 <div className="updateEquipment__item" style={{ flexGrow: 1 }}>
                   <p>Dịch vụ sử dụng <span>*</span></p>
-                  <input type="text" placeholder="Nhập dịch vụ sử dụng" className="updateEquipment__input" style={{ width: '99%' }} />
+                  {/* <input type="text" placeholder="Nhập dịch vụ sử dụng" className="updateEquipment__input" style={{ width: '99%' }} /> */}
+                  <MultipleSelectedDropdown className="updateEquipment__input" />
                 </div>
               </div>
               <p className="updateEquipment__desc"><span>*</span> Là trường thông tin bắt buộc</p>

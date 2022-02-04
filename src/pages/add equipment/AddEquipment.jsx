@@ -3,6 +3,7 @@ import TopNav from '../../components/topbar/TopNav'
 import DropdownAddEquipment from './Dropdown__addEquipment';
 import Sidebar from '../../components/sidebar_left/Sidebar';
 import { Link } from 'react-router-dom';
+import MultipleSelectedDropdown from './MultipleSelectDropdown/MultipleSelectedDropdown'
 
 
 import './addEquipment.css'
@@ -51,7 +52,8 @@ function AddEquipment() {
             <div className="addEquipment__items">
               <div className="addEquipment__item" style={{ flexGrow: 1 }}>
                 <p>Dịch vụ sử dụng <span>*</span></p>
-                <input type="text" placeholder="Nhập dịch vụ sử dụng" className="addEquipment__input" style={{ width: '99%' }} />
+                {/* <input type="text" placeholder="Nhập dịch vụ sử dụng" className="addEquipment__input" style={{ width: '99%' }} /> */}
+                <MultipleSelectedDropdown />
               </div>
             </div>
             <p className="addEquipment__desc"><span>*</span> Là trường thông tin bắt buộc</p>
