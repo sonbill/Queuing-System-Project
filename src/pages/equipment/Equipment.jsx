@@ -14,7 +14,7 @@ import Sidebar from '../../components/sidebar_left/Sidebar'
 
 import './equipment.css';
 
-function Equipment() {
+function Equipment({ params }) {
   const [selected, setSelected] = useState("Tất cả");
   const [selected2, setSelected2] = useState("Tất cả");
 
@@ -120,7 +120,9 @@ function Equipment() {
             />
           </div>
           <div className="equipment__add_devices">
-            <AddBoxIcon style={{ fontSize: 30 }} />
+            <AddBoxIcon style={{
+              fontSize: 30
+            }} />
             <Link to={"/equipments/add-equipment/"}>
               <a href="/equipments/add-equipment/">Thêm thiết bị</a>
             </Link>
