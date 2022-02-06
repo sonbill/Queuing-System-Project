@@ -11,6 +11,7 @@ import UpdateEquipment from './pages/updateEquipment/UpdateEquipment'
 import AddEquipment from './pages/add equipment/AddEquipment';
 import Profile from './pages/profile/Profile'
 import ErrorPage from './pages/ErrorPage';
+import Service from './pages/service_page/Service'
 
 import './App.css'
 
@@ -58,6 +59,7 @@ function App() {
           <Route path="/equipments/update/:updateID" element={<UpdateEquipment />} />
           <Route path="/equipments/add-equipment/" element={<AddEquipment />} />
           <Route path="/profile/" element={<Profile />} />
+          <Route path="/services" element={<Service />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
         {/* </div> */}

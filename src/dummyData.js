@@ -12,6 +12,22 @@ export const equipmentRows = [
   { id: 11, equipment: 'Kiosk', ipAddress: '192.168.1.10', activityStatus: 'Ngưng hoạt động', connectionStatus: 'Mất kết nối', services: '' },
   { id: 12, equipment: 'Kiosk', ipAddress: '192.168.1.10', activityStatus: 'Ngưng hoạt động', connectionStatus: 'Mất kết nối', services: '' },
   { id: 13, equipment: 'Kiosk', ipAddress: '192.168.1.10', activityStatus: 'Ngưng hoạt động', connectionStatus: 'Mất kết nối', services: '' },
-  { id: 14, equipment: 'Kiosk', ipAddress: '192.168.1.10', activityStatus: 'Ngưng hoạt động', connectionStatus: 'Mất kết nối', services: 'Hello' },
+  { id: 14, equipment: 'Kiosk', ipAddress: '192.168.1.10', activityStatus: 'Ngưng hoạt động', connectionStatus: 'Mất kết nối', services: '' },
+];
 
+export const serviceRows = [
+  { id: 'KIO_01', service: 'Kiosk', serviceDescription: 'Mô tả dịch vụ 1', activityStatus: 'Ngưng hoạt động', },
+  { id: 'KIO_02', service: 'Kiosk', serviceDescription: 'Mô tả dịch vụ 1', activityStatus: 'Ngưng hoạt động' },
+  { id: 'KIO_03', service: 'Kiosk', serviceDescription: 'Mô tả dịch vụ 1', activityStatus: 'Ngưng hoạt động' },
+  { id: 'KIO_04', service: 'Kiosk', serviceDescription: 'Mô tả dịch vụ 1', activityStatus: 'Ngưng hoạt động' },
+  { id: 'KIO_05', service: 'Kiosk', serviceDescription: 'Mô tả dịch vụ 1', activityStatus: 'Ngưng hoạt động' },
+  { id: 'KIO_06', service: 'Kiosk', serviceDescription: 'Mô tả dịch vụ 1', activityStatus: 'Ngưng hoạt động' },
+  { id: 'KIO_07', service: 'Kiosk', serviceDescription: 'Mô tả dịch vụ 1', activityStatus: 'Ngưng hoạt động' },
+  { id: 'KIO_08', service: 'Kiosk', serviceDescription: 'Mô tả dịch vụ 1', activityStatus: 'Ngưng hoạt động' },
+  { id: 'KIO_09', service: 'Kiosk', serviceDescription: 'Mô tả dịch vụ 1', activityStatus: 'Ngưng hoạt động' },
+  { id: 'KIO_010', service: 'Kiosk', serviceDescription: 'Mô tả dịch vụ 1', activityStatus: 'Ngưng hoạt động' },
+  { id: 'KIO_11', service: 'Kiosk', serviceDescription: 'Mô tả dịch vụ 1', activityStatus: 'Ngưng hoạt động' },
+  { id: 'KIO_12', service: 'Kiosk', serviceDescription: 'Mô tả dịch vụ 1', activityStatus: 'Ngưng hoạt động' },
+  { id: 'KIO_13', service: 'Kiosk', serviceDescription: 'Mô tả dịch vụ 1', activityStatus: 'Ngưng hoạt động' },
+  { id: 'KIO_14', service: 'Kiosk', serviceDescription: 'Mô tả dịch vụ 1', activityStatus: 'Ngưng hoạt động' },
 ];
