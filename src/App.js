@@ -12,6 +12,7 @@ import AddEquipment from './pages/add equipment/AddEquipment';
 import Profile from './pages/profile/Profile'
 import ErrorPage from './pages/ErrorPage';
 import Service from './pages/service_page/Service'
+import AddService from './pages/add service/AddService'
 
 import './App.css'
 
@@ -60,6 +61,7 @@ function App() {
           <Route path="/equipments/add-equipment/" element={<AddEquipment />} />
           <Route path="/profile/" element={<Profile />} />
           <Route path="/services" element={<Service />} />
+          <Route path="/services/add-service/" element={<AddService />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
         {/* </div> */}

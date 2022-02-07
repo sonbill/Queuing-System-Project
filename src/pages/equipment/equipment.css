@@ -8,11 +8,12 @@
   height: 100vh;
 }
 .equipment__title {
-  margin-bottom:30px;
+  margin-bottom:20px;
   color: #FF7506;
+  font-size:24px;
 }
 .equipment__wrapper {
-  padding:30px;
+  padding: 0 30px;
 }
 .equipment__table {
   width: 100%;
@@ -64,7 +65,7 @@
   display: flex;
   align-items: start;
   justify-content:space-between;
-  height: 630px;
+  height: 72vh;
 }
 .equipment__add_devices {
   width: 90px;
@@ -73,6 +74,7 @@
   justify-content:center;
   align-items: center;
   padding:15px;
+  margin-top:30px;
   background-color: #FFF2E7;
   color: #FF7506;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
@@ -103,4 +105,5 @@
 .equipment__add_devices a {
   text-decoration: none;
   color:#FF7506;
+  border-radius: 8px 0px 0px 8px;
 }
