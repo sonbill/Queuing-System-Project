@@ -1,0 +1,7 @@
+.addService {
+  display: flex;
+  background-color: #F5F5F5;
+}
+.addService__layout {
+  flex-grow:1;
+}
