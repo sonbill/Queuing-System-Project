@@ -31,3 +31,20 @@ export const serviceRows = [
   { id: 'KIO_13', service: 'Kiosk', serviceDescription: 'Mô tả dịch vụ 1', activityStatus: 'Ngưng hoạt động' },
   { id: 'KIO_14', service: 'Kiosk', serviceDescription: 'Mô tả dịch vụ 1', activityStatus: 'Ngưng hoạt động' },
 ];
+
+export const detailServiceRows = [
+  { id: 2010001, status: 'Đã hoàn thành', },
+  { id: 2010001, status: 'Đã hoàn thành' },
+  { id: 2010001, status: 'Đã hoàn thành' },
+  { id: 2010001, status: 'Đã hoàn thành' },
+  { id: 2010001, status: 'Đã hoàn thành' },
+  { id: 2010001, status: 'Đã hoàn thành' },
+  { id: 2010001, status: 'Đã hoàn thành' },
+  { id: 2010001, status: 'Đã hoàn thành' },
+  { id: 2010001, status: 'Đã hoàn thành' },
+  { id: 2010001, status: 'Đã hoàn thành' },
+  { id: 2010001, status: 'Đã hoàn thành' },
+  { id: 2010001, status: 'Đã hoàn thành' },
+  { id: 2010001, status: 'Đã hoàn thành' },
+  { id: 2010001, status: 'Đã hoàn thành' },
+];
