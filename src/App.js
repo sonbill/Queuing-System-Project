@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Sidebar from './components/sidebar_left/Sidebar'
-import TopNav from './components/topbar/TopNav'
+// import Sidebar from './components/sidebar_left/Sidebar'
+// import TopNav from './components/topbar/TopNav'
 import Home from './pages/home/Home'
-import LoginForm from './components/LoginForm/LoginForm'
-import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
+// import LoginForm from './components/LoginForm/LoginForm'
+// import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import Equipment from './pages/equipment/Equipment'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Details from './pages/detail/Details'
@@ -13,6 +13,8 @@ import Profile from './pages/profile/Profile'
 import ErrorPage from './pages/ErrorPage';
 import Service from './pages/service_page/Service'
 import AddService from './pages/add service/AddService'
+import UpdateService from './pages/update service/UpdateService'
+import DetailService from './pages/detail service/DetailService'
 
 import './App.css'
 
@@ -62,6 +64,8 @@ function App() {
           <Route path="/profile/" element={<Profile />} />
           <Route path="/services" element={<Service />} />
           <Route path="/services/add-service/" element={<AddService />} />
+          <Route path="/services/detail/:detailID" element={<DetailService />} />
+          <Route path="/services/update/:updateID" element={<UpdateService />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
         {/* </div> */}

@@ -32,7 +32,7 @@ function Service() {
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/equipments/detail/" + params.row.id}>
+            <Link to={"/services/detail/" + params.row.id}>
               <p>Chi tiết</p>
             </Link>
           </>
@@ -47,7 +47,7 @@ function Service() {
       renderCell: (params) => {
         return (
           <div>
-            <Link to={"/equipments/update/" + params.row.id}>
+            <Link to={"/services/update/" + params.row.id}>
               <p>Cập nhập</p>
             </Link>
           </div >

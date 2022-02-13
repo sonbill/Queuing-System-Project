@@ -31,7 +31,6 @@ function AddService() {
             <div className="addService__inputDetail__right">
               <label htmlFor="description">Mô tả: </label>
               <textarea name="description" id="description" rows="6" >
-
               </textarea>
             </div>
           </div>
