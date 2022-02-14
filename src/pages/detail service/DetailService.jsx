@@ -9,6 +9,8 @@ import DropdownEquipment from './dropdown_service/Dropdown_Service'
 import Datepicker from './Datepicker/Datepicker'
 import AddBoxIcon from '@mui/icons-material/AddBox';
 
+import './detailService.css'
+
 export default function DetailService() {
   const [selected, setSelected] = useState("Tất cả");
 
@@ -28,9 +30,9 @@ export default function DetailService() {
           {/* CONTENT LEFT */}
           <div className="detailService__content__left">
             <div className="detailService__infor">
-              <p className="detailService__infor_title">
+              <h2 className="detailService__content__title">
                 Thông tin dịch vụ
-              </p>
+              </h2>
               <div className="detailService__infor__item">
                 <p>Mã dịch vụ </p>
                 <p>201</p>
@@ -46,7 +48,7 @@ export default function DetailService() {
             </div>
             {/* Rules Number */}
             <div className="detailService__rulesNumber">
-              <h2 className="detailService__rulesNumber__title">Quy tắc cấp số</h2>
+              <h2 className="detailService__content__title">Quy tắc cấp số</h2>
               <div className="detailService__rulesNumber__items">
                 <div className="detailService__rulesNumber__labelInput">
                   <p>Tăng tự động</p>
@@ -106,7 +108,7 @@ export default function DetailService() {
             </div>
           </div>
           {/* DIRECTION BUTTON */}
-          <div>
+          <div className="detailService__directionButton">
             <div className="detailService__updateList">
               <Link to={"/services/add-service/"}>
                 <AddBoxIcon style={{
