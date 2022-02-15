@@ -63,7 +63,7 @@ function AddEquipment() {
           <Link to="/equipments">
             <button className="addEquipment__button addEquipment__button-cancel">Huỷ bỏ</button>
           </Link>
-          <button className="addEquipment__button addEquipment__button-addDevice">Thêm thiết bị</button>
+          <button className="addEquipment__button addEquipment__button-addEquipment">Thêm thiết bị</button>
         </div>
       </div>
     </div>

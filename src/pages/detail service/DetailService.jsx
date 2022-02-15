@@ -7,7 +7,8 @@ import SearchIcon from '@mui/icons-material/Search';
 import { detailServiceRows } from '../../dummyData'
 import DropdownEquipment from './dropdown_service/Dropdown_Service'
 import Datepicker from './Datepicker/Datepicker'
-import AddBoxIcon from '@mui/icons-material/AddBox';
+import BorderColorIcon from '@mui/icons-material/BorderColor';
+import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 
 import './detailService.css'
 
@@ -15,8 +16,8 @@ export default function DetailService() {
   const [selected, setSelected] = useState("Tất cả");
 
   const detailServiceColumns = [
-    { field: 'id', headerName: 'Số thứ tự', width: 130 },
-    { field: 'status', headerName: 'Trạng thái', width: 200 },
+    { field: 'id', headerName: 'Số thứ tự', width: 500 },
+    { field: 'status', headerName: 'Trạng thái', width: 500 },
   ]
   return (
     <div className="detailService">
@@ -34,16 +35,16 @@ export default function DetailService() {
                 Thông tin dịch vụ
               </h2>
               <div className="detailService__infor__item">
-                <p>Mã dịch vụ </p>
-                <p>201</p>
+                <p className="detailService__item__title">Mã dịch vụ </p>
+                <p className="detailService__item__value">201</p>
               </div>
               <div className="detailService__infor__item">
-                <p>Tên dịch vụ </p>
-                <p>Khám tim mạch</p>
+                <p className="detailService__item__title">Tên dịch vụ </p>
+                <p className="detailService__item__value">Khám tim mạch</p>
               </div>
               <div className="detailService__infor__item">
-                <p>Mô tả</p>
-                <p>Chuyên các bệnh lý về tim</p>
+                <p className="detailService__item__title">Mô tả</p>
+                <p className="detailService__item__value">Chuyên các bệnh lý về tim</p>
               </div>
             </div>
             {/* Rules Number */}
@@ -76,17 +77,17 @@ export default function DetailService() {
           <div className="detailService__content__right">
             {/* FUNCTION */}
             <div className="detailService__function">
-              <div className="detailService__func__left">
+              <div>
                 <div className="detailService__func__status">
                   <p className="detailService__func__title">Trạng thái hoạt động</p>
                   <DropdownEquipment selected={selected} setSelected={setSelected} optionsOne={['Tất cả', 'Hoạt động', 'Ngưng hoạt động']} />
                 </div>
-                <div className="detailService__func__datepicker">
-                  <p className="detailService__func__title">Chọn thời gian</p>
-                  <Datepicker />
-                </div>
               </div>
-              <div className="detailService__func__right">
+              <div className="detailService__func__datepicker">
+                <p className="detailService__func__title">Chọn thời gian</p>
+                <Datepicker />
+              </div>
+              <div>
                 <p className="detailService__func__title">Từ khoá</p>
                 <div className="detailService__searchbar">
                   <input type='text' placeholder='Nhập từ khoá' id="search" />
@@ -111,16 +112,16 @@ export default function DetailService() {
           <div className="detailService__directionButton">
             <div className="detailService__updateList">
               <Link to={"/services/add-service/"}>
-                <AddBoxIcon style={{
-                  fontSize: 30
+                <BorderColorIcon style={{
+                  fontSize: 20
                 }} />
                 Cập nhập danh sách
               </Link>
             </div>
             <div className="detailService__return">
               <Link to={"/services/add-service/"}>
-                <AddBoxIcon style={{
-                  fontSize: 30
+                <KeyboardReturnIcon style={{
+                  fontSize: 20
                 }} />
                 Quay lại
               </Link>
