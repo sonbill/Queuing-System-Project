@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { DataGrid } from '@mui/x-data-grid';
 import SearchIcon from '@mui/icons-material/Search';
 import { serviceRows } from '../../dummyData';
-import DropdownEquipment from './dropdown_service/Dropdown_Service'
+import Dropdown from '../../components/Dropdown/Dropdown'
 import Datepicker from './Datepicker/Datepicker'
 import AddBoxIcon from '@mui/icons-material/AddBox';
 
@@ -13,7 +13,6 @@ import './service.css'
 
 function Service() {
   const [selected, setSelected] = useState("Tất cả");
-
 
   const ServiceColumns = [
     { field: 'id', headerName: 'Mã dịch vụ', width: 130 },
@@ -68,7 +67,7 @@ function Service() {
             <div className="service__func__left">
               <div className="service__func__status">
                 <p className="service__func__title">Trạng thái hoạt động</p>
-                <DropdownEquipment selected={selected} setSelected={setSelected} optionsOne={['Tất cả', 'Hoạt động', 'Ngưng hoạt động']} />
+                <Dropdown selected={selected} setSelected={setSelected} options={['Tất cả', 'Hoạt động', 'Ngưng hoạt động']} setWidth={{ width: 250 }} setHeight={{ height: 52 }} setPadding={{ padding: 10 }} />
               </div>
               <div className="service__func__datepicker">
                 <p className="service__func__title">Chọn thời gian</p>

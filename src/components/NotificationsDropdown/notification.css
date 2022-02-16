@@ -3,7 +3,7 @@
   flex-direction: column;
   width: 60px;
 }
-.dropdown__icon {
+.dropdown__noti__icon {
   display:flex;
   justify-content: center;
   align-items:center;
@@ -14,7 +14,7 @@
   height: 30px;
   border-radius:100px;
 }
-.dropdown__icon:before {
+.dropdown__noti__icon:before {
   content: " ";
   left: 0;
   right: 0;
@@ -25,12 +25,12 @@
   background-color:currentColor;
   opacity: 0.1;
 }
-.dropdown__icon:hover {
+.dropdown__noti__icon:hover {
   background-color:#FF7506;
   color: #FFF2E7;
   transition: all 0.2s;
 }
-.dropdown__icon:active {
+.dropdown__noti__icon:active {
   background-color:#FF7506;
   color: #FFF2E7;
   transition: all 0.2s;
@@ -40,7 +40,7 @@
   background-color:#FFAC6A;
   color:#fff;
 }
-.dropdown__group {
+.dropdown__noti__group {
   z-index:999;
   position:absolute;
   top:80px;
@@ -52,26 +52,26 @@
   border-radius:10px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
-.dropdown__title {
+.dropdown__noti__title {
   font-size:16px;
   padding:20px;
   background-color:#FFAC6A;
   border-radius: 10px 10px 0 0;
   color: #fff;
 }
-.dropdown__list {
+.dropdown__noti__list {
   list-style: none;
   max-height:500px;
   overflow: scroll;
   width: 100%;
 }
-.dropdown__item {
+.dropdown__noti__item {
   display:flex;
   flex-direction: column;
   padding:15px;
   border-bottom: 1px solid #D4D4D7;
 }
-.dropdown__item:hover {
+.dropdown__noti__item:hover {
   display:flex;
   flex-direction: column;
   background-color:#ffad6a2e;

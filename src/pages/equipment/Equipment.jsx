@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import TopNav from '../../components/topbar/TopNav'
 import { DataGrid } from '@mui/x-data-grid';
-import DropdownEquipment from './dropdown_equipment';
-import DropdownEquipmentTwo from './dropdown_equipment2'
+import Dropdown from '../../components/Dropdown/Dropdown'
 import SearchIcon from '@mui/icons-material/Search';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import ServicesList from './ServicesList'
@@ -14,7 +13,7 @@ import Sidebar from '../../components/sidebar_left/Sidebar'
 
 import './equipment.css';
 
-function Equipment({ params }) {
+function Equipment() {
   const [selected, setSelected] = useState("Tất cả");
   const [selected2, setSelected2] = useState("Tất cả");
 
@@ -94,11 +93,11 @@ function Equipment({ params }) {
             <div className="equipment__dropdown__wrapper">
               <div className="equipment__dropdown__item">
                 <p className="equipment__dropdown__title">Trạng thái hoạt động</p>
-                <DropdownEquipment selected={selected} setSelected={setSelected} optionsOne={['Tất cả', 'Hoạt động', 'Ngưng hoạt động']} />
+                <Dropdown selected={selected} setSelected={setSelected} options={['Tất cả', 'Hoạt động', 'Ngưng hoạt động']} setWidth={{ width: 250 }} setHeight={{ height: 52 }} setPadding={{ padding: 10 }} />
               </div>
               <div className="equipment__dropdown__item">
                 <p className="equipment__dropdown__title">Trạng thái kết nối</p>
-                <DropdownEquipmentTwo selected={selected2} setSelected={setSelected2} optionsTwo={['Tất cả', 'Kết nối', 'Mất kết nối']} />
+                <Dropdown selected={selected2} setSelected={setSelected2} options={['Tất cả', 'Kết nối', 'Mất kết nối']} setWidth={{ width: 250 }} setHeight={{ height: 52 }} setPadding={{ padding: 10 }} />
               </div>
             </div>
             <div className="equipment__dropdown__item">

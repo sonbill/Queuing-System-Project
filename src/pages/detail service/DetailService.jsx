@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { DataGrid } from '@mui/x-data-grid';
 import SearchIcon from '@mui/icons-material/Search';
 import { detailServiceRows } from '../../dummyData'
-import DropdownEquipment from './dropdown_service/Dropdown_Service'
+import Dropdown from '../../components/Dropdown/Dropdown'
 import Datepicker from './Datepicker/Datepicker'
 import BorderColorIcon from '@mui/icons-material/BorderColor';
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
@@ -80,7 +80,7 @@ export default function DetailService() {
               <div>
                 <div className="detailService__func__status">
                   <p className="detailService__func__title">Trạng thái hoạt động</p>
-                  <DropdownEquipment selected={selected} setSelected={setSelected} optionsOne={['Tất cả', 'Hoạt động', 'Ngưng hoạt động']} />
+                  <Dropdown selected={selected} setSelected={setSelected} options={['Tất cả', 'Hoạt động', 'Ngưng hoạt động']} setWidth={{ width: 250 }} setHeight={{ height: 52 }} setPadding={{ padding: 10 }} />
                 </div>
               </div>
               <div className="detailService__func__datepicker">
@@ -110,7 +110,7 @@ export default function DetailService() {
           </div>
           {/* DIRECTION BUTTON */}
           <div className="detailService__directionButton">
-            <div className="detailService__updateList">
+            <div className="detailService__btn detailService__updateList">
               <Link to={"/services/add-service/"}>
                 <BorderColorIcon style={{
                   fontSize: 20
@@ -118,7 +118,7 @@ export default function DetailService() {
                 Cập nhập danh sách
               </Link>
             </div>
-            <div className="detailService__return">
+            <div className="detailService__btn detailService__return">
               <Link to={"/services/add-service/"}>
                 <KeyboardReturnIcon style={{
                   fontSize: 20

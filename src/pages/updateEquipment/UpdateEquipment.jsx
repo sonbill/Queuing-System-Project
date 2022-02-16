@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import TopNav from '../../components/topbar/TopNav'
-import DropdownUpdate from './dropdown/Dropdown__Update'
+import Dropdown from '../../components/Dropdown/Dropdown'
 import Sidebar from '../../components/sidebar_left/Sidebar'
 import { Link } from 'react-router-dom'
 import MultipleSelectedDropdown from './multipleSelectDropdown/MultipleSelectedDropdown'
@@ -9,7 +9,7 @@ import MultipleSelectedDropdown from './multipleSelectDropdown/MultipleSelectedD
 import './updateEquipment.css'
 
 function UpdateEquipment() {
-  const [selected, setSelected] = useState('Kiosk');
+  const [selected, setSelected] = useState('Chọn loại thiết bị');
   return (
     <div className="updateEquipment">
       <Sidebar />
@@ -22,37 +22,37 @@ function UpdateEquipment() {
             <div className="updateEquipment__list">
               <div className="updateEquipment__items">
                 <div className="updateEquipment__item">
-                  <p>Mã thiết bị <span>*</span></p>
+                  <p className="updateEquipment__item__title">Mã thiết bị <span>*</span></p>
                   <input type="text" placeholder="Nhập mã thiết bị" className="updateEquipment__input" value={'KIO_01'} />
                 </div>
                 <div className="updateEquipment__item">
-                  <p>Loại thiết bị <span>*</span></p>
-                  <DropdownUpdate selected={selected} setSelected={setSelected} options={['Kiosk', 'Display counter']} style={{ width: 770 }} />
+                  <p className="updateEquipment__item__title">Loại thiết bị <span>*</span></p>
+                  <Dropdown selected={selected} setSelected={setSelected} options={['Kiosk', 'Display counter']} setWidth={{ width: 770 }} setHeight={{ height: 42 }} setPadding={{ padding: 6 }} />
                 </div>
               </div>
               <div className="updateEquipment__items">
                 <div className="updateEquipment__item">
-                  <p>Tên thiết bị <span>*</span></p>
+                  <p className="updateEquipment__item__title">Tên thiết bị <span>*</span></p>
                   <input type="text" placeholder="Nhập tên thiết bị" className="updateEquipment__input" value={'Kiosk'} />
                 </div>
                 <div className="updateEquipment__item">
-                  <p>Tên đăng nhập <span>*</span></p>
+                  <p className="updateEquipment__item__title">Tên đăng nhập <span>*</span></p>
                   <input type="text" placeholder="Nhập tài khoản" className="updateEquipment__input" value={'sonkyo146'} />
                 </div>
               </div>
               <div className="updateEquipment__items">
                 <div className="updateEquipment__item">
-                  <p>Địa chỉ IP <span>*</span></p>
+                  <p className="updateEquipment__item__title">Địa chỉ IP <span>*</span></p>
                   <input type="text" placeholder="Nhập địa chỉ IP" className="updateEquipment__input" value={'128.172.308'} />
                 </div>
                 <div className="updateEquipment__item">
-                  <p>Mật khẩu <span>*</span></p>
+                  <p className="updateEquipment__item__title">Mật khẩu <span>*</span></p>
                   <input type="text" placeholder="Nhập mật khẩu" className="updateEquipment__input" value={'CMS'} />
                 </div>
               </div>
               <div className="updateEquipment__items">
                 <div className="updateEquipment__item" style={{ flexGrow: 1 }}>
-                  <p>Dịch vụ sử dụng <span>*</span></p>
+                  <p className="updateEquipment__item__title">Dịch vụ sử dụng <span>*</span></p>
                   {/* <input type="text" placeholder="Nhập dịch vụ sử dụng" className="updateEquipment__input" style={{ width: '99%' }} /> */}
                   <MultipleSelectedDropdown className="updateEquipment__input" />
                 </div>

@@ -39,7 +39,7 @@
 .updateEquipment__item {
   width: 100%;
 }
-.updateEquipment__item p {
+.updateEquipment__item__title {
   margin-bottom: 8px;
 }
 .updateEquipment__item span {

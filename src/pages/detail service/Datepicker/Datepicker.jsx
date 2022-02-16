@@ -23,7 +23,7 @@ function Datepicker() {
           renderInput={(startProps, endProps) => (
             <React.Fragment>
               <input ref={startProps.inputRef} {...startProps.inputProps} />
-              <Box sx={{ mx: 2 }}><ArrowRightIcon style={{ alignItems: 'center' }} /></Box>
+              <Box sx={{ mx: 2 }}><ArrowRightIcon style={{ alignItems: 'center', height: '100%' }} /></Box>
               <input ref={endProps.inputRef} {...endProps.inputProps} />
             </React.Fragment>
           )}

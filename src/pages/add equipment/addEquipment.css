@@ -40,7 +40,7 @@
 .addEquipment__item {
   width: 775px;
 }
-.addEquipment__item p {
+.addEquipment__item__title {
   margin-bottom: 8px;
 }
 .addEquipment__item span {

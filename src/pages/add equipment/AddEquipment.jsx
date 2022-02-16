@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import TopNav from '../../components/topbar/TopNav'
-import DropdownAddEquipment from './Dropdown__addEquipment';
+import Dropdown from '../../components/Dropdown/Dropdown'
 import Sidebar from '../../components/sidebar_left/Sidebar';
 import { Link } from 'react-router-dom';
 import MultipleSelectedDropdown from './MultipleSelectDropdown/MultipleSelectedDropdown'
@@ -21,31 +21,31 @@ function AddEquipment() {
           <div className="addEquipment__list">
             <div className="addEquipment__items">
               <div className="addEquipment__item">
-                <p>Mã thiết bị <span>*</span></p>
+                <p className="addEquipment__item__title">Mã thiết bị <span>*</span></p>
                 <input type="text" placeholder="Nhập mã thiết bị" className="addEquipment__input" />
               </div>
               <div className="addEquipment__item">
-                <p>Loại thiết bị <span>*</span></p>
-                <DropdownAddEquipment selected={selected} setSelected={setSelected} options={['Kiosk', 'Display counter']} style={{ width: 775 }} />
+                <p className="addEquipment__item__title">Loại thiết bị <span>*</span></p>
+                <Dropdown selected={selected} setSelected={setSelected} options={['Kiosk', 'Display counter']} setWidth={{ width: 775 }} setHeight={{ height: 44 }} setPadding={{ padding: 6 }} />
               </div>
             </div>
             <div className="addEquipment__items">
               <div className="addEquipment__item">
-                <p>Tên thiết bị <span>*</span></p>
+                <p className="addEquipment__item__title">Tên thiết bị <span>*</span></p>
                 <input type="text" placeholder="Nhập tên thiết bị" className="addEquipment__input" />
               </div>
               <div className="addEquipment__item">
-                <p>Tên đăng nhập <span>*</span></p>
+                <p className="addEquipment__item__title">Tên đăng nhập <span>*</span></p>
                 <input type="text" placeholder="Nhập tài khoản" className="addEquipment__input" />
               </div>
             </div>
             <div className="addEquipment__items">
               <div className="addEquipment__item">
-                <p>Địa chỉ IP <span>*</span></p>
+                <p className="addEquipment__item__title">Địa chỉ IP <span>*</span></p>
                 <input type="text" placeholder="Nhập địa chỉ IP" className="addEquipment__input" />
               </div>
               <div className="addEquipment__item">
-                <p>Mật khẩu <span>*</span></p>
+                <p className="addEquipment__item__title">Mật khẩu <span>*</span></p>
                 <input type="password" placeholder="Nhập mật khẩu" className="addEquipment__input" />
               </div>
             </div>
