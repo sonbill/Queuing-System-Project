@@ -48,3 +48,20 @@ export const detailServiceRows = [
   { id: 2010001, status: 'Đã hoàn thành' },
   { id: 2010001, status: 'Đã hoàn thành' },
 ];
+
+export const provideNumbersRows = [
+  { id: 2010001, customer: 'Kiosk', service: 'Mô tả dịch vụ 1', dateProvide: '15:25 - 18/02/2022', expiryDate: '14:35 - 18/02/2022', status: 'Ngưng hoạt động', equipments: 'Kiosk' },
+  { id: 2010001, customer: 'Kiosk', service: 'Mô tả dịch vụ 1', dateProvide: '15:25 - 18/02/2022', expiryDate: '14:35 - 18/02/2022', status: 'Ngưng hoạt động', equipments: 'Hệ thống' },
+  { id: 2010001, customer: 'Kiosk', service: 'Mô tả dịch vụ 1', dateProvide: '15:25 - 18/02/2022', expiryDate: '14:35 - 18/02/2022', status: 'Ngưng hoạt động', equipments: 'Hệ thống' },
+  { id: 2010001, customer: 'Kiosk', service: 'Mô tả dịch vụ 1', dateProvide: '15:26 - 18/02/2022', expiryDate: '14:35 - 18/02/2022', status: 'Ngưng hoạt động', equipments: 'Kiosk' },
+  { id: 2010001, customer: 'Kiosk', service: 'Mô tả dịch vụ 1', dateProvide: '15:26 - 18/02/2022', expiryDate: '14:35 - 18/02/2022', status: 'Ngưng hoạt động', equipments: 'Kiosk' },
+  { id: 2010001, customer: 'Kiosk', service: 'Mô tả dịch vụ 1', dateProvide: '15:27 - 18/02/2022', expiryDate: '14:35 - 18/02/2022', status: 'Ngưng hoạt động', equipments: 'Kiosk' },
+  { id: 2010001, customer: 'Kiosk', service: 'Mô tả dịch vụ 1', dateProvide: '15:28 - 18/02/2022', expiryDate: '14:35 - 18/02/2022', status: 'Ngưng hoạt động', equipments: 'Hệ thống' },
+  { id: 2010001, customer: 'Kiosk', service: 'Mô tả dịch vụ 1', dateProvide: '15:28 - 18/02/2022', expiryDate: '14:35 - 18/02/2022', status: 'Ngưng hoạt động', equipments: 'Kiosk' },
+  { id: 2010001, customer: 'Kiosk', service: 'Mô tả dịch vụ 1', dateProvide: '15:28 - 18/02/2022', expiryDate: '14:35 - 18/02/2022', status: 'Ngưng hoạt động', equipments: 'Hệ thống' },
+  { id: 2010001, customer: 'Kiosk', service: 'Mô tả dịch vụ 1', dateProvide: '15:28 - 18/02/2022', expiryDate: '14:35 - 18/02/2022', status: 'Ngưng hoạt động', equipments: 'Kiosk' },
+  { id: 2010001, customer: 'Kiosk', service: 'Mô tả dịch vụ 1', dateProvide: '15:29 - 18/02/2022', expiryDate: '14:35 - 18/02/2022', status: 'Ngưng hoạt động', equipments: 'Hệ thống' },
+  { id: 2010001, customer: 'Kiosk', service: 'Mô tả dịch vụ 1', dateProvide: '15:29 - 18/02/2022', expiryDate: '14:35 - 18/02/2022', status: 'Ngưng hoạt động', equipments: 'Kiosk' },
+  { id: 2010001, customer: 'Kiosk', service: 'Mô tả dịch vụ 1', dateProvide: '15:29 - 18/02/2022', expiryDate: '14:35 - 18/02/2022', status: 'Ngưng hoạt động', equipments: 'Kiosk' },
+  { id: 2010001, customer: 'Kiosk', service: 'Mô tả dịch vụ 1', dateProvide: '15:30 - 18/02/2022', expiryDate: '14:35 - 18/02/2022', status: 'Ngưng hoạt động', equipments: 'Kiosk' },
+];

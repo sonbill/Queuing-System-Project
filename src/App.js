@@ -15,6 +15,7 @@ import Service from './pages/service_page/Service'
 import AddService from './pages/add service/AddService'
 import UpdateService from './pages/update service/UpdateService'
 import DetailService from './pages/detail service/DetailService'
+import ProvideNumbers from './pages/Provides Ordinal Numbers/OrdinalNumbers'
 
 import './App.css'
 
@@ -66,6 +67,7 @@ function App() {
           <Route path="/services/add-service/" element={<AddService />} />
           <Route path="/services/detail/:detailID" element={<DetailService />} />
           <Route path="/services/update/:updateID" element={<UpdateService />} />
+          <Route path="/provide-numbers" element={<ProvideNumbers />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
         {/* </div> */}

@@ -44,7 +44,7 @@ function Sidebar({ Logout }) {
                             <p className="sidebarTextItem">Dịch vụ</p>
                         </div>
                     </NavLink>
-                    <NavLink to="/take-a-number" activeClassName="is-active" className="sidebarListItem">
+                    <NavLink to="/provide-numbers" activeClassName="is-active" className="sidebarListItem">
                         <div >
                             <LayersIcon />
                             <p className="sidebarTextItem">Cấp số</p>
