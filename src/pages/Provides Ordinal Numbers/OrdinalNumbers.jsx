@@ -9,6 +9,7 @@ import Dropdown from '../../components/Dropdown/Dropdown'
 import Datepicker from './Datepicker/Datepicker'
 import AddBoxIcon from '@mui/icons-material/AddBox';
 
+import './ordinalNumbers.css'
 
 export default function ProvideNumbers() {
   const [service, setService] = useState("Tất cả");
@@ -44,21 +45,21 @@ export default function ProvideNumbers() {
     <div className="provideNumbers">
       <Sidebar />
       <div className="provideNumbers__layout" >
-        <TopNav />
-        <div>
+        <TopNav name={'Danh sách cấp số'} />
+        <div className="provideNumbers__wrapper">
           <h2 className="provideNumbers__title">Quản lý cấp số</h2>
           <div className="provideNumbers__function">
             <div className="provideNumbers__func__items">
               <p className="provideNumbers__func__title">Tên dịch vụ</p>
-              <Dropdown selected={service} setSelected={setService} options={['Tất cả', 'Khám sản - Phụ khoa', 'Khám răng hàm mặt', 'Khám tai mũi họng']} setWidth={{ width: 250 }} setHeight={{ height: 52 }} setPadding={{ padding: 10 }} />
+              <Dropdown selected={service} setSelected={setService} options={['Tất cả', 'Khám sản - Phụ khoa', 'Khám răng hàm mặt', 'Khám tai mũi họng']} setWidth={{ width: 200 }} setHeight={{ height: 52 }} setPadding={{ padding: 10 }} />
             </div>
             <div className="provideNumbers__func__items">
               <p className="provideNumbers__func__title">Tình trạng</p>
-              <Dropdown selected={status} setSelected={setStatus} options={['Tất cả', 'Đang chờ', 'Đã sử dụng', 'Bỏ qua']} setWidth={{ width: 250 }} setHeight={{ height: 52 }} setPadding={{ padding: 10 }} />
+              <Dropdown selected={status} setSelected={setStatus} options={['Tất cả', 'Đang chờ', 'Đã sử dụng', 'Bỏ qua']} setWidth={{ width: 200 }} setHeight={{ height: 52 }} setPadding={{ padding: 10 }} />
             </div>
             <div className="provideNumbers__func__items">
               <p className="provideNumbers__func__title">Nguồn cấp</p>
-              <Dropdown selected={equipment} setSelected={setEquipment} options={['Tất cả', 'Kiosk', 'Hệ thống']} setWidth={{ width: 250 }} setHeight={{ height: 52 }} setPadding={{ padding: 10 }} />
+              <Dropdown selected={equipment} setSelected={setEquipment} options={['Tất cả', 'Kiosk', 'Hệ thống']} setWidth={{ width: 200 }} setHeight={{ height: 52 }} setPadding={{ padding: 10 }} />
             </div>
             <div className="provideNumbers__func__items">
               <p className="provideNumbers__func__title">Chọn thời gian</p>
@@ -81,7 +82,7 @@ export default function ProvideNumbers() {
                 rows={provideNumbersRows}
                 columns={manageProvideColumns}
                 pageSize={10}
-                rowsPerPageOptions={[5]}
+                rowsPerPageOptions={[8]}
               />
             </div>
             <div className="provideNumbers__newNumber">

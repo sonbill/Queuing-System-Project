@@ -1,0 +1,77 @@
+.provideNumbers {
+  display: flex;
+  background-color: #F5F5F5;
+}
+.provideNumbers__layout {
+  flex-grow:1;
+  height: 69vh;
+}
+.provideNumbers__wrapper {
+  height:100%;
+}
+.provideNumbers__title {
+  color: #FF7506;
+  padding:0 30px;
+}
+.provideNumbers__function {
+  display: flex;
+  width: 90%;
+  align-items:center;
+  justify-content:space-between;
+  padding:30px;
+}
+.provideNumbers__func__title {
+  margin-bottom:10px;
+}
+.provideNumbers__func__searchbar{
+  display: flex;
+  align-items: center;
+}
+.provideNumbers__func__searchbar > input {
+  padding:10px;
+  color: #7E7D88;
+  border-radius: 8px 0 0 8px;
+  border:1px solid #D4D4D7;
+  border-right: none;
+  height: 52px;
+  width: 200px;
+  font-size: 16px;
+}
+.provideNumbers__func__searchbar > button {
+  height: 52px;
+  width: 40px;
+  border-radius: 0 8px 8px 0;
+  background-color: #fff;
+  border:1px solid #D4D4D7;
+  border-left: none;
+}
+.provideNumbers__func__searchbar > button:active {
+  background-color: #FFF2E7;
+  color: #FF7506;
+}
+.provideNumbers__content {
+  display: flex;
+  align-items:start;
+  height: 100%;
+}
+.provideNumbers__table {
+  width: 100%;
+  height: 100%;
+  padding:0 30px;
+}
+.provideNumbers__newNumber {
+  width: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content:start;
+  align-items: center;
+  padding:15px;
+  background-color: #FFF2E7;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  border-radius: 8px 0px 0px 8px;
+}
+.provideNumbers__newNumber a {
+  background-color: #FFF2E7;
+  color: #FF7506;
+  text-decoration: none;
+}
