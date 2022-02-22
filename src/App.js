@@ -19,7 +19,8 @@ import ProvideNumbers from './pages/Provides Ordinal Numbers/OrdinalNumbers'
 import ProvideNewNumbers from './pages/provide new number/ProvideNewNumbers'
 import Report from './pages/report/Report'
 import Roles from './pages/Roles/Role'
-import ManageAccount from './pages/Manage Account/ManageAccount'
+import ManageAccount from './pages/manage account/ManageAccount'
+import UpdateAccount from './pages/update account/UpdateAccount'
 import './App.css'
 
 function App() {
@@ -75,6 +76,7 @@ function App() {
           <Route path="/reports" element={<Report />} />
           <Route path="/roles" element={<Roles />} />
           <Route path="/manage-account" element={<ManageAccount />} />
+          <Route path="/manage-account/update/:updateID" element={<UpdateAccount />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
         {/* </div> */}

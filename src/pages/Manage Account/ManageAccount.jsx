@@ -28,7 +28,7 @@ export default function ManageAccount() {
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/services/detail/" + params.row.id}>
+            <Link to={"/manage-account/update/" + params.row.id}>
               <p>Cập nhập</p>
             </Link>
           </>
