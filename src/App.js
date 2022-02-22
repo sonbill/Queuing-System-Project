@@ -18,6 +18,8 @@ import DetailService from './pages/detail service/DetailService'
 import ProvideNumbers from './pages/Provides Ordinal Numbers/OrdinalNumbers'
 import ProvideNewNumbers from './pages/provide new number/ProvideNewNumbers'
 import Report from './pages/report/Report'
+import Roles from './pages/Roles/Role'
+import ManageAccount from './pages/Manage Account/ManageAccount'
 import './App.css'
 
 function App() {
@@ -71,6 +73,8 @@ function App() {
           <Route path="/provide-numbers" element={<ProvideNumbers />} />
           <Route path="/provide-numbers/new-number" element={<ProvideNewNumbers />} />
           <Route path="/reports" element={<Report />} />
+          <Route path="/roles" element={<Roles />} />
+          <Route path="/manage-account" element={<ManageAccount />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
         {/* </div> */}

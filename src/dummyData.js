@@ -50,7 +50,7 @@ export const detailServiceRows = [
 ];
 
 export const provideNumbersRows = [
-  { id: 2010001, service: 'Kiosk', service: 'Mô tả dịch vụ 1', dateProvide: '15:25 - 18/02/2022', expiryDate: '14:35 - 18/02/2022', status: 'Ngưng hoạt động', equipments: 'Kiosk' },
+  { id: 2010001, customer: 'Kiosk', service: 'Mô tả dịch vụ 1', dateProvide: '15:25 - 18/02/2022', expiryDate: '14:35 - 18/02/2022', status: 'Ngưng hoạt động', equipments: 'Kiosk' },
   { id: 2010001, customer: 'Kiosk', service: 'Mô tả dịch vụ 1', dateProvide: '15:25 - 18/02/2022', expiryDate: '14:35 - 18/02/2022', status: 'Ngưng hoạt động', equipments: 'Hệ thống' },
   { id: 2010001, customer: 'Kiosk', service: 'Mô tả dịch vụ 1', dateProvide: '15:25 - 18/02/2022', expiryDate: '14:35 - 18/02/2022', status: 'Ngưng hoạt động', equipments: 'Hệ thống' },
   { id: 2010001, customer: 'Kiosk', service: 'Mô tả dịch vụ 1', dateProvide: '15:26 - 18/02/2022', expiryDate: '14:35 - 18/02/2022', status: 'Ngưng hoạt động', equipments: 'Kiosk' },
@@ -81,5 +81,25 @@ export const reportRows = [
   { id: 2010001, service: 'Khám tim mạch', dateProvide: '15:29 - 18/02/2022', status: 'Ngưng hoạt động', equipments: 'Kiosk' },
   { id: 2010001, service: 'Khám sản - phụ khoa', dateProvide: '15:29 - 18/02/2022', status: 'Ngưng hoạt động', equipments: 'Kiosk' },
   { id: 2010001, service: 'Khám hô hấp', dateProvide: '15:30 - 18/02/2022', status: 'Ngưng hoạt động', equipments: 'Kiosk' },
+];
+export const roleRows = [
+  { id: 1, role: 'Kế toán', amount: 6, desc: 'Thực hiện nhiệm vụ về thống kê số liệu và tổng hợp số liệu' },
+  { id: 1, role: 'Kế toán', amount: 6, desc: 'Thực hiện nhiệm vụ về thống kê số liệu và tổng hợp số liệu' },
+  { id: 1, role: 'Kế toán', amount: 6, desc: 'Thực hiện nhiệm vụ về thống kê số liệu và tổng hợp số liệu' },
+  { id: 1, role: 'Kế toán', amount: 6, desc: 'Thực hiện nhiệm vụ về thống kê số liệu và tổng hợp số liệu' },
+  { id: 1, role: 'Kế toán', amount: 6, desc: 'Thực hiện nhiệm vụ về thống kê số liệu và tổng hợp số liệu' },
+  { id: 1, role: 'Kế toán', amount: 6, desc: 'Thực hiện nhiệm vụ về thống kê số liệu và tổng hợp số liệu' },
+  { id: 1, role: 'Kế toán', amount: 6, desc: 'Thực hiện nhiệm vụ về thống kê số liệu và tổng hợp số liệu' },
+];
+
+export const accountRows = [
+  { id: 1, username: 'tuyetnguyen@12', fullname: 'Nguyễn Văn A', phone: 919256712, emailAddress: 'tuyennguyen123@gmail.com', role: 'Kế toán', status: 'Đang hoạt động' },
+  { id: 2, username: 'tuyetnguyen@12', fullname: 'Nguyễn Văn A', phone: 919256712, emailAddress: 'tuyennguyen123@gmail.com', role: 'Kế toán', status: 'Đang hoạt động' },
+  { id: 3, username: 'tuyetnguyen@12', fullname: 'Nguyễn Văn A', phone: 919256712, emailAddress: 'tuyennguyen123@gmail.com', role: 'Kế toán', status: 'Đang hoạt động' },
+  { id: 4, username: 'tuyetnguyen@12', fullname: 'Nguyễn Văn A', phone: 919256712, emailAddress: 'tuyennguyen123@gmail.com', role: 'Kế toán', status: 'Đang hoạt động' },
+  { id: 5, username: 'tuyetnguyen@12', fullname: 'Nguyễn Văn A', phone: 919256712, emailAddress: 'tuyennguyen123@gmail.com', role: 'Kế toán', status: 'Đang hoạt động' },
+  { id: 6, username: 'tuyetnguyen@12', fullname: 'Nguyễn Văn A', phone: 919256712, emailAddress: 'tuyennguyen123@gmail.com', role: 'Kế toán', status: 'Đang hoạt động' },
+  { id: 7, username: 'tuyetnguyen@12', fullname: 'Nguyễn Văn A', phone: 919256712, emailAddress: 'tuyennguyen123@gmail.com', role: 'Kế toán', status: 'Đang hoạt động' },
+  { id: 8, username: 'tuyetnguyen@12', fullname: 'Nguyễn Văn A', phone: 919256712, emailAddress: 'tuyennguyen123@gmail.com', role: 'Kế toán', status: 'Đang hoạt động' },
 ];
 

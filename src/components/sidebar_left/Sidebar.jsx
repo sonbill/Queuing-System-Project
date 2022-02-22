@@ -66,7 +66,7 @@ function Sidebar({ Logout }) {
                             <NavLink to="/roles" activeClassName="is-active" className="item">
                                 <li >Quản lý vai trò</li>
                             </NavLink>
-                            <NavLink to="/accountManager" activeClassName="is-active" className="item">
+                            <NavLink to="/manage-account" activeClassName="is-active" className="item">
                                 <li >Quản lý tài khoản</li>
                             </NavLink>
                             <NavLink to="/diaryActivities" activeClassName="is-active" className="item">
