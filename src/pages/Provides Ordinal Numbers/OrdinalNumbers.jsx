@@ -86,7 +86,7 @@ export default function ProvideNumbers() {
               />
             </div>
             <div className="provideNumbers__newNumber">
-              <Link to={"/services/add-service/"}>
+              <Link to={"/provide-numbers/new-number"}>
                 <AddBoxIcon style={{
                   fontSize: 30
                 }} />
