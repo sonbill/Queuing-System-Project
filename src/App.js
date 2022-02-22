@@ -17,6 +17,7 @@ import UpdateService from './pages/update service/UpdateService'
 import DetailService from './pages/detail service/DetailService'
 import ProvideNumbers from './pages/Provides Ordinal Numbers/OrdinalNumbers'
 import ProvideNewNumbers from './pages/provide new number/ProvideNewNumbers'
+import Report from './pages/report/Report'
 import './App.css'
 
 function App() {
@@ -69,6 +70,7 @@ function App() {
           <Route path="/services/update/:updateID" element={<UpdateService />} />
           <Route path="/provide-numbers" element={<ProvideNumbers />} />
           <Route path="/provide-numbers/new-number" element={<ProvideNewNumbers />} />
+          <Route path="/reports" element={<Report />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
         {/* </div> */}
