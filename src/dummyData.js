@@ -103,3 +103,14 @@ export const accountRows = [
   { id: 8, username: 'tuyetnguyen@12', fullname: 'Nguyễn Văn A', phone: 919256712, emailAddress: 'tuyennguyen123@gmail.com', role: 'Kế toán', status: 'Đang hoạt động' },
 ];
 
+export const diaryRows = [
+  { id: 1, username: 'tuyetnguyen@12', dateTimeChanged: '23/02/2022 - 13:57:17', ipAddress: '192.168.3.1', action: 'Cập nhập thông tin dịch vụ DV_01' },
+  { id: 2, username: 'tuyetnguyen@12', dateTimeChanged: '23/02/2022 - 13:57:17', ipAddress: '192.168.3.1', action: 'Cập nhập thông tin dịch vụ DV_01' },
+  { id: 3, username: 'tuyetnguyen@12', dateTimeChanged: '23/02/2022 - 13:57:17', ipAddress: '192.168.3.1', action: 'Cập nhập thông tin dịch vụ DV_01' },
+  { id: 4, username: 'tuyetnguyen@12', dateTimeChanged: '23/02/2022 - 13:57:17', ipAddress: '192.168.3.1', action: 'Cập nhập thông tin dịch vụ DV_01' },
+  { id: 5, username: 'tuyetnguyen@12', dateTimeChanged: '23/02/2022 - 13:57:17', ipAddress: '192.168.3.1', action: 'Cập nhập thông tin dịch vụ DV_01' },
+  { id: 6, username: 'tuyetnguyen@12', dateTimeChanged: '23/02/2022 - 13:57:17', ipAddress: '192.168.3.1', action: 'Cập nhập thông tin dịch vụ DV_01' },
+  { id: 7, username: 'tuyetnguyen@12', dateTimeChanged: '23/02/2022 - 13:57:17', ipAddress: '192.168.3.1', action: 'Cập nhập thông tin dịch vụ DV_01' },
+  { id: 8, username: 'tuyetnguyen@12', dateTimeChanged: '23/02/2022 - 13:57:17', ipAddress: '192.168.3.1', action: 'Cập nhập thông tin dịch vụ DV_01' },
+
+];

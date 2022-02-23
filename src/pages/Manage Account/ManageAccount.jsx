@@ -69,7 +69,7 @@ export default function ManageAccount() {
               />
             </div>
             <div className="manageAccounts__newAccount">
-              <Link to={""}>
+              <Link to={"/manage-account/add-account"}>
                 <AddBoxIcon style={{
                   fontSize: 30
                 }} />

@@ -8,8 +8,8 @@ import { Link } from 'react-router-dom'
 import './updateAccount.css'
 
 function UpdateAccount() {
-  const [role, setRole] = useState('Chọn loại thiết bị');
-  const [status, setStatus] = useState('Chọn loại thiết bị');
+  const [role, setRole] = useState('Kế toán');
+  const [status, setStatus] = useState('Ngưng hoạt động');
 
   return (
     <div className="updateAccount">
@@ -24,11 +24,11 @@ function UpdateAccount() {
               <div className="updateAccount__items">
                 <div className="updateAccount__item">
                   <p className="updateAccount__item__title">Họ tên<span>*</span></p>
-                  <input type="text" placeholder="Nhập mã thiết bị" className="updateAccount__input" value={'Nguyễn Văn A'} />
+                  <input type="text" placeholder="Nhập họ tên" className="updateAccount__input" value={'Nguyễn Văn A'} />
                 </div>
                 <div className="updateAccount__item">
                   <p className="updateAccount__item__title">Tên đăng nhập:<span>*</span></p>
-                  <input type="text" placeholder="Nhập mã thiết bị" className="updateAccount__input" value={'tuyetnguyen123'} />
+                  <input type="text" placeholder="Nhập tên đăng nhập" className="updateAccount__input" value={'tuyetnguyen123'} />
                 </div>
               </div>
               <div className="updateAccount__items">

@@ -69,7 +69,7 @@ function Sidebar({ Logout }) {
                             <NavLink to="/manage-account" activeClassName="is-active" className="item">
                                 <li >Quản lý tài khoản</li>
                             </NavLink>
-                            <NavLink to="/diaryActivities" activeClassName="is-active" className="item">
+                            <NavLink to="/diary-activities" activeClassName="is-active" className="item">
                                 <li>Nhật ký người dùng</li>
                             </NavLink>
                         </ul>

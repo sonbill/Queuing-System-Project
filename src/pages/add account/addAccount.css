@@ -1,0 +1,104 @@
+.addAccount {
+  background-color:#F5F5F5 ;
+  display: flex;
+}
+.addAccount__layout {
+  flex-grow: 1;
+}
+.addAccount__title {
+  padding:0 30px;
+  color:#FF7506;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 36px;
+}
+.addAccount__infor {
+  height: 570px;
+  padding:30px;
+  background-color: #fff;
+  margin:16px 30px;
+  box-shadow: 2px 2px 8px rgba(232, 239, 244, 0.8);
+  border-radius: 16px;
+}
+.addAccount__infor__title {
+  color: #FF7506;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 30px;
+  margin-bottom: 20px;
+}
+.addAccount__list {
+  width: 100%;
+}
+.addAccount__items {
+  display: flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:16px;
+}
+.addAccount__item {
+  width: 100%;
+}
+.addAccount__item__title {
+  margin-bottom: 8px;
+}
+.addAccount__item span {
+  color: red;
+}
+.addAccount__input {
+  width: 775px;
+  height: 44px;
+  padding: 10px 12px;
+  background: #FFFFFF;
+  border: 1.5px solid #D4D4D7;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+.addAccount__input:focus {
+  border-color: #FF7506
+}
+.addAccount__desc {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 21px;
+  color:#7E7D88;
+}
+.addAccount__desc span {
+  color:red;
+}
+.addAccount__buttons {
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  padding:30px;
+  margin: 0 auto;
+  width: 500px;
+}
+.addAccount__button:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  transition: all 0.2s;
+}
+.addAccount__button:active {
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+.addAccount__button {
+  width: 147px;
+  height: 48px;
+  margin: 0 auto;
+  cursor: pointer;
+}
+.addAccount__button-cancel {
+  background: #FFF2E7;
+  border: 1.5px solid #FF9138;
+  box-sizing: border-box;  
+  box-shadow: 0px 0px 6px #E7E9F2;
+  border-radius: 8px;
+  color: #FF9138;
+}
+.addAccount__button-add {
+  background: #FF9138;
+  box-shadow: 0px 0px 6px #E7E9F2;
+  border-radius: 8px;
+  color:#FFFFFF;
+  border: none;
+}
