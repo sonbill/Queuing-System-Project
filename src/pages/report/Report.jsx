@@ -14,7 +14,7 @@ export default function Report() {
   const downloadExcel = () => {
     const workSheet = XLSX.utils.json_to_sheet(reportRows)
     const workBook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(workBook, workSheet, "")
+    XLSX.utils.book_append_sheet(workBook, workSheet, "Report List")
 
     let buf = XLSX.write(workBook, { bookType: "xlsx", type: "buffer" })
 
