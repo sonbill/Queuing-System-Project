@@ -6,10 +6,25 @@ import { DataGrid } from '@mui/x-data-grid';
 import Datepicker from './Datepicker/Datepicker'
 import SimCardDownloadIcon from '@mui/icons-material/SimCardDownload';
 import { reportRows } from '../../dummyData'
+import * as XLSX from 'xlsx';
 
 import './report.css'
 
 export default function Report() {
+  const downloadExcel = () => {
+    const workSheet = XLSX.utils.json_to_sheet(reportRows)
+    const workBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workBook, workSheet, "")
+
+    let buf = XLSX.write(workBook, { bookType: "xlsx", type: "buffer" })
+
+    XLSX.write(workBook, { bookType: "xlsx", type: "binary" })
+
+    XLSX.writeFile(workBook, "Report.xlsx")
+
+  }
+
+
   const reportColumns = [
     { field: 'id', headerName: 'Số thứ tự', width: 130 },
     { field: 'service', headerName: 'Tên dịch vụ', width: 200 },
@@ -41,7 +56,7 @@ export default function Report() {
               />
             </div>
             <div className="report__download">
-              <Link to={""}>
+              <Link to={""} onClick={downloadExcel}>
                 <SimCardDownloadIcon style={{
                   fontSize: 30
                 }} />
