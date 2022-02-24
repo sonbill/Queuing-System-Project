@@ -19,7 +19,7 @@ import ProvideNumbers from './pages/Provides Ordinal Numbers/OrdinalNumbers'
 import ProvideNewNumbers from './pages/provide new number/ProvideNewNumbers'
 import Report from './pages/report/Report'
 import Roles from './pages/Roles/Role'
-import 
+import UpdateRole from './pages/update role/UpdateRole'
 import ManageAccount from './pages/manage account/ManageAccount'
 import UpdateAccount from './pages/update account/UpdateAccount'
 import AddAccount from './pages/add account/AddAccount'
@@ -78,11 +78,11 @@ function App() {
           <Route path="/provide-numbers/new-number" element={<ProvideNewNumbers />} />
           <Route path="/reports" element={<Report />} />
           <Route path="/roles" element={<Roles />} />
+          <Route path="/roles/update-role/:updateID" element={<UpdateRole />} />
           <Route path="/manage-account" element={<ManageAccount />} />
           <Route path="/manage-account/update/:updateID" element={<UpdateAccount />} />
           <Route path="/manage-account/add-account" element={<AddAccount />} />
           <Route path="/diary-activities" element={<UserDiary />} />
-          <Route path="/roles/update-role" element={<UserDiary />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
         {/* </div> */}

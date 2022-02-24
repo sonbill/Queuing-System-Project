@@ -24,8 +24,8 @@ export default function Roles() {
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/equipments/detail/" + params.row.id}>
-              <a href="/equipments/detail">Cập nhập</a>
+            <Link to={"/roles/update-role/" + params.row.id}>
+              <a href="/roles/update-role/">Cập nhập</a>
             </Link>
           </>
         );
