@@ -1,5 +1,6 @@
 import React from 'react';
 import Home from './pages/home/Home'
+import LoginForm from './components/LoginForm/LoginForm'
 import Equipment from './pages/equipment/Equipment'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Details from './pages/detail/Details'
@@ -27,7 +28,7 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route exact path="/" element={<Home />} />
+          <Route exact path="/" element={<LoginForm />} />
           <Route path="/equipments" element={<Equipment />} />
           <Route path="/equipments/detail/:detailID" element={<Details />} />
           <Route path="/equipments/update/:updateID" element={<UpdateEquipment />} />
