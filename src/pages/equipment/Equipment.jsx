@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { db } from '../../firebase-config'
+import { onSnapshot, collection } from 'firebase/firestore'
 import TopNav from '../../components/topbar/TopNav'
 import { DataGrid } from '@mui/x-data-grid';
 import Dropdown from '../../components/Dropdown/Dropdown'
@@ -14,6 +16,13 @@ import Sidebar from '../../components/sidebar_left/Sidebar'
 import './equipment.css';
 
 function Equipment() {
+  useEffect(
+    () => onSnapshot(collection(db, 'equipments'), (snapshot) =>
+      setEquipments(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })))
+      , []
+    )
+  );
+  const [equipments, setEquipments] = useState([])
   const [selected, setSelected] = useState("Tất cả");
   const [selected2, setSelected2] = useState("Tất cả");
 
@@ -111,12 +120,44 @@ function Equipment() {
         </div>
         <div className="equipment__content_wrapper">
           <div className="equipment__table">
-            <DataGrid
+            {/* <DataGrid
               rows={equipmentRows}
               columns={columns}
               pageSize={10}
               rowsPerPageOptions={[5]}
-            />
+            /> */}
+            <table>
+              <tr>
+                <th>Mã thiết bị</th>
+                <th>Tên thiết bị</th>
+                <th>Địa chỉ IP</th>
+                <th>Trạng thái hoạt động</th>
+                <th>Trạng thái kết nối</th>
+                <th>Dịch vụ</th>
+                <th></th>
+                <th></th>
+              </tr>
+              {equipments.map((equipment) => (
+                <tr key={equipment.id}>
+                  <td>{equipment.id}</td>
+                  <td>{equipment.equipmentName}</td>
+                  <td>{equipment.ipAddress}</td>
+                  <td>{equipment.activityStatus}</td>
+                  <td>{equipment.connectionStatus}</td>
+                  <td>{equipment.service}</td>
+                  <td>
+                    <Link to={"/equipments/detail/"}>
+                      Chi tiết
+                    </Link>
+                  </td>
+                  <td>
+                    <Link to={"/equipments/update/"}>
+                      Cập nhập
+                    </Link>
+                  </td>
+                </tr>
+              ))}
+            </table>
           </div>
           <div className="equipment__add_devices">
             <AddBoxIcon style={{
