@@ -126,37 +126,41 @@ function Equipment() {
               pageSize={10}
               rowsPerPageOptions={[5]}
             /> */}
-            <table>
-              <tr>
-                <th>Mã thiết bị</th>
-                <th>Tên thiết bị</th>
-                <th>Địa chỉ IP</th>
-                <th>Trạng thái hoạt động</th>
-                <th>Trạng thái kết nối</th>
-                <th>Dịch vụ</th>
-                <th></th>
-                <th></th>
-              </tr>
-              {equipments.map((equipment) => (
-                <tr key={equipment.id}>
-                  <td>{equipment.id}</td>
-                  <td>{equipment.equipmentName}</td>
-                  <td>{equipment.ipAddress}</td>
-                  <td>{equipment.activityStatus}</td>
-                  <td>{equipment.connectionStatus}</td>
-                  <td>{equipment.service}</td>
-                  <td>
-                    <Link to={"/equipments/detail/"}>
-                      Chi tiết
-                    </Link>
-                  </td>
-                  <td>
-                    <Link to={"/equipments/update/"}>
-                      Cập nhập
-                    </Link>
-                  </td>
+            <table className="equipment__table__wrapper">
+              <thead>
+                <tr className="equipment__table__column">
+                  <th>Mã thiết bị</th>
+                  <th>Tên thiết bị</th>
+                  <th>Địa chỉ IP</th>
+                  <th>Trạng thái hoạt động</th>
+                  <th>Trạng thái kết nối</th>
+                  <th>Dịch vụ</th>
+                  <th></th>
+                  <th></th>
                 </tr>
-              ))}
+              </thead>
+              <tbody>
+                {equipments.map((equipment) => (
+                  <tr key={equipment.id}>
+                    <td>{equipment.equipmentID}</td>
+                    <td>{equipment.equipmentName}</td>
+                    <td>{equipment.ipAddress}</td>
+                    <td>{equipment.activityStatus}</td>
+                    <td>{equipment.connectionStatus}</td>
+                    <td>{equipment.service}</td>
+                    <td>
+                      <Link to={"/equipments/detail/"}>
+                        Chi tiết
+                      </Link>
+                    </td>
+                    <td>
+                      <Link to={"/equipments/update/"}>
+                        Cập nhập
+                      </Link>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
             </table>
           </div>
           <div className="equipment__add_devices">
