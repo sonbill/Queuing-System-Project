@@ -37,6 +37,9 @@ table {
   color: #fff;
   height: 50px;
 }
+.equipment__table__row td {
+  padding:20px;
+}
 tr:nth-child(even) {
   background-color: #fff;
 }

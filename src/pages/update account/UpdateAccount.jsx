@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import TopNav from '../../components/topbar/TopNav'
 import Dropdown from '../../components/Dropdown/Dropdown'
 import Sidebar from '../../components/sidebar_left/Sidebar'
@@ -18,9 +18,9 @@ function UpdateAccount() {
         <TopNav name={'Cập nhập tài khoản'} />
         <div>
           <h1 className="updateAccount__title">Quản lý tài khoản</h1>
-          <div className="updateAccount__infor">
+          <div className="updateAccount__infor" >
             <h2 className="updateAccount__infor__title">Thông tin tài khoản</h2>
-            <div className="updateAccount__list">
+            <div className="updateAccount__list" >
               <div className="updateAccount__items">
                 <div className="updateAccount__item">
                   <p className="updateAccount__item__title">Họ tên<span>*</span></p>
@@ -72,7 +72,7 @@ function UpdateAccount() {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 }
 export default UpdateAccount

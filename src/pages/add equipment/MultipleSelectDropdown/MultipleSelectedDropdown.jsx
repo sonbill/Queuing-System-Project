@@ -2,7 +2,7 @@ import React from 'react';
 import Select from 'react-select'
 
 import './multipleSelectDropdown.css'
-function MultipleSelectedDropdown({ value }) {
+function MultipleSelectedDropdown({ services }) {
   const usingServices = [
     {
       value: 1,

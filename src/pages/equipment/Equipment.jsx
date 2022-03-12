@@ -141,20 +141,20 @@ function Equipment() {
               </thead>
               <tbody>
                 {equipments.map((equipment) => (
-                  <tr key={equipment.id}>
+                  <tr key={equipment.id} class="equipment__table__row">
                     <td>{equipment.equipmentID}</td>
                     <td>{equipment.equipmentName}</td>
                     <td>{equipment.ipAddress}</td>
                     <td>{equipment.activityStatus}</td>
                     <td>{equipment.connectionStatus}</td>
-                    <td>{equipment.service}</td>
+                    <td>{equipment.services}</td>
                     <td>
-                      <Link to={"/equipments/detail/"}>
+                      <Link to={`/equipments/detail/${equipment.equipmentID}`}>
                         Chi tiết
                       </Link>
                     </td>
                     <td>
-                      <Link to={"/equipments/update/"}>
+                      <Link to={`/equipments/update/${equipment.equipmentID}`}>
                         Cập nhập
                       </Link>
                     </td>
@@ -173,7 +173,7 @@ function Equipment() {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 }
 export default Equipment;
