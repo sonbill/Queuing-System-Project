@@ -76,7 +76,8 @@ function AddEquipment() {
               <div className="addEquipment__item" style={{ flexGrow: 1 }}>
                 <p>Dịch vụ sử dụng <span>*</span></p>
                 {/* <input type="text" placeholder="Nhập dịch vụ sử dụng" className="addEquipment__input" style={{ width: '99%' }} /> */}
-                <MultipleSelectedDropdown onChange={(e) => setService(e.target.value)} />
+                <MultipleSelectedDropdown />
+                {/* // onChange={(e) => setService(e.target.value)} /> */}
               </div>
             </div>
             <p className="addEquipment__desc"><span>*</span> Là trường thông tin bắt buộc</p>
