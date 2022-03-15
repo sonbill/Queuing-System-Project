@@ -19,8 +19,7 @@ function UpdateEquipment() {
   useEffect(
     () => onSnapshot(collection(db, 'equipments'), (snapshot) =>
       setUpdateEquipments(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })))
-      , []
-    )
+    ), []
   );
   return (
     <div className="updateEquipment">

@@ -16,8 +16,7 @@ function Details() {
   useEffect(
     () => onSnapshot(collection(db, 'equipments'), (snapshot) =>
       setDetailEquipments(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })))
-      , []
-    )
+    ), []
   );
 
   return (
