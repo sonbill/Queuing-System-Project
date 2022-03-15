@@ -11,8 +11,7 @@ function MultipleSelectedDropdown() {
   useEffect(
     () => onSnapshot(collection(db, 'services'), (snapshot) =>
       setService(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })))
-      , []
-    )
+    ), []
   );
   usingServices = usingServices.map((item) => ({
     label: item.name,

@@ -19,8 +19,7 @@ function Equipment() {
   useEffect(
     () => onSnapshot(collection(db, 'equipments'), (snapshot) =>
       setEquipments(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })))
-      , []
-    )
+    ), []
   );
   const [equipments, setEquipments] = useState([])
   const [selected, setSelected] = useState("Tất cả");
