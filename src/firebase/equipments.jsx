@@ -8,8 +8,8 @@ class Equipment__service {
   //   // return setDoc(doc(db, "equipments", id), obj)
   //   return await setDoc(equipmentsCollection, obj)
   // }
-  add2 = async (id, obj) => {
-    return await setDoc(doc(db, "equipments", id), obj)
-  }
+  // add2 = async (id, obj) => {
+  //   return await setDoc(doc(db, "equipments", id), obj)
+  // }
 }
 export default new Equipment__service();

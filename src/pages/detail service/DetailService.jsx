@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Sidebar from '../../components/sidebar_left/Sidebar'
 import TopNav from '../../components/topbar/TopNav'
 import { Link } from 'react-router-dom'
@@ -10,15 +10,31 @@ import Datepicker from './Datepicker/Datepicker'
 import BorderColorIcon from '@mui/icons-material/BorderColor';
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 
+import { db } from '../../firebase-config'
+import { onSnapshot, collection } from 'firebase/firestore'
+
 import './detailService.css'
 
 export default function DetailService() {
   const [selected, setSelected] = useState("Tất cả");
+  const [detailServices, setDetailServices] = useState([])
+  const [manageServices, setManageServices] = useState([])
 
-  const detailServiceColumns = [
-    { field: 'id', headerName: 'Số thứ tự', width: 500 },
-    { field: 'status', headerName: 'Trạng thái', width: 500 },
-  ]
+  useEffect(
+    () => onSnapshot(collection(db, 'services'), (snapshot) =>
+      setDetailServices(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })))
+    ), []
+  );
+  useEffect(
+    () => onSnapshot(collection(db, 'manageService'), (snapshot) =>
+      setManageServices(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })))
+    ), []
+  );
+
+  // const detailServiceColumns = [
+  //   { field: 'id', headerName: 'Số thứ tự', width: 500 },
+  //   { field: 'status', headerName: 'Trạng thái', width: 500 },
+  // ]
   return (
     <div className="detailService">
       <Sidebar />
@@ -30,25 +46,27 @@ export default function DetailService() {
         <div className="detailService__content">
           {/* CONTENT LEFT */}
           <div className="detailService__content__left">
-            <div className="detailService__infor">
-              <h2 className="detailService__content__title">
-                Thông tin dịch vụ
-              </h2>
-              <div className="detailService__infor__item">
-                <p className="detailService__item__title">Mã dịch vụ </p>
-                <p className="detailService__item__value">201</p>
+            {detailServices.map((detailService) => (
+              <div className="detailService__infor">
+                <h2 className="detailService__content__title">
+                  Thông tin dịch vụ
+                </h2>
+                <div className="detailService__infor__item">
+                  <p className="detailService__item__title">Mã dịch vụ </p>
+                  <p className="detailService__item__value">{detailService.serviceID}</p>
+                </div>
+                <div className="detailService__infor__item">
+                  <p className="detailService__item__title">Tên dịch vụ </p>
+                  <p className="detailService__item__value">{detailService.serviceName}</p>
+                </div>
+                <div className="detailService__infor__item">
+                  <p className="detailService__item__title">Mô tả</p>
+                  <p className="detailService__item__value">{detailService.serviceDesc}</p>
+                </div>
               </div>
-              <div className="detailService__infor__item">
-                <p className="detailService__item__title">Tên dịch vụ </p>
-                <p className="detailService__item__value">Khám tim mạch</p>
-              </div>
-              <div className="detailService__infor__item">
-                <p className="detailService__item__title">Mô tả</p>
-                <p className="detailService__item__value">Chuyên các bệnh lý về tim</p>
-              </div>
-            </div>
+            ))}
             {/* Rules Number */}
-            <div className="detailService__rulesNumber">
+            <div div className="detailService__rulesNumber" >
               <h2 className="detailService__content__title">Quy tắc cấp số</h2>
               <div className="detailService__rulesNumber__items">
                 <div className="detailService__rulesNumber__labelInput">
@@ -100,12 +118,28 @@ export default function DetailService() {
             </div>
             {/* TABLE */}
             <div className="detailService__table">
-              <DataGrid
+              {/* <DataGrid
                 rows={detailServiceRows}
                 columns={detailServiceColumns}
                 pageSize={10}
                 rowsPerPageOptions={[5]}
-              />
+              /> */}
+              <table className="equipment__table__wrapper">
+                <thead>
+                  <tr className="equipment__table__column">
+                    <th>Mã dịch vụ</th>
+                    <th>Tên dịch vụ</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {manageServices.map((manageService) => (
+                    <tr key={manageService.id} class="equipment__table__row">
+                      <td>{manageService.manageServiceID}</td>
+                      <td>{manageService.manageStatus}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
           {/* DIRECTION BUTTON */}
@@ -129,6 +163,6 @@ export default function DetailService() {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   )
 }

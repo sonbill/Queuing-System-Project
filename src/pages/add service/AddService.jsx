@@ -1,14 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Sidebar from '../../components/sidebar_left/Sidebar'
 import TopNav from '../../components/topbar/TopNav'
 import { Link } from 'react-router-dom'
 
+import { db } from '../../firebase-config'
+import { onSnapshot, collection, getDocs, addDoc, setDoc, deleteDoc, doc } from 'firebase/firestore'
+
 import './addService.css'
 function AddService() {
+
+  const [serviceActivityStatus, setServiceActivityStatus] = useState("")
+  const [serviceDesc, setServiceDesc] = useState("")
+  const [serviceID, setServiceID] = useState("")
+  const [serviceName, setServiceName] = useState("")
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const collectionRef = collection(db, "services");
+    const payload = {
+      serviceID: serviceID,
+      serviceName: serviceName,
+      serviceDesc: serviceDesc,
+      serviceActivityStatus: serviceActivityStatus,
+    }
+    await addDoc(collectionRef, payload);
+  }
   return (
     <div className="addService">
       <Sidebar />
-      <div className="service__layout">
+      <form className="service__layout" onSubmit={handleSubmit}>
         <TopNav name={'Thêm dịch vụ'} />
         <div className="addService__title">
           <h3>Quản lý dịch vụ</h3>
@@ -21,16 +42,16 @@ function AddService() {
             <div className="addService__inputDetail__left">
               <div className="addService__input__item">
                 <label htmlFor="serviceID">Mã dịch vụ <span>*</span></label>
-                <input type="text" name="serviceID" id="serviceID" placeholder="201" />
+                <input type="text" name="serviceID" placeholder="Nhập mã dịch vụ" onChange={(e) => setServiceID(e.target.value)} />
               </div>
               <div className="addService__input__item">
                 <label htmlFor="serviceName">Tên dịch vụ <span>*</span></label>
-                <input type="text" name="serviceName" id="serviceName" placeholder="Khám tim mạch" />
+                <input type="text" name="serviceName" placeholder="Nhập tên dịch vụ" onChange={(e) => setServiceName(e.target.value)} />
               </div>
             </div>
             <div className="addService__inputDetail__right">
               <label htmlFor="description">Mô tả: </label>
-              <textarea name="description" id="description" rows="6" >
+              <textarea name="description" rows="6" onChange={(e) => setServiceDesc(e.target.value)} >
               </textarea>
             </div>
           </div>
@@ -76,9 +97,9 @@ function AddService() {
           <Link to="/services">
             <button className="addService__button addService__button-cancel">Huỷ bỏ</button>
           </Link>
-          <button className="addService__button addService__button-addService">Cập nhập</button>
+          <button className="addService__button addService__button-addService" type="submit"> Cập nhập</button>
         </div>
-      </div>
+      </form>
     </div >
   );
 }

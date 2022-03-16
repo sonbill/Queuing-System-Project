@@ -26,69 +26,69 @@ function Equipment() {
   const [selected2, setSelected2] = useState("Tất cả");
 
 
-  const columns = [
-    { field: 'id', headerName: 'Mã thiết bị', width: 130 },
-    { field: 'equipment', headerName: 'Tên thiết bị', width: 200 },
-    { field: 'ipAddress', headerName: 'Địa chỉ IP', width: 130 },
-    {
-      field: 'activityStatus',
-      headerName: 'Trạng thái hoạt động',
-      width: 200,
-    },
-    {
-      field: 'connectionStatus',
-      headerName: 'Trạng thái kết nối',
-      description: 'This column has a value getter and is not sortable.',
-      sortable: true,
-      width: 200,
-    },
-    {
-      field: 'services',
-      headerName: 'Dịch vụ sử dụng',
-      description: 'This column has a value getter and is not sortable.',
-      sortable: false,
-      width: 320,
-      renderCell: (params) => {
-        return (
-          <div>
-            {params.row.services}
-          </div >
-        );
-      }
-    },
-    {
-      field: 'details',
-      headerName: '',
-      description: 'This column has a value getter and is not sortable.',
-      sortable: false,
-      width: 160,
-      renderCell: (params) => {
-        return (
-          <>
-            <Link to={"/equipments/detail/" + params.row.id}>
-              <a href="/equipments/detail">Chi tiết</a>
-            </Link>
-          </>
-        );
-      }
-    },
-    {
-      field: 'update',
-      headerName: '',
-      description: 'This column has a value getter and is not sortable.',
-      sortable: false,
-      width: 160,
-      renderCell: (params) => {
-        return (
-          <div>
-            <Link to={"/equipments/update/" + params.row.id}>
-              <a href="/equipments/update">Cập nhập</a>
-            </Link>
-          </div >
-        );
-      }
-    },
-  ];
+  // const columns = [
+  //   { field: 'id', headerName: 'Mã thiết bị', width: 130 },
+  //   { field: 'equipment', headerName: 'Tên thiết bị', width: 200 },
+  //   { field: 'ipAddress', headerName: 'Địa chỉ IP', width: 130 },
+  //   {
+  //     field: 'activityStatus',
+  //     headerName: 'Trạng thái hoạt động',
+  //     width: 200,
+  //   },
+  //   {
+  //     field: 'connectionStatus',
+  //     headerName: 'Trạng thái kết nối',
+  //     description: 'This column has a value getter and is not sortable.',
+  //     sortable: true,
+  //     width: 200,
+  //   },
+  //   {
+  //     field: 'services',
+  //     headerName: 'Dịch vụ sử dụng',
+  //     description: 'This column has a value getter and is not sortable.',
+  //     sortable: false,
+  //     width: 320,
+  //     renderCell: (params) => {
+  //       return (
+  //         <div>
+  //           {params.row.services}
+  //         </div >
+  //       );
+  //     }
+  //   },
+  //   {
+  //     field: 'details',
+  //     headerName: '',
+  //     description: 'This column has a value getter and is not sortable.',
+  //     sortable: false,
+  //     width: 160,
+  //     renderCell: (params) => {
+  //       return (
+  //         <>
+  //           <Link to={"/equipments/detail/" + params.row.id}>
+  //             <a href="/equipments/detail">Chi tiết</a>
+  //           </Link>
+  //         </>
+  //       );
+  //     }
+  //   },
+  //   {
+  //     field: 'update',
+  //     headerName: '',
+  //     description: 'This column has a value getter and is not sortable.',
+  //     sortable: false,
+  //     width: 160,
+  //     renderCell: (params) => {
+  //       return (
+  //         <div>
+  //           <Link to={"/equipments/update/" + params.row.id}>
+  //             <a href="/equipments/update">Cập nhập</a>
+  //           </Link>
+  //         </div >
+  //       );
+  //     }
+  //   },
+  // ];
 
   return (
     <div className="equipment">

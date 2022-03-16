@@ -28,7 +28,7 @@ function Details() {
           <div className="details__leftLayout">
             <h1 className="equipment__infor__title">Quản lý thiết bị</h1>
             {detailEquipments.map((detailEquipment) => (
-              <div className="equipment__infor__detail">
+              <div key={detailEquipment.id} className="equipment__infor__detail">
                 <h2>Thông tin thiết bị</h2>
                 <div className="equipment__infor__wrapper">
                   <div className="equipment__infor__left">
