@@ -13,6 +13,7 @@ import './updateEquipment.css'
 
 function UpdateEquipment() {
   const [selected, setSelected] = useState('Chọn loại thiết bị');
+
   const [updateIpAddress, setUpdateIpAddress] = useState('')
   const [updateEquipmentName, setUpdateEquipmentName] = useState('')
   const [updateEquipmentID, setUpdateEquipmentID] = useState('')

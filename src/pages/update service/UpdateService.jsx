@@ -4,95 +4,106 @@ import TopNav from '../../components/topbar/TopNav'
 import { Link } from 'react-router-dom'
 
 import { db } from '../../firebase-config'
-import { onSnapshot, collection } from 'firebase/firestore'
+import { onSnapshot, collection, setDoc, doc } from 'firebase/firestore'
 
 import './updateService.css'
 
 export default function UpdateService() {
   const [updateServices, setUpdateServices] = useState([])
 
+  const [updateServiceName, setUpdateServiceName] = useState('')
+  const [updateServiceID, setUpdateServiceID] = useState('')
+  const [updateServiceDesc, setUpdateServiceDesc] = useState('')
+
   useEffect(
     () => onSnapshot(collection(db, 'services'), (snapshot) =>
       setUpdateServices(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })))
     ), []
   );
+  const handleEdit = async (id) => {
+
+    const docRef = doc(db, 'services', id)
+    const payload = { serviceName: updateServiceName, serviceID: updateServiceID, serviceDesc: updateServiceDesc }
+
+    setDoc(docRef, payload);
+  }
   return (
     <div className="updateService">
       <Sidebar />
-      <div className="updateService__layout">
-        <TopNav name={'Cập nhập'} />
-        <div className="updateService__title">
-          <h3>Quản lý dịch vụ</h3>
-        </div>
-        <div className="updateService__infor">
-          <h2 className="updateService__infor__title">
-            Thông tin dịch vụ
-          </h2>
-          {updateServices.map((updateService) => (
+      {updateServices.map((updateService) => (
+        <div className="updateService__layout">
+          <TopNav name={'Cập nhập'} />
+          <div className="updateService__title">
+            <h3>Quản lý dịch vụ</h3>
+          </div>
+          <div className="updateService__infor">
+            <h2 className="updateService__infor__title">
+              Thông tin dịch vụ
+            </h2>
             <div className="updateService__inputWrapper">
               <div className="updateService__inputDetail__left">
                 <div className="updateService__input__item">
                   <label htmlFor="serviceID">Mã dịch vụ<span>*</span></label>
-                  <input type="text" name="serviceID" id="serviceID" placeholder={updateService.serviceID} />
+                  <input type="text" name="serviceID" id="serviceID" placeholder={updateService.serviceID} onChange={(e) => setUpdateServiceID(e.target.value)} />
                 </div>
                 <div className="updateService__input__item">
                   <label htmlFor="serviceName">Tên dịch vụ <span>*</span></label>
-                  <input type="text" name="serviceName" id="serviceName" placeholder={updateService.serviceName} />
+                  <input type="text" name="serviceName" id="serviceName" placeholder={updateService.serviceName} onChange={(e) => setUpdateServiceName(e.target.value)} />
                 </div>
               </div>
               <div className="updateService__inputDetail__right">
                 <label htmlFor="description">Mô tả: </label>
-                <textarea name="description" id="description" rows="6" placeholder={updateService.serviceDesc}>
+                <textarea name="description" id="description" rows="6" placeholder={updateService.serviceDesc} onChange={(e) => setUpdateServiceDesc(e.target.value)}>
 
                 </textarea>
               </div>
             </div>
-          ))}
-          <div className="updateService__rulesNumber">
-            <h2 className="updateService__rulesNumber__title">Quy tắc cấp số</h2>
-            <div className="updateService__rulesNumber__items">
+            <div className="updateService__rulesNumber">
+              <h2 className="updateService__rulesNumber__title">Quy tắc cấp số</h2>
+              <div className="updateService__rulesNumber__items">
+                <div className="updateService__rulesNumber__labelInput">
+                  <input type="checkbox" className="updateService__rulesNumber__checkbox" />
+                  <p>Tăng tự động từ: </p>
+                </div>
+                <div className="updateService__rulesNumber__input">
+                  <input type="text" placeholder="0001" />
+                  <span>đến</span>
+                  <input type="text" placeholder="9999" />
+                </div>
+              </div>
+              <div className="updateService__rulesNumber__items">
+                <div className="updateService__rulesNumber__labelInput">
+                  <input type="checkbox" className="updateService__rulesNumber__checkbox" />
+                  <p>Prefix: </p>
+                </div>
+                <div className="updateService__rulesNumber__input">
+                  <input type="text" placeholder="0001" />
+                </div>
+              </div>
+              <div className="updateService__rulesNumber__items">
+                <div className="updateService__rulesNumber__labelInput">
+                  <input type="checkbox" className="updateService__rulesNumber__checkbox" />
+                  <p>Surfix: </p>
+                </div>
+                <div className="updateService__rulesNumber__input">
+                  <input type="text" placeholder="0001" />
+                </div>
+              </div>
               <div className="updateService__rulesNumber__labelInput">
                 <input type="checkbox" className="updateService__rulesNumber__checkbox" />
-                <p>Tăng tự động từ: </p>
-              </div>
-              <div className="updateService__rulesNumber__input">
-                <input type="text" placeholder="0001" />
-                <span>đến</span>
-                <input type="text" placeholder="9999" />
+                <p>Reset mỗi ngày: </p>
               </div>
             </div>
-            <div className="updateService__rulesNumber__items">
-              <div className="updateService__rulesNumber__labelInput">
-                <input type="checkbox" className="updateService__rulesNumber__checkbox" />
-                <p>Prefix: </p>
-              </div>
-              <div className="updateService__rulesNumber__input">
-                <input type="text" placeholder="0001" />
-              </div>
-            </div>
-            <div className="updateService__rulesNumber__items">
-              <div className="updateService__rulesNumber__labelInput">
-                <input type="checkbox" className="updateService__rulesNumber__checkbox" />
-                <p>Surfix: </p>
-              </div>
-              <div className="updateService__rulesNumber__input">
-                <input type="text" placeholder="0001" />
-              </div>
-            </div>
-            <div className="updateService__rulesNumber__labelInput">
-              <input type="checkbox" className="updateService__rulesNumber__checkbox" />
-              <p>Reset mỗi ngày: </p>
-            </div>
+            <p className="updateService__desc"><span>*</span> Là trường thông tin bắt buộc</p>
           </div>
-          <p className="updateService__desc"><span>*</span> Là trường thông tin bắt buộc</p>
+          <div className="updateService__buttons">
+            <Link to="/services">
+              <button className="updateService__button updateService__button-cancel">Huỷ bỏ</button>
+            </Link>
+            <button className="updateService__button updateService__button-updateService" onClick={() => handleEdit(updateService.id)}>Cập nhập</button>
+          </div>
         </div>
-        <div className="updateService__buttons">
-          <Link to="/services">
-            <button className="updateService__button updateService__button-cancel">Huỷ bỏ</button>
-          </Link>
-          <button className="updateService__button updateService__button-updateService">Cập nhập</button>
-        </div>
-      </div>
+      ))}
     </div>
   )
 }
