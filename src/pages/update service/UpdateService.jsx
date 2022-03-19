@@ -1,11 +1,21 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Sidebar from '../../components/sidebar_left/Sidebar'
 import TopNav from '../../components/topbar/TopNav'
 import { Link } from 'react-router-dom'
 
+import { db } from '../../firebase-config'
+import { onSnapshot, collection } from 'firebase/firestore'
+
 import './updateService.css'
 
 export default function UpdateService() {
+  const [updateServices, setUpdateServices] = useState([])
+
+  useEffect(
+    () => onSnapshot(collection(db, 'services'), (snapshot) =>
+      setUpdateServices(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })))
+    ), []
+  );
   return (
     <div className="updateService">
       <Sidebar />
@@ -18,24 +28,26 @@ export default function UpdateService() {
           <h2 className="updateService__infor__title">
             Thông tin dịch vụ
           </h2>
-          <div className="updateService__inputWrapper">
-            <div className="updateService__inputDetail__left">
-              <div className="updateService__input__item">
-                <label htmlFor="serviceID">Mã dịch vụ <span>*</span></label>
-                <input type="text" name="serviceID" id="serviceID" placeholder="201" />
+          {updateServices.map((updateService) => (
+            <div className="updateService__inputWrapper">
+              <div className="updateService__inputDetail__left">
+                <div className="updateService__input__item">
+                  <label htmlFor="serviceID">Mã dịch vụ<span>*</span></label>
+                  <input type="text" name="serviceID" id="serviceID" placeholder={updateService.serviceID} />
+                </div>
+                <div className="updateService__input__item">
+                  <label htmlFor="serviceName">Tên dịch vụ <span>*</span></label>
+                  <input type="text" name="serviceName" id="serviceName" placeholder={updateService.serviceName} />
+                </div>
               </div>
-              <div className="updateService__input__item">
-                <label htmlFor="serviceName">Tên dịch vụ <span>*</span></label>
-                <input type="text" name="serviceName" id="serviceName" placeholder="Khám tim mạch" />
-              </div>
-            </div>
-            <div className="updateService__inputDetail__right">
-              <label htmlFor="description">Mô tả: </label>
-              <textarea name="description" id="description" rows="6" >
+              <div className="updateService__inputDetail__right">
+                <label htmlFor="description">Mô tả: </label>
+                <textarea name="description" id="description" rows="6" placeholder={updateService.serviceDesc}>
 
-              </textarea>
+                </textarea>
+              </div>
             </div>
-          </div>
+          ))}
           <div className="updateService__rulesNumber">
             <h2 className="updateService__rulesNumber__title">Quy tắc cấp số</h2>
             <div className="updateService__rulesNumber__items">

@@ -148,12 +148,12 @@ function Equipment() {
                     <td>{equipment.connectionStatus}</td>
                     <td>{equipment.services}</td>
                     <td>
-                      <Link to={`/equipments/detail/${equipment.equipmentID}`}>
+                      <Link to={`/equipments/detail/${equipment.id}`}>
                         Chi tiết
                       </Link>
                     </td>
                     <td>
-                      <Link to={`/equipments/update/${equipment.equipmentID}`}>
+                      <Link to={`/equipments/update/${equipment.id}`}>
                         Cập nhập
                       </Link>
                     </td>

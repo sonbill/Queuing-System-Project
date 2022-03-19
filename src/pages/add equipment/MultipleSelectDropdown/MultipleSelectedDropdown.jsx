@@ -9,7 +9,7 @@ function MultipleSelectedDropdown() {
   let [usingServices, setService] = useState([])
 
   useEffect(
-    () => onSnapshot(collection(db, 'services'), (snapshot) =>
+    () => onSnapshot(collection(db, 'usingServices'), (snapshot) =>
       setService(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })))
     ), []
   );

@@ -42,16 +42,16 @@ function AddService() {
             <div className="addService__inputDetail__left">
               <div className="addService__input__item">
                 <label htmlFor="serviceID">Mã dịch vụ <span>*</span></label>
-                <input type="text" name="serviceID" placeholder="Nhập mã dịch vụ" onChange={(e) => setServiceID(e.target.value)} />
+                <input type="text" name="serviceID" placeholder="Nhập mã dịch vụ" onChange={(e) => setServiceID(e.target.value)} required />
               </div>
               <div className="addService__input__item">
                 <label htmlFor="serviceName">Tên dịch vụ <span>*</span></label>
-                <input type="text" name="serviceName" placeholder="Nhập tên dịch vụ" onChange={(e) => setServiceName(e.target.value)} />
+                <input type="text" name="serviceName" placeholder="Nhập tên dịch vụ" onChange={(e) => setServiceName(e.target.value)} required />
               </div>
             </div>
             <div className="addService__inputDetail__right">
               <label htmlFor="description">Mô tả: </label>
-              <textarea name="description" rows="6" onChange={(e) => setServiceDesc(e.target.value)} >
+              <textarea name="description" rows="6" onChange={(e) => setServiceDesc(e.target.value)} required>
               </textarea>
             </div>
           </div>

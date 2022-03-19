@@ -6,13 +6,16 @@ import { Link } from 'react-router-dom'
 import MultipleSelectedDropdown from './multipleSelectDropdown/MultipleSelectedDropdown'
 
 import { db } from '../../firebase-config'
-import { onSnapshot, collection } from 'firebase/firestore'
+import { onSnapshot, collection, setDoc, doc } from 'firebase/firestore'
 
 
 import './updateEquipment.css'
 
 function UpdateEquipment() {
   const [selected, setSelected] = useState('Chọn loại thiết bị');
+  const [updateIpAddress, setUpdateIpAddress] = useState('')
+  const [updateEquipmentName, setUpdateEquipmentName] = useState('')
+  const [updateEquipmentID, setUpdateEquipmentID] = useState('')
 
   const [updateEquipments, setUpdateEquipments] = useState([])
 
@@ -21,21 +24,28 @@ function UpdateEquipment() {
       setUpdateEquipments(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })))
     ), []
   );
+  const handleEdit = async (id) => {
+
+    const docRef = doc(db, 'equipments', id)
+    const payload = { ipAddress: updateIpAddress, equipmentName: updateEquipmentName, equipmentID: updateEquipmentID }
+
+    setDoc(docRef, payload);
+  }
   return (
     <div className="updateEquipment">
       <Sidebar />
       <div className="updateEquipment__layout">
         <TopNav name={'Cập nhập thiết bị'} />
-        <div>
-          <h1 className="updateEquipment__title">Quản lý thiết bị</h1>
-          <div className="updateEquipment__infor">
-            <h2 className="updateEquipment__infor__title">Thông tin thiết bị</h2>
-            {updateEquipments.map((updateEquipment) => (
+        {updateEquipments.map((updateEquipment) => (
+          <div>
+            <h1 className="updateEquipment__title">Quản lý thiết bị</h1>
+            <div className="updateEquipment__infor">
+              <h2 className="updateEquipment__infor__title">Thông tin thiết bị</h2>
               <div className="updateEquipment__list">
                 <div className="updateEquipment__items">
                   <div className="updateEquipment__item">
                     <p className="updateEquipment__item__title">Mã thiết bị <span>*</span></p>
-                    <input type="text" placeholder="Nhập mã thiết bị" className="updateEquipment__input" value={updateEquipment.equipmentID} />
+                    <input type="text" className="updateEquipment__input" placeholder={updateEquipment.equipmentID} onChange={(e) => setUpdateEquipmentID(e.target.value)} />
                   </div>
                   <div className="updateEquipment__item">
                     <p className="updateEquipment__item__title">Loại thiết bị <span>*</span></p>
@@ -45,21 +55,21 @@ function UpdateEquipment() {
                 <div className="updateEquipment__items">
                   <div className="updateEquipment__item">
                     <p className="updateEquipment__item__title">Tên thiết bị <span>*</span></p>
-                    <input type="text" placeholder="Nhập tên thiết bị" className="updateEquipment__input" value={updateEquipment.equipmentName} />
+                    <input type="text" className="updateEquipment__input" placeholder={updateEquipment.equipmentName} onChange={(e) => setUpdateEquipmentName(e.target.value)} />
                   </div>
                   <div className="updateEquipment__item">
                     <p className="updateEquipment__item__title">Tên đăng nhập <span>*</span></p>
-                    <input type="text" placeholder="Nhập tài khoản" className="updateEquipment__input" value={'sonkyo146'} />
+                    <input type="text" className="updateEquipment__input" placeholder={'sonkyo146'} />
                   </div>
                 </div>
                 <div className="updateEquipment__items">
                   <div className="updateEquipment__item">
                     <p className="updateEquipment__item__title">Địa chỉ IP <span>*</span></p>
-                    <input type="text" placeholder="Nhập địa chỉ IP" className="updateEquipment__input" value={updateEquipment.ipAddress} />
+                    <input type="text" className="updateEquipment__input" placeholder={updateEquipment.ipAddress} onChange={(e) => setUpdateIpAddress(e.target.value)} />
                   </div>
                   <div className="updateEquipment__item">
                     <p className="updateEquipment__item__title">Mật khẩu <span>*</span></p>
-                    <input type="text" placeholder="Nhập mật khẩu" className="updateEquipment__input" value={'CMS'} />
+                    <input type="text" className="updateEquipment__input" value={'CMS'} />
                   </div>
                 </div>
                 <div className="updateEquipment__items">
@@ -71,15 +81,15 @@ function UpdateEquipment() {
                 </div>
                 <p className="updateEquipment__desc"><span>*</span> Là trường thông tin bắt buộc</p>
               </div>
-            ))}
-            <div className="updateEquipment__buttons">
-              <Link to="/equipments">
-                <button className="updateEquipment__button updateEquipment__button-cancel">Huỷ bỏ</button>
-              </Link>
-              <button className="updateEquipment__button updateEquipment__button-addDevice">Cập nhập</button>
+              <div className="updateEquipment__buttons">
+                <Link to="/equipments">
+                  <button className="updateEquipment__button updateEquipment__button-cancel">Huỷ bỏ</button>
+                </Link>
+                <button className="updateEquipment__button updateEquipment__button-addDevice" onClick={() => handleEdit(updateEquipment.id)}>Cập nhập</button>
+              </div>
             </div>
           </div>
-        </div>
+        ))}
       </div >
     </div >
   );
