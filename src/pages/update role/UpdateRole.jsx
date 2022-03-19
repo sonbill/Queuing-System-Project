@@ -21,7 +21,7 @@ export default function UpdateRole() {
                 <input type="text" name="roleName" />
               </div>
               <div className="updateRole__content__left__item">
-                <label htmlFor="roleDescription">Tên vai trò <span>*</span> </label>
+                <label htmlFor="roleDescription">Mô tả: </label>
                 <textarea name="roleDescription" id="roleDescription" rows="6" >
                 </textarea>
               </div>
