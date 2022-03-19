@@ -18,7 +18,7 @@
   width: 95%;
   align-items:center;
   justify-content: flex-end;
-  padding:30px;
+  padding:0 30px 30px 30px;
 }
 .roles__func__items p {
   margin-bottom:10px;

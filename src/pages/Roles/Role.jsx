@@ -47,9 +47,9 @@ export default function Roles() {
     <div className="roles">
       <Sidebar />
       <div className="roles__layout" >
-        <TopNav name={'Lập báo cáo'} />
+        <TopNav name={'Quản lý vai trò'} />
         <div className="roles__wrapper">
-          <h2 className="roles__title">Quản lý cấp số</h2>
+          <h2 className="roles__title">Danh sách vai trò</h2>
           <div className="roles__function">
             <div className="roles__func__items">
               <p>Từ khoá</p>
