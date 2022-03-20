@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Sidebar from '../../components/sidebar_left/Sidebar'
 import TopNav from '../../components/topbar/TopNav'
 import { Link } from 'react-router-dom'
@@ -8,34 +8,45 @@ import { accountRows } from '../../dummyData';
 import Dropdown from '../../components/Dropdown/Dropdown'
 import AddBoxIcon from '@mui/icons-material/AddBox';
 
+import { db } from '../../firebase-config'
+import { onSnapshot, collection } from 'firebase/firestore'
+
 import './manageAccount.css'
 
 export default function ManageAccount() {
   const [role, setRole] = useState("Tất cả");
 
-  const manageAccountColumns = [
-    { field: 'username', headerName: 'Tên đăng nhập', width: 230 },
-    { field: 'fullname', headerName: 'Họ tên', width: 200 },
-    { field: 'phone', headerName: 'Số điện thoại', width: 200 },
-    { field: 'emailAddress', headerName: 'Email', width: 200 },
-    { field: 'role', headerName: 'Vai trò', width: 200 },
-    { field: 'status', headerName: 'Trạng thái hoạt động', width: 200, },
-    {
-      field: 'update',
-      headerName: '',
-      sortable: false,
-      width: 160,
-      renderCell: (params) => {
-        return (
-          <>
-            <Link to={"/manage-account/update/" + params.row.id}>
-              <p>Cập nhập</p>
-            </Link>
-          </>
-        );
-      }
-    },
-  ];
+  const [accounts, setAccounts] = useState([])
+
+  useEffect(
+    () => onSnapshot(collection(db, 'users'), (snapshot) =>
+      setAccounts(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })))
+    ), []
+  );
+
+  // const manageAccountColumns = [
+  //   { field: 'username', headerName: 'Tên đăng nhập', width: 230 },
+  //   { field: 'fullname', headerName: 'Họ tên', width: 200 },
+  //   { field: 'phone', headerName: 'Số điện thoại', width: 200 },
+  //   { field: 'emailAddress', headerName: 'Email', width: 200 },
+  //   { field: 'role', headerName: 'Vai trò', width: 200 },
+  //   { field: 'status', headerName: 'Trạng thái hoạt động', width: 200, },
+  //   {
+  //     field: 'update',
+  //     headerName: '',
+  //     sortable: false,
+  //     width: 160,
+  //     renderCell: (params) => {
+  //       return (
+  //         <>
+  //           <Link to={"/manage-account/update/" + params.row.id}>
+  //             <p>Cập nhập</p>
+  //           </Link>
+  //         </>
+  //       );
+  //     }
+  //   },
+  // ];
   return (
     <div className="manageAccounts">
       <Sidebar />
@@ -61,12 +72,42 @@ export default function ManageAccount() {
           </div>
           <div className="manageAccounts__content">
             <div className="manageAccounts__table">
-              <DataGrid
-                rows={accountRows}
-                columns={manageAccountColumns}
-                pageSize={10}
-                rowsPerPageOptions={[8]}
-              />
+              {/* <DataGrid
+                  rows={accountRows}
+                  columns={manageAccountColumns}
+                  pageSize={10}
+                  rowsPerPageOptions={[8]}
+                /> */}
+              <table className="equipment__table__wrapper">
+                <thead>
+                  <tr className="equipment__table__column">
+                    <th>Tên đăng nhập</th>
+                    <th>Họ tên</th>
+                    <th>Số điện thoại</th>
+                    <th>Email</th>
+                    <th>Vai trò</th>
+                    <th>Trạng thái hoạt động</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {accounts.map((account) => (
+                    <tr key={account.id} class="equipment__table__row">
+                      <td>{account.username}</td>
+                      <td>{account.fullname}</td>
+                      <td>{account.phone}</td>
+                      <td>{account.email}</td>
+                      <td>{account.role}</td>
+                      <td>{account.activityStatus}</td>
+                      <td>
+                        <Link to={`/equipments/detail/${account.id}`}>
+                          Chi tiết
+                        </Link>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
             <div className="manageAccounts__newAccount">
               <Link to={"/manage-account/add-account"}>
