@@ -32,7 +32,11 @@ function AddEquipment() {
       service: service
     }
     await addDoc(collectionRef, payload);
+    document.getElementById("equipmentID").value = "";
+    document.getElementById("equipmentName").value = "";
+    document.getElementById("ipAddress").value = "";
   }
+
   return (
     <div className="addEquipment">
       <Sidebar />
@@ -45,31 +49,31 @@ function AddEquipment() {
             <div className="addEquipment__items">
               <div className="addEquipment__item">
                 <p className="addEquipment__item__title">Mã thiết bị <span>*</span></p>
-                <input type="text" placeholder="Nhập mã thiết bị" className="addEquipment__input" onChange={(e) => setNewID(e.target.value)} required />
+                <input type="text" id="equipmentID" placeholder="Nhập mã thiết bị" className="addEquipment__input" onChange={(e) => setNewID(e.target.value)} required />
               </div>
               <div className="addEquipment__item">
                 <p className="addEquipment__item__title">Loại thiết bị <span>*</span></p>
-                <Dropdown selected={selected} setSelected={setSelected} options={['Kiosk', 'Display counter']} setWidth={{ width: 775 }} setHeight={{ height: 44 }} setPadding={{ padding: 6 }} onChange={(e) => setEquipment(e.target.selected)} required />
+                <Dropdown selected={selected} setSelected={setSelected} options={['Kiosk', 'Display counter']} setWidth={{ width: 775 }} setHeight={{ height: 44 }} setPadding={{ padding: 6 }} onChange={(e) => setEquipment(e.target.value)} required />
               </div>
             </div>
             <div className="addEquipment__items">
               <div className="addEquipment__item">
                 <p className="addEquipment__item__title">Tên thiết bị <span>*</span></p>
-                <input type="text" placeholder="Nhập tên thiết bị" className="addEquipment__input" onChange={(e) => setEquipmentName(e.target.value)} required />
+                <input type="text" id="equipmentName" placeholder="Nhập tên thiết bị" className="addEquipment__input" onChange={(e) => setEquipmentName(e.target.value)} required />
               </div>
               <div className="addEquipment__item">
                 <p className="addEquipment__item__title">Tên đăng nhập <span>*</span></p>
-                <input type="text" placeholder="Nhập tài khoản" className="addEquipment__input" />
+                <input type="text" id="username" placeholder="Nhập tài khoản" className="addEquipment__input" />
               </div>
             </div>
             <div className="addEquipment__items">
               <div className="addEquipment__item">
                 <p className="addEquipment__item__title">Địa chỉ IP <span>*</span></p>
-                <input type="text" placeholder="Nhập địa chỉ IP" className="addEquipment__input" onChange={(e) => setIpAddress(e.target.value)} required />
+                <input type="text" id="ipAddress" placeholder="Nhập địa chỉ IP" className="addEquipment__input" onChange={(e) => setIpAddress(e.target.value)} required />
               </div>
               <div className="addEquipment__item">
                 <p className="addEquipment__item__title">Mật khẩu <span>*</span></p>
-                <input type="password" placeholder="Nhập mật khẩu" className="addEquipment__input" />
+                <input type="password" id="password" placeholder="Nhập mật khẩu" className="addEquipment__input" />
               </div>
             </div>
             <div className="addEquipment__items">

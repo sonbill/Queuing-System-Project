@@ -54,7 +54,7 @@ function UpdateAccount() {
               <div className="updateAccount__items">
                 <div className="updateAccount__item">
                   <p className="updateAccount__item__title">Vai trò<span>*</span></p>
-                  <Dropdown selected={role} setSelected={setRole} options={['Kế toán', 'Quản lý', 'Admin']} setWidth={{ width: 770 }} setHeight={{ height: 42 }} setPadding={{ padding: 6 }} />
+                  <Dropdown selected={role} setSelected={setRole} options={['Kế toán', 'Quản lý', 'Admin']} setWidth={{ width: 770 }} setHeight={{ height: 42 }} setPadding={{ padding: 6 }}/>
                 </div>
                 <div className="updateAccount__item">
                   <p className="updateAccount__item__title">Tình trạng<span>*</span></p>

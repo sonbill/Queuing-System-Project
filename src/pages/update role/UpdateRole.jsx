@@ -25,6 +25,9 @@ export default function UpdateRole() {
     const payload = { roleName: updateRoleName, roleDesc: updateRoleDesc }
 
     setDoc(docRef, payload);
+    document.getElementById("roleName").value = "";
+    document.getElementById("roleDescription").value = "";
+
   }
   return (
     <div className="updateRole">
@@ -40,11 +43,11 @@ export default function UpdateRole() {
                 <div className="updateRole__content__left">
                   <div className="updateRole__content__left__item">
                     <label htmlFor="roleName">Tên vai trò <span>*</span></label>
-                    <input type="text" name="roleName" placeholder={updateRole.roleName} onChange={(e) => setUpdateRoleName(e.target.value)} />
+                    <input type="text" name="roleName" id="roleName" placeholder={updateRole.roleName} onChange={(e) => setUpdateRoleName(e.target.value)} />
                   </div>
                   <div className="updateRole__content__left__item">
                     <label htmlFor="roleDescription">Mô tả: </label>
-                    <textarea name="roleDescription" rows="6" placeholder={updateRole.roleDesc} onChange={(e) => setUpdateRoleDesc(e.target.value)} >
+                    <textarea name="roleDescription" id="roleDescription" rows="6" placeholder={updateRole.roleDesc} onChange={(e) => setUpdateRoleDesc(e.target.value)} >
                     </textarea>
                   </div>
                   <p className="updateRole__desc"><span>*</span> Là trường thông tin bắt buộc</p>

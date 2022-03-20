@@ -20,6 +20,8 @@ export default function AddRole() {
       roleName: addRoleName,
     }
     await addDoc(collectionRef, payload);
+    document.getElementById("roleName").value = "";
+    document.getElementById("roleDescription").value = "";
   }
 
   return (
@@ -34,11 +36,11 @@ export default function AddRole() {
             <div className="addRole__content__left">
               <div className="addRole__content__left__item">
                 <label htmlFor="roleName">Tên vai trò <span>*</span></label>
-                <input type="text" name="roleName" placeholder="Nhập tên vai trò" onChange={(e) => setAddRoleName(e.target.value)} required />
+                <input type="text" name="roleName" id="roleName" placeholder="Nhập tên vai trò" onChange={(e) => setAddRoleName(e.target.value)} required />
               </div>
               <div className="addRole__content__left__item">
                 <label htmlFor="roleDescription">Mô tả: </label>
-                <textarea name="roleDescription" rows="6" placeholder="Nhập mô tả" onChange={(e) => setAddRoleDesc(e.target.value)} required >
+                <textarea name="roleDescription" id="roleDescription" rows="6" placeholder="Nhập mô tả" onChange={(e) => setAddRoleDesc(e.target.value)} required >
                 </textarea>
               </div>
               <p className="addRole__desc"><span>*</span> Là trường thông tin bắt buộc</p>

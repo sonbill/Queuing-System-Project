@@ -100,8 +100,8 @@ export default function ManageAccount() {
                       <td>{account.role}</td>
                       <td>{account.activityStatus}</td>
                       <td>
-                        <Link to={`/equipments/detail/${account.id}`}>
-                          Chi tiết
+                        <Link to={`/manage-account/update/${account.id}`}>
+                          Cập nhập
                         </Link>
                       </td>
                     </tr>

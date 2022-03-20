@@ -52,7 +52,7 @@ export default function DetailService() {
                   Thông tin dịch vụ
                 </h2>
                 <div className="detailService__infor__item">
-                  <p className="detailService__item__title">Mã dịch vụ </p>
+                  <p className="detailService__item__title" >Mã dịch vụ </p>
                   <p className="detailService__item__value">{detailService.serviceID}</p>
                 </div>
                 <div className="detailService__infor__item">
