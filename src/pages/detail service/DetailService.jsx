@@ -11,7 +11,7 @@ import BorderColorIcon from '@mui/icons-material/BorderColor';
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 
 import { db } from '../../firebase-config'
-import { onSnapshot, collection } from 'firebase/firestore'
+import { onSnapshot, collection, doc, getDocs, query, where } from 'firebase/firestore'
 
 import './detailService.css'
 
@@ -20,16 +20,31 @@ export default function DetailService() {
   const [detailServices, setDetailServices] = useState([])
   const [manageServices, setManageServices] = useState([])
 
-  useEffect(
-    () => onSnapshot(collection(db, 'services'), (snapshot) =>
-      setDetailServices(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })))
-    ), []
-  );
-  useEffect(
-    () => onSnapshot(collection(db, 'manageService'), (snapshot) =>
-      setManageServices(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })))
-    ), []
-  );
+  const colRef = collection(db, 'services')
+
+  const userData = async () => {
+    const q = query(colRef)
+
+    const querySnapshot = await getDocs(q)
+    const data = querySnapshot.docs.map((doc) => ({
+      ...doc.data(), id: doc.id,
+    }));
+    setDetailServices(data);
+  }
+
+  useEffect(() => {
+    userData();
+  }, []);
+  // useEffect(
+  //   () => onSnapshot(colRef, (snapshot) =>
+  //     setDetailServices(snapshot({ ...doc.data(), id: doc.id }))
+  //   ), []
+  // );
+  // useEffect(
+  //   () => onSnapshot(collection(db, 'manageService'), (snapshot) =>
+  //     setManageServices(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })))
+  //   ), []
+  // );
 
   // const detailServiceColumns = [
   //   { field: 'id', headerName: 'Số thứ tự', width: 500 },
@@ -46,25 +61,27 @@ export default function DetailService() {
         <div className="detailService__content">
           {/* CONTENT LEFT */}
           <div className="detailService__content__left">
-            {detailServices.map((detailService) => (
-              <div className="detailService__infor">
-                <h2 className="detailService__content__title">
-                  Thông tin dịch vụ
-                </h2>
-                <div className="detailService__infor__item">
-                  <p className="detailService__item__title" >Mã dịch vụ </p>
-                  <p className="detailService__item__value">{detailService.serviceID}</p>
+            <div className="detailService__infor">
+              <h2 className="detailService__content__title">
+                Thông tin dịch vụ
+              </h2>
+              {detailServices.map((val, id) => (
+                <div key={id} >
+                  <div className="detailService__infor__item">
+                    <p className="detailService__item__title" >Mã dịch vụ </p>
+                    <p className="detailService__item__value">{val.serviceID}</p>
+                  </div>
+                  <div className="detailService__infor__item">
+                    <p className="detailService__item__title">Tên dịch vụ </p>
+                    <p className="detailService__item__value">{val.serviceName}</p>
+                  </div>
+                  <div className="detailService__infor__item">
+                    <p className="detailService__item__title">Mô tả</p>
+                    <p className="detailService__item__value">{val.serviceDesc}</p>
+                  </div>
                 </div>
-                <div className="detailService__infor__item">
-                  <p className="detailService__item__title">Tên dịch vụ </p>
-                  <p className="detailService__item__value">{detailService.serviceName}</p>
-                </div>
-                <div className="detailService__infor__item">
-                  <p className="detailService__item__title">Mô tả</p>
-                  <p className="detailService__item__value">{detailService.serviceDesc}</p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
             {/* Rules Number */}
             <div div className="detailService__rulesNumber" >
               <h2 className="detailService__content__title">Quy tắc cấp số</h2>
