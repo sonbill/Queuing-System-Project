@@ -38,7 +38,7 @@ function App() {
           <Route path="/profile/" element={<Profile />} />
           <Route path="/services" element={<Service />} />
           <Route path="/services/add-service/" element={<AddService />} />
-          <Route path="/services/detail/:detailID" element={<DetailService />} />
+          <Route path="/services/detail/:serviceId" element={<DetailService />} />
           <Route path="/services/update/:updateID" element={<UpdateService />} />
           <Route path="/provide-numbers" element={<ProvideNumbers />} />
           <Route path="/provide-numbers/new-number" element={<ProvideNewNumbers />} />

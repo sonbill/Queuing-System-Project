@@ -2,54 +2,44 @@ import React, { useState, useEffect } from 'react'
 import Sidebar from '../../components/sidebar_left/Sidebar'
 import TopNav from '../../components/topbar/TopNav'
 import { Link } from 'react-router-dom'
-import { DataGrid } from '@mui/x-data-grid';
 import SearchIcon from '@mui/icons-material/Search';
-import { detailServiceRows } from '../../dummyData'
 import Dropdown from '../../components/Dropdown/Dropdown'
 import Datepicker from './Datepicker/Datepicker'
 import BorderColorIcon from '@mui/icons-material/BorderColor';
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
+import { useParams } from "react-router-dom";
+
 
 import { db } from '../../firebase-config'
-import { onSnapshot, collection, doc, getDocs, query, where } from 'firebase/firestore'
+import { onSnapshot, collection, doc, getDoc } from 'firebase/firestore'
 
 import './detailService.css'
 
 export default function DetailService() {
+  const params = useParams()
+  const serviceID = params.serviceId
+
   const [selected, setSelected] = useState("Tất cả");
   const [detailServices, setDetailServices] = useState([])
   const [manageServices, setManageServices] = useState([])
 
-  const colRef = collection(db, 'services')
 
   const userData = async () => {
-    const q = query(colRef)
-
-    const querySnapshot = await getDocs(q)
-    const data = querySnapshot.docs.map((doc) => ({
-      ...doc.data(), id: doc.id,
-    }));
-    setDetailServices(data);
+    const docRef = doc(db, "services", serviceID);
+    const docSnap = await getDoc(docRef);
+    setDetailServices(docSnap.data())
   }
 
   useEffect(() => {
     userData();
   }, []);
-  // useEffect(
-  //   () => onSnapshot(colRef, (snapshot) =>
-  //     setDetailServices(snapshot({ ...doc.data(), id: doc.id }))
-  //   ), []
-  // );
-  // useEffect(
-  //   () => onSnapshot(collection(db, 'manageService'), (snapshot) =>
-  //     setManageServices(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })))
-  //   ), []
-  // );
 
-  // const detailServiceColumns = [
-  //   { field: 'id', headerName: 'Số thứ tự', width: 500 },
-  //   { field: 'status', headerName: 'Trạng thái', width: 500 },
-  // ]
+  useEffect(
+    () => onSnapshot(collection(db, 'manageService'), (snapshot) =>
+      setManageServices(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })))
+    ), []
+  );
+
   return (
     <div className="detailService">
       <Sidebar />
@@ -65,22 +55,22 @@ export default function DetailService() {
               <h2 className="detailService__content__title">
                 Thông tin dịch vụ
               </h2>
-              {detailServices.map((val, id) => (
-                <div key={id} >
+              {
+                <div >
                   <div className="detailService__infor__item">
                     <p className="detailService__item__title" >Mã dịch vụ </p>
-                    <p className="detailService__item__value">{val.serviceID}</p>
+                    <p className="detailService__item__value">{detailServices.serviceID}</p>
                   </div>
                   <div className="detailService__infor__item">
                     <p className="detailService__item__title">Tên dịch vụ </p>
-                    <p className="detailService__item__value">{val.serviceName}</p>
+                    <p className="detailService__item__value">{detailServices.serviceName}</p>
                   </div>
                   <div className="detailService__infor__item">
                     <p className="detailService__item__title">Mô tả</p>
-                    <p className="detailService__item__value">{val.serviceDesc}</p>
+                    <p className="detailService__item__value">{detailServices.serviceDesc}</p>
                   </div>
                 </div>
-              ))}
+              }
             </div>
             {/* Rules Number */}
             <div div className="detailService__rulesNumber" >
@@ -135,12 +125,6 @@ export default function DetailService() {
             </div>
             {/* TABLE */}
             <div className="detailService__table">
-              {/* <DataGrid
-                rows={detailServiceRows}
-                columns={detailServiceColumns}
-                pageSize={10}
-                rowsPerPageOptions={[5]}
-              /> */}
               <table className="equipment__table__wrapper">
                 <thead>
                   <tr className="equipment__table__column">
