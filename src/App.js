@@ -33,13 +33,13 @@ function App() {
           {/* <Route exact path="/" element={<LoginForm />} /> */}
           <Route path="/equipments" element={<Equipment />} />
           <Route path="/equipments/detail/:equipmentID" element={<Details />} />
-          <Route path="/equipments/update/:updateID" element={<UpdateEquipment />} />
+          <Route path="/equipments/update/:equipmentID" element={<UpdateEquipment />} />
           <Route path="/equipments/add-equipment/" element={<AddEquipment />} />
           <Route path="/profile/" element={<Profile />} />
           <Route path="/services" element={<Service />} />
           <Route path="/services/add-service/" element={<AddService />} />
-          <Route path="/services/detail/:serviceId" element={<DetailService />} />
-          <Route path="/services/update/:updateID" element={<UpdateService />} />
+          <Route path="/services/detail/:serviceID" element={<DetailService />} />
+          <Route path="/services/update/:serviceID" element={<UpdateService />} />
           <Route path="/provide-numbers" element={<ProvideNumbers />} />
           <Route path="/provide-numbers/new-number" element={<ProvideNewNumbers />} />
           <Route path="/reports" element={<Report />} />

@@ -6,7 +6,7 @@ import AddBoxIcon from '@mui/icons-material/AddBox';
 
 import { db } from '../../firebase-config'
 import { useParams } from "react-router-dom";
-import { onSnapshot, collection, getDoc, doc } from 'firebase/firestore'
+import { getDoc, doc } from 'firebase/firestore'
 
 import './details.css'
 

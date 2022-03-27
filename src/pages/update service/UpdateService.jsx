@@ -4,7 +4,8 @@ import TopNav from '../../components/topbar/TopNav'
 import { Link } from 'react-router-dom'
 
 import { db } from '../../firebase-config'
-import { onSnapshot, collection, setDoc, doc } from 'firebase/firestore'
+import { useParams } from "react-router-dom";
+import { onSnapshot, collection, setDoc, doc, getDoc } from 'firebase/firestore'
 
 import './updateService.css'
 
@@ -15,22 +16,34 @@ export default function UpdateService() {
   const [updateServiceID, setUpdateServiceID] = useState('')
   const [updateServiceDesc, setUpdateServiceDesc] = useState('')
 
-  useEffect(
-    () => onSnapshot(collection(db, 'services'), (snapshot) =>
-      setUpdateServices(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })))
-    ), []
-  );
+  const params = useParams()
+  const serviceID = params.serviceID
+
+  const userData = async () => {
+    const docRef = doc(db, "services", serviceID);
+    const docSnap = await getDoc(docRef);
+    setUpdateServices(docSnap.data())
+  }
+
+  useEffect(() => {
+    userData();
+  }, []);
+
+  // useEffect(
+  //   () => onSnapshot(collection(db, 'services'), (snapshot) =>
+  //     setUpdateServices(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })))
+  //   ), []
+  // );
   const handleEdit = async (id) => {
 
     const docRef = doc(db, 'services', id)
     const payload = { serviceName: updateServiceName, serviceID: updateServiceID, serviceDesc: updateServiceDesc }
-
     setDoc(docRef, payload);
   }
   return (
     <div className="updateService">
       <Sidebar />
-      {updateServices.map((updateService) => (
+      {
         <div className="updateService__layout">
           <TopNav name={'Cập nhập'} />
           <div className="updateService__title">
@@ -44,16 +57,16 @@ export default function UpdateService() {
               <div className="updateService__inputDetail__left">
                 <div className="updateService__input__item">
                   <label htmlFor="serviceID">Mã dịch vụ<span>*</span></label>
-                  <input type="text" name="serviceID" id="serviceID" placeholder={updateService.serviceID} onChange={(e) => setUpdateServiceID(e.target.value)} />
+                  <input type="text" name="serviceID" id="serviceID" placeholder={updateServices.serviceID} onChange={(e) => setUpdateServiceID(e.target.value)} />
                 </div>
                 <div className="updateService__input__item">
                   <label htmlFor="serviceName">Tên dịch vụ <span>*</span></label>
-                  <input type="text" name="serviceName" id="serviceName" placeholder={updateService.serviceName} onChange={(e) => setUpdateServiceName(e.target.value)} />
+                  <input type="text" name="serviceName" id="serviceName" placeholder={updateServices.serviceName} onChange={(e) => setUpdateServiceName(e.target.value)} />
                 </div>
               </div>
               <div className="updateService__inputDetail__right">
                 <label htmlFor="description">Mô tả: </label>
-                <textarea name="description" id="description" rows="6" placeholder={updateService.serviceDesc} onChange={(e) => setUpdateServiceDesc(e.target.value)}>
+                <textarea name="description" id="description" rows="6" placeholder={updateServices.serviceDesc} onChange={(e) => setUpdateServiceDesc(e.target.value)}>
 
                 </textarea>
               </div>
@@ -100,10 +113,10 @@ export default function UpdateService() {
             <Link to="/services">
               <button className="updateService__button updateService__button-cancel">Huỷ bỏ</button>
             </Link>
-            <button className="updateService__button updateService__button-updateService" onClick={() => handleEdit(updateService.id)}>Cập nhập</button>
+            <button className="updateService__button updateService__button-updateService" onClick={() => handleEdit(updateServices.id)}>Cập nhập</button>
           </div>
         </div>
-      ))}
+      }
     </div>
   )
 }
