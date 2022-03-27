@@ -13,27 +13,7 @@ import { onSnapshot, collection } from 'firebase/firestore'
 import './role.css'
 
 export default function Roles() {
-  // const roleColumns = [
-  //   { field: 'role', headerName: 'Tên vài trò', width: 330 },
-  //   { field: 'amount', headerName: 'Số người dùng', width: 300 },
-  //   { field: 'desc', headerName: 'Mô tả', width: 500 },
-  //   {
-  //     field: 'update',
-  //     headerName: '',
-  //     description: 'This column has a value getter and is not sortable.',
-  //     sortable: false,
-  //     width: 260,
-  //     renderCell: (params) => {
-  //       return (
-  //         <>
-  //           <Link to={"/roles/update-role/" + params.row.id}>
-  //             <a href="/roles/update-role/">Cập nhập</a>
-  //           </Link>
-  //         </>
-  //       );
-  //     }
-  //   }
-  // ];
+
 
   const [roles, setRoles] = useState([])
 

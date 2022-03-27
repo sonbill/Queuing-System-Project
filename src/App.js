@@ -44,7 +44,7 @@ function App() {
           <Route path="/provide-numbers/new-number" element={<ProvideNewNumbers />} />
           <Route path="/reports" element={<Report />} />
           <Route path="/roles" element={<Roles />} />
-          <Route path="/roles/update-role/:updateID" element={<UpdateRole />} />
+          <Route path="/roles/update-role/:roleID" element={<UpdateRole />} />
           <Route path="/roles/add-role/" element={<AddRole />} />
           <Route path="/manage-account" element={<ManageAccount />} />
           <Route path="/manage-account/update/:updateID" element={<UpdateAccount />} />

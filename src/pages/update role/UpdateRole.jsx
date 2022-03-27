@@ -4,7 +4,8 @@ import TopNav from '../../components/topbar/TopNav'
 import { Link } from 'react-router-dom'
 
 import { db } from '../../firebase-config'
-import { onSnapshot, collection, setDoc, doc } from 'firebase/firestore'
+import { useParams } from "react-router-dom";
+import { getDoc, setDoc, doc } from 'firebase/firestore'
 
 import './updateRole.css'
 
@@ -14,11 +15,24 @@ export default function UpdateRole() {
   const [updateRoleName, setUpdateRoleName] = useState('')
   const [updateRoleDesc, setUpdateRoleDesc] = useState('')
 
-  useEffect(
-    () => onSnapshot(collection(db, 'roles'), (snapshot) =>
-      setUpdateRoles(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })))
-    ), []
-  );
+  const params = useParams()
+  const roleID = params.roleID
+
+  const userData = async () => {
+    const docRef = doc(db, "roles", roleID);
+    const docSnap = await getDoc(docRef);
+    setUpdateRoles(docSnap.data())
+  }
+
+  useEffect(() => {
+    userData();
+  }, []);
+
+  // useEffect(
+  //   () => onSnapshot(collection(db, 'roles'), (snapshot) =>
+  //     setUpdateRoles(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })))
+  //   ), []
+  // );
   const handleEdit = async (id) => {
 
     const docRef = doc(db, 'roles', id)
@@ -34,7 +48,7 @@ export default function UpdateRole() {
       <Sidebar />
       <div className="updateRole__layout">
         <TopNav name={"Cập nhập vai trò"} />
-        {updateRoles.map((updateRole) => (
+        {
           <div>
             <h2 className="updateRole__title">Danh sách vai trò</h2>
             <div className="updateRole__content">
@@ -43,11 +57,11 @@ export default function UpdateRole() {
                 <div className="updateRole__content__left">
                   <div className="updateRole__content__left__item">
                     <label htmlFor="roleName">Tên vai trò <span>*</span></label>
-                    <input type="text" name="roleName" id="roleName" placeholder={updateRole.roleName} onChange={(e) => setUpdateRoleName(e.target.value)} />
+                    <input type="text" name="roleName" id="roleName" placeholder={updateRoles.roleName} onChange={(e) => setUpdateRoleName(e.target.value)} />
                   </div>
                   <div className="updateRole__content__left__item">
                     <label htmlFor="roleDescription">Mô tả: </label>
-                    <textarea name="roleDescription" id="roleDescription" rows="6" placeholder={updateRole.roleDesc} onChange={(e) => setUpdateRoleDesc(e.target.value)} >
+                    <textarea name="roleDescription" id="roleDescription" rows="6" placeholder={updateRoles.roleDesc} onChange={(e) => setUpdateRoleDesc(e.target.value)} >
                     </textarea>
                   </div>
                   <p className="updateRole__desc"><span>*</span> Là trường thông tin bắt buộc</p>
@@ -101,10 +115,10 @@ export default function UpdateRole() {
               <Link to="/roles">
                 <button className="updateRole__button updateRole__button-cancel">Huỷ bỏ</button>
               </Link>
-              <button className="updateRole__button updateRole__button-update" onClick={() => handleEdit(updateRole.id)}>Cập nhập</button>
+              <button className="updateRole__button updateRole__button-update" onClick={() => handleEdit(updateRoles.id)}>Cập nhập</button>
             </div>
           </div>
-        ))}
+        }
       </div>
     </div>
   )
