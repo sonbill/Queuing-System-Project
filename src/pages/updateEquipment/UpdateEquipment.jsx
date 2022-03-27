@@ -6,7 +6,8 @@ import { Link } from 'react-router-dom'
 import MultipleSelectedDropdown from './multipleSelectDropdown/MultipleSelectedDropdown'
 
 import { db } from '../../firebase-config'
-import { onSnapshot, collection, setDoc, doc } from 'firebase/firestore'
+import { useParams } from "react-router-dom";
+import { getDoc, setDoc, doc } from 'firebase/firestore'
 
 
 import './updateEquipment.css'
@@ -20,11 +21,24 @@ function UpdateEquipment() {
 
   const [updateEquipments, setUpdateEquipments] = useState([])
 
-  useEffect(
-    () => onSnapshot(collection(db, 'equipments'), (snapshot) =>
-      setUpdateEquipments(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })))
-    ), []
-  );
+  const params = useParams()
+  const equipmentID = params.equipmentID
+
+  const userData = async () => {
+    const docRef = doc(db, "equipments", equipmentID);
+    const docSnap = await getDoc(docRef);
+    setUpdateEquipments(docSnap.data())
+  }
+
+  useEffect(() => {
+    userData();
+  }, []);
+
+  // useEffect(
+  //   () => onSnapshot(collection(db, 'equipments'), (snapshot) =>
+  //     setUpdateEquipments(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })))
+  //   ), []
+  // );
   const handleEdit = async (id) => {
 
     const docRef = doc(db, 'equipments', id)
@@ -37,7 +51,7 @@ function UpdateEquipment() {
       <Sidebar />
       <div className="updateEquipment__layout">
         <TopNav name={'Cập nhập thiết bị'} />
-        {updateEquipments.map((updateEquipment) => (
+        {
           <div>
             <h1 className="updateEquipment__title">Quản lý thiết bị</h1>
             <div className="updateEquipment__infor">
@@ -46,7 +60,7 @@ function UpdateEquipment() {
                 <div className="updateEquipment__items">
                   <div className="updateEquipment__item">
                     <p className="updateEquipment__item__title">Mã thiết bị <span>*</span></p>
-                    <input type="text" className="updateEquipment__input" placeholder={updateEquipment.equipmentID} onChange={(e) => setUpdateEquipmentID(e.target.value)} />
+                    <input type="text" className="updateEquipment__input" placeholder={updateEquipments.equipmentID} onChange={(e) => setUpdateEquipmentID(e.target.value)} />
                   </div>
                   <div className="updateEquipment__item">
                     <p className="updateEquipment__item__title">Loại thiết bị <span>*</span></p>
@@ -56,7 +70,7 @@ function UpdateEquipment() {
                 <div className="updateEquipment__items">
                   <div className="updateEquipment__item">
                     <p className="updateEquipment__item__title">Tên thiết bị <span>*</span></p>
-                    <input type="text" className="updateEquipment__input" placeholder={updateEquipment.equipmentName} onChange={(e) => setUpdateEquipmentName(e.target.value)} />
+                    <input type="text" className="updateEquipment__input" placeholder={updateEquipments.equipmentName} onChange={(e) => setUpdateEquipmentName(e.target.value)} />
                   </div>
                   <div className="updateEquipment__item">
                     <p className="updateEquipment__item__title">Tên đăng nhập <span>*</span></p>
@@ -66,7 +80,7 @@ function UpdateEquipment() {
                 <div className="updateEquipment__items">
                   <div className="updateEquipment__item">
                     <p className="updateEquipment__item__title">Địa chỉ IP <span>*</span></p>
-                    <input type="text" className="updateEquipment__input" placeholder={updateEquipment.ipAddress} onChange={(e) => setUpdateIpAddress(e.target.value)} />
+                    <input type="text" className="updateEquipment__input" placeholder={updateEquipments.ipAddress} onChange={(e) => setUpdateIpAddress(e.target.value)} />
                   </div>
                   <div className="updateEquipment__item">
                     <p className="updateEquipment__item__title">Mật khẩu <span>*</span></p>
@@ -77,7 +91,7 @@ function UpdateEquipment() {
                   <div className="updateEquipment__item" style={{ flexGrow: 1 }}>
                     <p className="updateEquipment__item__title">Dịch vụ sử dụng <span>*</span></p>
                     {/* <input type="text" placeholder="Nhập dịch vụ sử dụng" className="updateEquipment__input" style={{ width: '99%' }} /> */}
-                    <MultipleSelectedDropdown className="updateEquipment__input" value={updateEquipment.services} />
+                    <MultipleSelectedDropdown className="updateEquipment__input" value={updateEquipments.services} />
                   </div>
                 </div>
                 <p className="updateEquipment__desc"><span>*</span> Là trường thông tin bắt buộc</p>
@@ -86,11 +100,11 @@ function UpdateEquipment() {
                 <Link to="/equipments">
                   <button className="updateEquipment__button updateEquipment__button-cancel">Huỷ bỏ</button>
                 </Link>
-                <button className="updateEquipment__button updateEquipment__button-addDevice" onClick={() => handleEdit(updateEquipment.id)}>Cập nhập</button>
+                <button className="updateEquipment__button updateEquipment__button-addDevice" onClick={() => handleEdit(updateEquipments.id)}>Cập nhập</button>
               </div>
             </div>
           </div>
-        ))}
+        }
       </div >
     </div >
   );
