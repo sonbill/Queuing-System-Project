@@ -5,19 +5,32 @@ import { Link } from 'react-router-dom'
 import AddBoxIcon from '@mui/icons-material/AddBox';
 
 import { db } from '../../firebase-config'
-import { onSnapshot, collection } from 'firebase/firestore'
+import { useParams } from "react-router-dom";
+import { onSnapshot, collection, getDoc, doc } from 'firebase/firestore'
 
 import './details.css'
 
 function Details() {
+  const params = useParams()
+  const equipmentID = params.equipmentID
+
+  const userData = async () => {
+    const docRef = doc(db, "equipments", equipmentID);
+    const docSnap = await getDoc(docRef);
+    setDetailEquipments(docSnap.data())
+  }
+
+  useEffect(() => {
+    userData();
+  }, []);
 
   const [detailEquipments, setDetailEquipments] = useState([])
 
-  useEffect(
-    () => onSnapshot(collection(db, 'equipments'), (snapshot) =>
-      setDetailEquipments(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })))
-    ), []
-  );
+  // useEffect(
+  //   () => onSnapshot(collection(db, 'equipments'), (snapshot) =>
+  //     setDetailEquipments(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })))
+  //   ), []
+  // );
 
   return (
     <div className="details">
@@ -27,28 +40,28 @@ function Details() {
         <div className="equipment__infor">
           <div className="details__leftLayout">
             <h1 className="equipment__infor__title">Quản lý thiết bị</h1>
-            {detailEquipments.map((detailEquipment) => (
-              <div key={detailEquipment.id} className="equipment__infor__detail">
+            {
+              <div key={detailEquipments.id} className="equipment__infor__detail">
                 <h2>Thông tin thiết bị</h2>
                 <div className="equipment__infor__wrapper">
                   <div className="equipment__infor__left">
                     <div className="equipment__info__leftItem">
                       <h5>Mã thiết thiết bị: </h5>
-                      <p>{detailEquipment.equipmentID}</p>
+                      <p>{detailEquipments.equipmentID}</p>
                     </div>
                     <div className="equipment__info__leftItem">
                       <h5>Tên thiết thiết bị: </h5>
-                      <p>{detailEquipment.equipmentName}</p>
+                      <p>{detailEquipments.equipmentName}</p>
                     </div>
                     <div className="equipment__info__leftItem">
                       <h5>Địa chỉ IP: </h5>
-                      <p>{detailEquipment.ipAddress}</p>
+                      <p>{detailEquipments.ipAddress}</p>
                     </div>
                   </div>
                   <div className="equipment__infor__right">
                     <div className="equipment__info__rightItem">
                       <h5>Loại thiết thiết bị: </h5>
-                      <p>{detailEquipment.equipmentKind}</p>
+                      <p>{detailEquipments.equipmentKind}</p>
                     </div>
                     <div className="equipment__info__rightItem">
                       <h5>Tên đăng nhập: </h5>
@@ -62,10 +75,10 @@ function Details() {
                 </div>
                 <div className="equipment__info_services">
                   <h5>Dịch vụ sử dụng: </h5>
-                  <p>{detailEquipment.services}</p>
+                  <p>{detailEquipments.services}</p>
                 </div>
               </div>
-            ))}
+            }
           </div>
           <div className="details__rightLayout">
             <AddBoxIcon style={{
