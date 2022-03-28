@@ -22,7 +22,7 @@ export default function UpdateService() {
   const userData = async () => {
     const docRef = doc(db, "services", serviceID);
     const docSnap = await getDoc(docRef);
-    setUpdateServices(docSnap.data())
+    setUpdateServices({ ...docSnap.data(), id: docSnap.id })
   }
 
   useEffect(() => {
@@ -35,7 +35,6 @@ export default function UpdateService() {
   //   ), []
   // );
   const handleEdit = async (id) => {
-
     const docRef = doc(db, 'services', id)
     const payload = { serviceName: updateServiceName, serviceID: updateServiceID, serviceDesc: updateServiceDesc }
     setDoc(docRef, payload);
