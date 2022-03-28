@@ -27,7 +27,7 @@ function UpdateEquipment() {
   const userData = async () => {
     const docRef = doc(db, "equipments", equipmentID);
     const docSnap = await getDoc(docRef);
-    setUpdateEquipments(docSnap.data())
+    setUpdateEquipments({ ...docSnap.data(), id: docSnap.id })
   }
 
   useEffect(() => {
