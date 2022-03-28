@@ -17,7 +17,7 @@ import './detailService.css'
 
 export default function DetailService() {
   const params = useParams()
-  const serviceID = params.serviceId
+  const serviceID = params.serviceID
 
   const [selected, setSelected] = useState("Tất cả");
   const [detailServices, setDetailServices] = useState([])

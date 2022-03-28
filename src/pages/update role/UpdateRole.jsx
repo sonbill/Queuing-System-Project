@@ -21,7 +21,7 @@ export default function UpdateRole() {
   const userData = async () => {
     const docRef = doc(db, "roles", roleID);
     const docSnap = await getDoc(docRef);
-    setUpdateRoles(docSnap.data())
+    setUpdateRoles({ ...docSnap.data(), id: docSnap.id })
   }
 
   useEffect(() => {
