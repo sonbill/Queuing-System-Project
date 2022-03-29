@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Sidebar from '../../components/sidebar_left/Sidebar'
 import TopNav from '../../components/topbar/TopNav'
 import { Link } from 'react-router-dom'
-import { DataGrid } from '@mui/x-data-grid';
 import SearchIcon from '@mui/icons-material/Search';
-import { provideNumbersRows } from '../../dummyData';
 import Dropdown from '../../components/Dropdown/Dropdown'
 import Datepicker from './Datepicker/Datepicker'
 import AddBoxIcon from '@mui/icons-material/AddBox';
+
+import { db } from '../../firebase-config'
+import { useParams } from "react-router-dom";
+import { onSnapshot, collection, getDoc, setDoc, doc } from 'firebase/firestore'
 
 import './ordinalNumbers.css'
 
@@ -16,30 +18,14 @@ export default function ProvideNumbers() {
   const [status, setStatus] = useState("Tất cả");
   const [equipment, setEquipment] = useState("Tất cả");
 
-  const manageProvideColumns = [
-    { field: 'id', headerName: 'STT', width: 130 },
-    { field: 'customer', headerName: 'Tên khách hàng', width: 200 },
-    { field: 'service', headerName: 'Tên dịch vụ', width: 200 },
-    { field: 'dateProvide', headerName: 'Thời gian cấp', width: 200 },
-    { field: 'expiryDate', headerName: 'Hạn sử dụng', width: 200 },
-    { field: 'status', headerName: 'Trạng thái', width: 200, },
-    { field: 'equipments', headerName: 'Nguồn cấp', width: 200 },
-    {
-      field: 'details',
-      headerName: '',
-      sortable: false,
-      width: 160,
-      renderCell: (params) => {
-        return (
-          <>
-            <Link to={"/services/detail/" + params.row.id}>
-              <p>Chi tiết</p>
-            </Link>
-          </>
-        );
-      }
-    },
-  ];
+  const [ordinalNumbers, setOrdinalNumbers] = useState([]);
+
+
+  useEffect(
+    () => onSnapshot(collection(db, 'ordinalNumbers'), (snapshot) =>
+      setOrdinalNumbers(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })))
+    ), []
+  );
 
   return (
     <div className="provideNumbers">
@@ -78,12 +64,38 @@ export default function ProvideNumbers() {
           </div>
           <div className="provideNumbers__content">
             <div className="provideNumbers__table">
-              <DataGrid
-                rows={provideNumbersRows}
-                columns={manageProvideColumns}
-                pageSize={10}
-                rowsPerPageOptions={[8]}
-              />
+              <table className="equipment__table__wrapper">
+                <thead>
+                  <tr className="equipment__table__column">
+                    <th>STT</th>
+                    <th>Tên khách hàng</th>
+                    <th>Tên dịch vụ</th>
+                    <th>Thời gian cấp</th>
+                    <th>Hạn sử dụng</th>
+                    <th>Trạng thái</th>
+                    <th>Nguồn cấp</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {ordinalNumbers.map((ordinalNumber) => (
+                    <tr key={ordinalNumber.id} class="equipment__table__row">
+                      <td>{ordinalNumber.odID}</td>
+                      <td>{ordinalNumber.odUsername}</td>
+                      <td>{ordinalNumber.odService}</td>
+                      <td>{ordinalNumber.odCreatedAt}</td>
+                      <td>{ordinalNumber.odExpired}</td>
+                      <td>{ordinalNumber.odStatus}</td>
+                      <td>{ordinalNumber.odEquipment}</td>
+                      <td>
+                        <Link to={`/equipments/detail/${ordinalNumber.id}`}>
+                          Chi tiết
+                        </Link>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
             <div className="provideNumbers__newNumber">
               <Link to={"/provide-numbers/new-number"}>

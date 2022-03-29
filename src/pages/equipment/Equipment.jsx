@@ -2,12 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { db } from '../../firebase-config'
 import { onSnapshot, collection } from 'firebase/firestore'
 import TopNav from '../../components/topbar/TopNav'
-import { DataGrid } from '@mui/x-data-grid';
 import Dropdown from '../../components/Dropdown/Dropdown'
 import SearchIcon from '@mui/icons-material/Search';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import ServicesList from './ServicesList'
-import { equipmentRows } from '../../dummyData'
 import { Link } from 'react-router-dom'
 import Sidebar from '../../components/sidebar_left/Sidebar'
 
@@ -24,71 +22,6 @@ function Equipment() {
   const [equipments, setEquipments] = useState([])
   const [selected, setSelected] = useState("Tất cả");
   const [selected2, setSelected2] = useState("Tất cả");
-
-
-  // const columns = [
-  //   { field: 'id', headerName: 'Mã thiết bị', width: 130 },
-  //   { field: 'equipment', headerName: 'Tên thiết bị', width: 200 },
-  //   { field: 'ipAddress', headerName: 'Địa chỉ IP', width: 130 },
-  //   {
-  //     field: 'activityStatus',
-  //     headerName: 'Trạng thái hoạt động',
-  //     width: 200,
-  //   },
-  //   {
-  //     field: 'connectionStatus',
-  //     headerName: 'Trạng thái kết nối',
-  //     description: 'This column has a value getter and is not sortable.',
-  //     sortable: true,
-  //     width: 200,
-  //   },
-  //   {
-  //     field: 'services',
-  //     headerName: 'Dịch vụ sử dụng',
-  //     description: 'This column has a value getter and is not sortable.',
-  //     sortable: false,
-  //     width: 320,
-  //     renderCell: (params) => {
-  //       return (
-  //         <div>
-  //           {params.row.services}
-  //         </div >
-  //       );
-  //     }
-  //   },
-  //   {
-  //     field: 'details',
-  //     headerName: '',
-  //     description: 'This column has a value getter and is not sortable.',
-  //     sortable: false,
-  //     width: 160,
-  //     renderCell: (params) => {
-  //       return (
-  //         <>
-  //           <Link to={"/equipments/detail/" + params.row.id}>
-  //             <a href="/equipments/detail">Chi tiết</a>
-  //           </Link>
-  //         </>
-  //       );
-  //     }
-  //   },
-  //   {
-  //     field: 'update',
-  //     headerName: '',
-  //     description: 'This column has a value getter and is not sortable.',
-  //     sortable: false,
-  //     width: 160,
-  //     renderCell: (params) => {
-  //       return (
-  //         <div>
-  //           <Link to={"/equipments/update/" + params.row.id}>
-  //             <a href="/equipments/update">Cập nhập</a>
-  //           </Link>
-  //         </div >
-  //       );
-  //     }
-  //   },
-  // ];
 
   return (
     <div className="equipment">
@@ -119,12 +52,6 @@ function Equipment() {
         </div>
         <div className="equipment__content_wrapper">
           <div className="equipment__table">
-            {/* <DataGrid
-              rows={equipmentRows}
-              columns={columns}
-              pageSize={10}
-              rowsPerPageOptions={[5]}
-            /> */}
             <table className="equipment__table__wrapper">
               <thead>
                 <tr className="equipment__table__column">
