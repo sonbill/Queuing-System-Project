@@ -13,6 +13,7 @@ import AddService from './pages/add service/AddService'
 import UpdateService from './pages/update service/UpdateService'
 import DetailService from './pages/detail service/DetailService'
 import ProvideNumbers from './pages/Provides Ordinal Numbers/OrdinalNumbers'
+import DetailOrdinalNumbers from './pages/detail provive number/DetailOrdinalNumbers'
 import ProvideNewNumbers from './pages/provide new number/ProvideNewNumbers'
 import Report from './pages/report/Report'
 import Roles from './pages/Roles/Role'
@@ -42,6 +43,7 @@ function App() {
           <Route path="/services/update/:serviceID" element={<UpdateService />} />
           <Route path="/provide-numbers" element={<ProvideNumbers />} />
           <Route path="/provide-numbers/new-number" element={<ProvideNewNumbers />} />
+          <Route path="/provide-numbers/detail/:provideNumberID" element={<DetailOrdinalNumbers />} />
           <Route path="/reports" element={<Report />} />
           <Route path="/roles" element={<Roles />} />
           <Route path="/roles/update-role/:roleID" element={<UpdateRole />} />

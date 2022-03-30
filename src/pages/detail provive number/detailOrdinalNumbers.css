@@ -1,0 +1,100 @@
+.detailOrdinalNumbers {
+  background-color:#F5F5F5 ;
+  display:flex;
+}
+.detailOrdinalNumbers__layout {
+  flex-grow: 1;
+}
+.detailOrdinalNumbers__leftLayout {
+  flex-grow: 1;
+  padding:30px;
+}
+.detailOrdinalNumbers__rightLayout {
+  width: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background-color: #FFF2E7;
+  color: #FF7506;
+  height: 110px;
+}
+.detailOrdinalNumbers__rightLayout a {
+  text-decoration: none;
+  color:#FF7506;
+}
+.detailOrdinalNumbers__infor {
+  padding:30px 0px 30px 30px;
+  display: flex;
+  align-items: center;
+}
+.detailOrdinalNumbers__infor__title {
+  color:#FF7506;
+  margin-bottom: 16px;
+}
+.detailOrdinalNumbers__infor__detail {
+  background-color: #fff;
+  box-shadow: 2px 2px 8px rgba(232, 239, 244, 0.8);
+  border-radius: 16px;
+  padding:16px 24px;
+}
+.detailOrdinalNumbers__infor__detail h2 {
+  color:#FF7506;
+  margin-bottom:20px;
+}
+.detailOrdinalNumbers__infor__wrapper {
+  display:flex;
+  width: 1000px;
+  align-items: center;
+  justify-content:space-between;
+}
+.detailOrdinalNumbers__info__leftItem {
+  display: flex;
+  width: 250px;
+  justify-content:space-between;
+  margin-bottom:16px
+}
+.detailOrdinalNumbers__info__leftItem h5 {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #282739;
+}
+.detailOrdinalNumbers__info__leftItem p {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: #535261;
+}
+.detailOrdinalNumbers__info__rightItem {
+  display: flex;
+  width: 250px;
+  justify-content:space-between;
+  margin-bottom:16px
+}
+.detailOrdinalNumbers__info__rightItem h5 {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color:#282739;
+}
+.detailOrdinalNumbers__info__rightItem p {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: #535261;
+}
+.detailOrdinalNumbers__info_services h5 {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color:#282739;
+  margin-bottom:8px
+}
+.detailOrdinalNumbers__info_services p {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: #535261;
+}

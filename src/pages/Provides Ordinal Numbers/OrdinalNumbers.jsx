@@ -88,7 +88,7 @@ export default function ProvideNumbers() {
                       <td>{ordinalNumber.odStatus}</td>
                       <td>{ordinalNumber.odEquipment}</td>
                       <td>
-                        <Link to={`/equipments/detail/${ordinalNumber.id}`}>
+                        <Link to={`/provide-numbers/detail/${ordinalNumber.id}`}>
                           Chi tiết
                         </Link>
                       </td>
