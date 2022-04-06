@@ -5,7 +5,7 @@ import Sidebar from '../../components/sidebar_left/Sidebar'
 import { Link } from 'react-router-dom'
 
 import { db } from '../../firebase-config'
-import { collection, addDoc } from 'firebase/firestore'
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore'
 
 import './addAccount.css'
 
@@ -28,6 +28,7 @@ export default function AddAccount() {
       role: '',
       username: newUsername,
       phone: newPhone,
+      timestamp: serverTimestamp(),
     }
     await addDoc(collectionRef, payload);
     document.getElementById("accountFullname").value = "";

@@ -4,7 +4,7 @@ import TopNav from '../../components/topbar/TopNav'
 import { Link } from 'react-router-dom'
 
 import { db } from '../../firebase-config'
-import { collection, addDoc } from 'firebase/firestore'
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore'
 
 import './addRole.css'
 
@@ -18,6 +18,7 @@ export default function AddRole() {
     const payload = {
       roleDesc: addRoleDesc,
       roleName: addRoleName,
+      timestamp: serverTimestamp(),
     }
     await addDoc(collectionRef, payload);
     document.getElementById("roleName").value = "";

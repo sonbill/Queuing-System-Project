@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import MultipleSelectedDropdown from './MultipleSelectDropdown/MultipleSelectedDropdown'
 
 import { db } from '../../firebase-config'
-import { onSnapshot, collection, getDocs, addDoc, setDoc, deleteDoc, doc } from 'firebase/firestore'
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore'
 
 
 import './addEquipment.css'
@@ -29,7 +29,8 @@ function AddEquipment() {
       connectionStatus: "",
       equipmentName: equipmentName,
       ipAddress: ipAddress,
-      service: service
+      service: service,
+      timestamp: serverTimestamp(),
     }
     await addDoc(collectionRef, payload);
     document.getElementById("equipmentID").value = "";

@@ -4,7 +4,7 @@ import TopNav from '../../components/topbar/TopNav'
 import { Link } from 'react-router-dom'
 
 import { db } from '../../firebase-config'
-import { onSnapshot, collection, getDocs, addDoc, setDoc, deleteDoc, doc } from 'firebase/firestore'
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore'
 
 import './addService.css'
 function AddService() {
@@ -23,6 +23,8 @@ function AddService() {
       serviceName: serviceName,
       serviceDesc: serviceDesc,
       serviceActivityStatus: serviceActivityStatus,
+      timestamp: serverTimestamp(),
+
     }
     await addDoc(collectionRef, payload);
   }

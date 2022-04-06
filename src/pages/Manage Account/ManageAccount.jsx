@@ -9,7 +9,7 @@ import Dropdown from '../../components/Dropdown/Dropdown'
 import AddBoxIcon from '@mui/icons-material/AddBox';
 
 import { db } from '../../firebase-config'
-import { onSnapshot, collection } from 'firebase/firestore'
+import { onSnapshot, collection, query, orderBy } from 'firebase/firestore'
 
 import './manageAccount.css'
 
@@ -18,11 +18,14 @@ export default function ManageAccount() {
 
   const [accounts, setAccounts] = useState([])
 
-  useEffect(
-    () => onSnapshot(collection(db, 'users'), (snapshot) =>
-      setAccounts(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })))
-    ), []
-  );
+  useEffect(() => {
+    const q = query(collection(db, 'users'), orderBy('timestamp', 'desc'));
+    const unsub = onSnapshot(q, (snapshot) =>
+      setAccounts(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+    );
+    return unsub;
+
+  }, []);
 
   // const manageAccountColumns = [
   //   { field: 'username', headerName: 'Tên đăng nhập', width: 230 },
