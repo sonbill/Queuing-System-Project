@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 import { db } from '../../firebase-config'
 import { useParams } from "react-router-dom";
-import { getDoc, setDoc, doc } from 'firebase/firestore'
+import { getDoc, updateDoc, doc } from 'firebase/firestore'
 
 import './updateRole.css'
 
@@ -38,7 +38,7 @@ export default function UpdateRole() {
     const docRef = doc(db, 'roles', id)
     const payload = { roleName: updateRoleName, roleDesc: updateRoleDesc }
 
-    setDoc(docRef, payload);
+    updateDoc(docRef, payload);
     document.getElementById("roleName").value = "";
     document.getElementById("roleDescription").value = "";
 

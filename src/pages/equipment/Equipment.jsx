@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { db } from '../../firebase-config'
-import { onSnapshot, collection } from 'firebase/firestore'
+import { onSnapshot, collection, query, orderBy } from 'firebase/firestore'
 import TopNav from '../../components/topbar/TopNav'
 import Dropdown from '../../components/Dropdown/Dropdown'
 import SearchIcon from '@mui/icons-material/Search';
@@ -14,11 +14,14 @@ import Sidebar from '../../components/sidebar_left/Sidebar'
 import './equipment.css';
 
 function Equipment() {
-  useEffect(
-    () => onSnapshot(collection(db, 'equipments'), (snapshot) =>
-      setEquipments(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })))
-    ), []
-  );
+  useEffect(() => {
+    const q = query(collection(db, 'equipments'), orderBy('timestamp', 'desc'));
+    const unsub = onSnapshot(q, (snapshot) =>
+      setEquipments(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+    );
+    return unsub;
+
+  }, []);
   const [equipments, setEquipments] = useState([])
   const [selected, setSelected] = useState("Tất cả");
   const [selected2, setSelected2] = useState("Tất cả");

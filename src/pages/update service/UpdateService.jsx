@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 import { db } from '../../firebase-config'
 import { useParams } from "react-router-dom";
-import { onSnapshot, collection, setDoc, doc, getDoc } from 'firebase/firestore'
+import { onSnapshot, collection, updateDoc, doc, getDoc } from 'firebase/firestore'
 
 import './updateService.css'
 
@@ -37,7 +37,7 @@ export default function UpdateService() {
   const handleEdit = async (id) => {
     const docRef = doc(db, 'services', id)
     const payload = { serviceName: updateServiceName, serviceID: updateServiceID, serviceDesc: updateServiceDesc }
-    setDoc(docRef, payload);
+    updateDoc(docRef, payload);
   }
   return (
     <div className="updateService">

@@ -7,7 +7,7 @@ import MultipleSelectedDropdown from './multipleSelectDropdown/MultipleSelectedD
 
 import { db } from '../../firebase-config'
 import { useParams } from "react-router-dom";
-import { getDoc, setDoc, doc } from 'firebase/firestore'
+import { getDoc, doc, updateDoc } from 'firebase/firestore'
 
 
 import './updateEquipment.css'
@@ -44,7 +44,7 @@ function UpdateEquipment() {
     const docRef = doc(db, 'equipments', id)
     const payload = { ipAddress: updateIpAddress, equipmentName: updateEquipmentName, equipmentID: updateEquipmentID }
 
-    setDoc(docRef, payload);
+    updateDoc(docRef, payload);
   }
   return (
     <div className="updateEquipment">

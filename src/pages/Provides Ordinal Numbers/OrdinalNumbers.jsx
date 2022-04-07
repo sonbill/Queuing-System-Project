@@ -9,7 +9,7 @@ import AddBoxIcon from '@mui/icons-material/AddBox';
 
 import { db } from '../../firebase-config'
 import { useParams } from "react-router-dom";
-import { onSnapshot, collection, getDoc, setDoc, doc } from 'firebase/firestore'
+import { onSnapshot, collection, query, orderBy } from 'firebase/firestore'
 
 import './ordinalNumbers.css'
 
@@ -21,11 +21,14 @@ export default function ProvideNumbers() {
   const [ordinalNumbers, setOrdinalNumbers] = useState([]);
 
 
-  useEffect(
-    () => onSnapshot(collection(db, 'ordinalNumbers'), (snapshot) =>
-      setOrdinalNumbers(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })))
-    ), []
-  );
+  useEffect(() => {
+    const q = query(collection(db, 'ordinalNumbers'), orderBy('timestamp', 'desc'));
+    const unsub = onSnapshot(q, (snapshot) =>
+      setOrdinalNumbers(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+    );
+    return unsub;
+
+  }, []);
 
   return (
     <div className="provideNumbers">

@@ -2,15 +2,13 @@ import React, { useState, useEffect } from 'react';
 import Sidebar from '../../components/sidebar_left/Sidebar'
 import TopNav from '../../components/topbar/TopNav'
 import { Link } from 'react-router-dom'
-import { DataGrid } from '@mui/x-data-grid';
 import SearchIcon from '@mui/icons-material/Search';
-import { serviceRows } from '../../dummyData';
 import Dropdown from '../../components/Dropdown/Dropdown'
 import Datepicker from './Datepicker/Datepicker'
 import AddBoxIcon from '@mui/icons-material/AddBox';
 
 import { db } from '../../firebase-config'
-import { onSnapshot, collection } from 'firebase/firestore'
+import { onSnapshot, collection, query, orderBy } from 'firebase/firestore'
 
 import './service.css'
 
@@ -18,11 +16,14 @@ function Service() {
   const [selected, setSelected] = useState("Tất cả");
   const [services, setServices] = useState([])
 
-  useEffect(
-    () => onSnapshot(collection(db, 'services'), (snapshot) =>
-      setServices(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })))
-    ), []
-  );
+  useEffect(() => {
+    const q = query(collection(db, 'services'), orderBy('timestamp', 'desc'));
+    const unsub = onSnapshot(q, (snapshot) =>
+      setServices(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+    );
+    return unsub;
+
+  }, []);
   // const ServiceColumns = [
   //   { field: 'id', headerName: 'Mã dịch vụ', width: 130 },
   //   { field: 'service', headerName: 'Tên dịch vụ', width: 200 },
