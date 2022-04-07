@@ -38,6 +38,10 @@ export default function UpdateService() {
     const docRef = doc(db, 'services', id)
     const payload = { serviceName: updateServiceName, serviceID: updateServiceID, serviceDesc: updateServiceDesc }
     updateDoc(docRef, payload);
+
+    document.getElementById("serviceID").value = "";
+    document.getElementById("serviceName").value = "";
+    document.getElementById("description").value = "";
   }
   return (
     <div className="updateService">
@@ -112,7 +116,7 @@ export default function UpdateService() {
             <Link to="/services">
               <button className="updateService__button updateService__button-cancel">Huỷ bỏ</button>
             </Link>
-            <button className="updateService__button updateService__button-updateService" onClick={() => handleEdit(updateServices.id)}>Cập nhập</button>
+            <button className="updateService__button updateService__button-updateService" onClick={() => handleEdit(updateServices.id)}>Thêm dịch vụ</button>
           </div>
         </div>
       }

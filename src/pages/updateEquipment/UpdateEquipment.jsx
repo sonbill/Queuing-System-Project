@@ -45,6 +45,11 @@ function UpdateEquipment() {
     const payload = { ipAddress: updateIpAddress, equipmentName: updateEquipmentName, equipmentID: updateEquipmentID }
 
     updateDoc(docRef, payload);
+
+    document.getElementById("equipmentID").value = "";
+    document.getElementById("equipmentName").value = "";
+    document.getElementById("ipAddress").value = "";
+
   }
   return (
     <div className="updateEquipment">
@@ -60,7 +65,7 @@ function UpdateEquipment() {
                 <div className="updateEquipment__items">
                   <div className="updateEquipment__item">
                     <p className="updateEquipment__item__title">Mã thiết bị <span>*</span></p>
-                    <input type="text" className="updateEquipment__input" placeholder={updateEquipments.equipmentID} onChange={(e) => setUpdateEquipmentID(e.target.value)} />
+                    <input type="text" className="updateEquipment__input" id="equipmentID" placeholder={updateEquipments.equipmentID} onChange={(e) => setUpdateEquipmentID(e.target.value)} />
                   </div>
                   <div className="updateEquipment__item">
                     <p className="updateEquipment__item__title">Loại thiết bị <span>*</span></p>
@@ -70,7 +75,7 @@ function UpdateEquipment() {
                 <div className="updateEquipment__items">
                   <div className="updateEquipment__item">
                     <p className="updateEquipment__item__title">Tên thiết bị <span>*</span></p>
-                    <input type="text" className="updateEquipment__input" placeholder={updateEquipments.equipmentName} onChange={(e) => setUpdateEquipmentName(e.target.value)} />
+                    <input type="text" className="updateEquipment__input" id="equipmentName" placeholder={updateEquipments.equipmentName} onChange={(e) => setUpdateEquipmentName(e.target.value)} />
                   </div>
                   <div className="updateEquipment__item">
                     <p className="updateEquipment__item__title">Tên đăng nhập <span>*</span></p>
@@ -80,7 +85,7 @@ function UpdateEquipment() {
                 <div className="updateEquipment__items">
                   <div className="updateEquipment__item">
                     <p className="updateEquipment__item__title">Địa chỉ IP <span>*</span></p>
-                    <input type="text" className="updateEquipment__input" placeholder={updateEquipments.ipAddress} onChange={(e) => setUpdateIpAddress(e.target.value)} />
+                    <input type="text" className="updateEquipment__input" id="ipAddress" placeholder={updateEquipments.ipAddress} onChange={(e) => setUpdateIpAddress(e.target.value)} />
                   </div>
                   <div className="updateEquipment__item">
                     <p className="updateEquipment__item__title">Mật khẩu <span>*</span></p>
