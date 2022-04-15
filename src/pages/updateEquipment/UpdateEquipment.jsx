@@ -40,16 +40,14 @@ function UpdateEquipment() {
   //   ), []
   // );
   const handleEdit = async (id) => {
-
     const docRef = doc(db, 'equipments', id)
     const payload = { ipAddress: updateIpAddress, equipmentName: updateEquipmentName, equipmentID: updateEquipmentID }
 
     updateDoc(docRef, payload);
-
+    
     document.getElementById("equipmentID").value = "";
     document.getElementById("equipmentName").value = "";
     document.getElementById("ipAddress").value = "";
-
   }
   return (
     <div className="updateEquipment">

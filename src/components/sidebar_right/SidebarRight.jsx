@@ -63,7 +63,7 @@ function Sidebar_Right() {
               <span className="totalNumber">4.221</span>
               <div className="totalNumberIcon" style={{ color: '#35C75A' }}>
                 <LayersIcon />
-                <p>Dịch vụ</p>
+                <p>Cấp số</p>
               </div>
             </div>
             <div className="totalStatus">

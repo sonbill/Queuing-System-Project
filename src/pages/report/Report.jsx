@@ -21,7 +21,6 @@ export default function Report() {
     XLSX.write(workBook, { bookType: "xlsx", type: "binary" })
 
     XLSX.writeFile(workBook, "Report.xlsx")
-
   }
 
 
@@ -56,7 +55,7 @@ export default function Report() {
               />
             </div>
             <div className="report__download">
-              <Link to={""} onClick={downloadExcel}>
+              <Link onClick={downloadExcel}>
                 <SimCardDownloadIcon style={{
                   fontSize: 30
                 }} />

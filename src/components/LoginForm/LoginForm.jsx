@@ -10,12 +10,12 @@ import './loginform.css'
 
 
 const LoginForm = ({ Login, error }) => {
-  // const [details, setDetails] = useState({ name: "", password: "" });
-  // const submitHandler = e => {
-  //   e.preventDefault();
-  //   Login(details);
+  const [details, setDetails] = useState({ name: "", password: "" });
+  const submitHandler = e => {
+    e.preventDefault();
+    Login(details);
 
-  // }
+  }
 
   //const EquipmentsCollection = collection(db, "equipments")
   // console.log('mouted');
@@ -40,7 +40,7 @@ const LoginForm = ({ Login, error }) => {
   // })
   return (
     <div className="login-container">
-      {/* <form className="login-form" onSubmit={}>
+      <form className="login-form" onSubmit={submitHandler}>
         <div className="form-inner">
           <div className="login-logo">
             <img src={Logo} alt="logo" style={{ width: '100%' }} />
@@ -57,7 +57,7 @@ const LoginForm = ({ Login, error }) => {
           <div className="forgetPassword">Quên mật khẩu?</div>
           <input type="submit" value="Đăng nhập" className="login-btn" />
         </div>
-      </form> */}
+      </form>
       <div className="login-picture">
         <img src={LogoPicture} alt="" />
         <div className="login-picture-text">

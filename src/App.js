@@ -30,7 +30,7 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route exact path="/" element={<Home />} />
+          <Route path="/" element={<Home />} />
           {/* <Route exact path="/" element={<LoginForm />} /> */}
           <Route path="/equipments" element={<Equipment />} />
           <Route path="/equipments/detail/:equipmentID" element={<Details />} />
