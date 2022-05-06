@@ -116,7 +116,7 @@ export default function UpdateService() {
             <Link to="/services">
               <button className="updateService__button updateService__button-cancel">Huỷ bỏ</button>
             </Link>
-            <button className="updateService__button updateService__button-updateService" onClick={() => handleEdit(updateServices.id)}>Thêm dịch vụ</button>
+            <button className="updateService__button updateService__button-updateService" onClick={() => handleEdit(updateServices.id)}>Cập nhập dịch vụ</button>
           </div>
         </div>
       }

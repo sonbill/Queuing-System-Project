@@ -99,7 +99,7 @@ function AddService() {
           <Link to="/services">
             <button className="addService__button addService__button-cancel">Huỷ bỏ</button>
           </Link>
-          <button className="addService__button addService__button-addService" type="submit"> Cập nhập</button>
+          <button className="addService__button addService__button-addService" type="submit"> Thêm mới</button>
         </div>
       </form>
     </div >

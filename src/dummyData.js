@@ -112,5 +112,4 @@ export const diaryRows = [
   { id: 6, username: 'tuyetnguyen@12', dateTimeChanged: '23/02/2022 - 13:57:17', ipAddress: '192.168.3.1', action: 'Cập nhập thông tin dịch vụ DV_01' },
   { id: 7, username: 'tuyetnguyen@12', dateTimeChanged: '23/02/2022 - 13:57:17', ipAddress: '192.168.3.1', action: 'Cập nhập thông tin dịch vụ DV_01' },
   { id: 8, username: 'tuyetnguyen@12', dateTimeChanged: '23/02/2022 - 13:57:17', ipAddress: '192.168.3.1', action: 'Cập nhập thông tin dịch vụ DV_01' },
-
 ];
